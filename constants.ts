@@ -4,81 +4,81 @@ export const PORTFOLIO_ITEMS: Project[] = [
   {
     id: '1',
     title: 'KidGrow',
-    description: 'Kid Grow helps parents understand their child\'s development by analyzing uploaded documents and benchmarking them against established early childhood frameworks, providing insights and playful at-home activity suggestions.',
+    description: 'KidGrow turns school-day documents and classroom updates into parent-friendly learning insight and simple do-together activities for family life at home and nearby.',
     category: ProjectCategory.SERVICES,
-    tags: ['Base44', 'Agentic Output'],
-    badge: 'Base44',
+    tags: ['Education AI', 'Parent UX'],
+    badge: 'Product Prototype',
     link: 'https://kidgrow.base44.app'
   },
   {
     id: '7',
     title: 'CertifyFast',
-    description: 'CertifyFast automates the creation of defensible certification programs by generating Job Task Analyses and psychometrically valid exam questions directly from authoritative source materials supported by defensibility documentation.',
+    description: 'CertifyFast helps small teams move from source material to defensible certification assets: job task analysis, question banks, rationales, evidence mapping, review, and export.',
     category: ProjectCategory.SERVICES,
-    tags: ['Google AI Studio', 'Psychometric Analysis'],
-    badge: 'Google AI Studio',
+    tags: ['Assessment Design', 'Evidence Grounding'],
+    badge: 'Product Prototype',
     link: 'https://certifyfast-speedy-certification-architect-422126580965.us-west1.run.app/'
   },
   {
     id: '2',
     title: 'Grdn',
-    description: 'Grdn is your AI-powered assistant for music management. Effortlessly turn your stream-of-consciousness thoughts and verbal dictations into organized business data, so you can focus on nurturing talent.',
+    description: 'Grdn explores voice-first business operations for music teams, turning messy notes and verbal updates into structured artist, project, booking, and payment data.',
     category: ProjectCategory.TOOLS,
-    tags: ['Base44', 'Speaking Input'],
-    badge: 'Base44',
+    tags: ['Voice Workflow', 'Music Ops'],
+    badge: 'Workflow Prototype',
     link: 'https://grdn.base44.app'
   },
   {
     id: '3',
     title: 'Habari',
-    description: 'One feed that de-duplicates coverage, scores the signal, and explains why it matters. A news aggregator built for high-signal ingestion without the noise.',
+    description: 'Habari explores higher-signal news ingestion: de-duplicating coverage, scoring source quality, surfacing disagreements, and explaining why a story matters.',
     category: ProjectCategory.TOOLS,
-    tags: ['Base44', 'Agentic Synthesis'],
-    badge: 'Base44',
+    tags: ['Signal Synthesis', 'Editorial AI'],
+    badge: 'Agentic Workflow',
     link: 'https://habari.base44.app'
   },
   {
     id: '4',
     title: 'BloomGPT',
-    description: 'Assistant for creating Bloom\'s Taxonomy-based questions from educational materials. Helps teachers generate curriculum-aligned quizzes in seconds.',
+    description: 'BloomGPT helps teachers create Bloom\'s Taxonomy-aligned comprehension questions from educational materials, with structure around source grounding and instructional intent.',
     category: ProjectCategory.TOOLS,
-    tags: ['CustomGPT', 'Prompt Engineering'],
-    badge: 'CustomGPT',
-    link: 'https://chatgpt.com/g/g-qY82hT1eA-bloomgpt'
+    tags: ['Teacher Tools', 'Instructional Design'],
+    badge: 'Live GPT'
+    ,link: 'https://chatgpt.com/g/g-qY82hT1eA-bloomgpt'
   },
   {
     id: '5',
     title: '25Hours',
-    description: 'Rated M Game based on the 1977 NYC Blackout. An atmospheric experience featuring immersive storytelling.',
+    description: '25Hours is an atmospheric interactive fiction/game prototype based on the 1977 New York City blackout, exploring AI-assisted narrative and mood-driven interaction.',
     category: ProjectCategory.GAMES,
-    tags: ['Base44', 'AI Generative Gaming'],
-    badge: 'Base44',
+    tags: ['Narrative Systems', 'Creative AI'],
+    badge: 'Game Prototype',
     link: 'https://25hours.base44.app'
   },
   {
     id: '6',
     title: 'Iron Hand',
-    description: '5 Card Draw Poker Auto Battler with basic item and inventory options.',
+    description: 'Iron Hand is a poker-combat auto-battler experiment that combines card evaluation, inventory choices, battle simulation, and AI-generated fight narration.',
     category: ProjectCategory.GAMES,
-    tags: ['Google AI Studio', 'AI Generative Gaming'],
-    badge: 'Google AI Studio',
+    tags: ['Game Systems', 'AI Narration'],
+    badge: 'Game Prototype',
     link: 'https://iron-hand-poker-combat-422126580965.us-west1.run.app/'
   },
   {
     id: '8',
     title: 'Whose Goose?',
-    description: 'Fowl forensic analysis - who owns which goose?',
+    description: 'A fast, silly forensic-analysis game about identifying goose ownership — included as a reminder that useful AI products can still have a sense of play.',
     category: ProjectCategory.GAMES,
-    tags: ['Replit', 'Prompt Engineering'],
-    badge: 'Replit'
+    tags: ['Playful AI', 'Rapid Prototype'],
+    badge: 'Game Prototype'
   }
 ];
 
 export const PROFILE = {
   name: "Alex Aidun",
   title: "AI Product Leader",
-  bio: "I’m Alex Aidun, an AI product leader with a builder’s instincts and a creative drive to explore. I’m hands-on by default and at my best turning a spark into something real: a prototype you can click, a workflow that saves time, a system that makes people feel calmer and more capable. I move fast to learn, then iterate until it feels obvious: simple UX, clear guidance, and behavior people can trust.",
-  bio2: "I care about the practical stuff: less friction, fewer dead ends, better decisions, more time back. I also like to have fun as you will see in my portfolio. Enjoy exploring!",
+  bio: "I’m Alex Aidun, an AI product leader with a builder’s instincts. I’m hands-on by default and at my best turning a messy human workflow into something people can actually use: a prototype you can click, a system that saves time, or an experience that makes someone feel calmer and more capable.",
+  bio2: "My work focuses on practical AI: education tools, agentic workflows, evidence-grounded generation, creative interfaces, and products that reduce friction instead of adding more of it.",
   email: "bobuel@gmail.com",
   linkedin: "linkedin.com/in/alexaidun"
 };
