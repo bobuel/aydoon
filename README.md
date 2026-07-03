@@ -54,5 +54,5 @@ This portfolio is an active work in progress. The public presentation is being r
 ## Contact
 
 Alex Aidun  
-LinkedIn: linkedin.com/in/alexaidun  
+LinkedIn: linkedin.com/in/aaidun  
 Email: bobuel@gmail.com
