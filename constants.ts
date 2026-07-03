@@ -80,5 +80,5 @@ export const PROFILE = {
   bio: "I’m Alex Aidun, an AI product leader with a builder’s instincts. I’m hands-on by default and at my best turning a messy human workflow into something people can actually use: a prototype you can click, a system that saves time, or an experience that makes someone feel calmer and more capable.",
   bio2: "My work focuses on practical AI: education tools, agentic workflows, evidence-grounded generation, creative interfaces, and products that reduce friction instead of adding more of it.",
   email: "bobuel@gmail.com",
-  linkedin: "linkedin.com/in/alexaidun"
+  linkedin: "linkedin.com/in/aaidun"
 };
