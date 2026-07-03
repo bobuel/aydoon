@@ -43,8 +43,8 @@ export const PORTFOLIO_ITEMS: Project[] = [
     description: 'BloomGPT helps teachers create Bloom\'s Taxonomy-aligned comprehension questions from educational materials, with structure around source grounding and instructional intent.',
     category: ProjectCategory.TOOLS,
     tags: ['Teacher Tools', 'Instructional Design'],
-    badge: 'Live GPT'
-    ,link: 'https://chatgpt.com/g/g-qY82hT1eA-bloomgpt'
+    badge: 'Live GPT',
+    link: 'https://chatgpt.com/g/g-qY82hT1eA-bloomgpt'
   },
   {
     id: '5',
