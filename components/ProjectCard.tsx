@@ -23,6 +23,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     if (text.includes('customgpt')) {
       return "bg-amber-50 text-amber-700 border-amber-100";
     }
+    if (text.includes('github')) {
+      return "bg-slate-100 text-slate-700 border-slate-200";
+    }
     
     return "bg-indigo-50 text-indigo-700 border-indigo-100";
   };

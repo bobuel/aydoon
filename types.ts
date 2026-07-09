@@ -10,9 +10,10 @@ export interface Project {
 
 export enum ProjectCategory {
   ALL = 'All',
-  SERVICES = 'Services',
-  TOOLS = 'Tools',
+  PRODUCTS = 'Products',
+  AGENTS_TOOLS = 'Agents & Tools',
   GAMES = 'Games',
+  OPEN_SOURCE = 'Open Source',
 }
 
 export interface ChatMessage {
