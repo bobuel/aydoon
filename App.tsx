@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import SaaSApp from './components/SaaSApp';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CaseStudyPage from './components/CaseStudyPage';
+import EmployerPortfolio from './components/EmployerPortfolio';
+import NotFound from './components/NotFound';
 
-const App: React.FC = () => {
+export default function App() {
   return (
-    <SaaSApp />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<EmployerPortfolio />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
-export default App;

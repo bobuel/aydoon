@@ -1,0 +1,46 @@
+{
+  "capturedAt": "2026-08-28T11:17:50Z",
+  "url": "https://aydoon.com/",
+  "title": "Alex Aidun | AI Product Leader",
+  "heading": "Alex Aidun",
+  "hosting": {
+    "server": "Google Frontend",
+    "status": 200,
+    "contentType": "text/html",
+    "cacheControl": "no-cache, no-store, must-revalidate",
+    "cloudRunRevision": null,
+    "gitCommit": null,
+    "note": "The current revision and deployed commit are not exposed by the public response, and Google Cloud CLI is not installed in this environment."
+  },
+  "metadata": {
+    "description": null,
+    "canonical": null,
+    "openGraphTitle": null,
+    "openGraphImage": null
+  },
+  "links": [
+    "https://linkedin.com/in/alexaidun",
+    "https://certifyfast-speedy-certification-architect-422126580965.us-west1.run.app/",
+    "https://kidgrow.base44.app/",
+    "https://comic-voice-storyteller-422126580965.us-west1.run.app/",
+    "https://grdn.base44.app/",
+    "https://chatgpt.com/g/g-qY82hT1eA-bloomgpt",
+    "https://25hours.base44.app/",
+    "https://iron-hand-poker-combat-422126580965.us-west1.run.app/",
+    "https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill"
+  ],
+  "screenshots": [
+    "production-homepage-desktop.png",
+    "production-homepage-mobile.png"
+  ],
+  "postImplementationVerification": {
+    "checkedAt": "2026-08-28T12:14:30Z",
+    "url": "https://aydoon.com/",
+    "title": "Alex Aidun | AI Product Leader",
+    "heading": "Alex Aidun",
+    "status": 200,
+    "unchanged": true,
+    "note": "No production deployment or DNS change was performed. The browser title, headings, and original portfolio links remained present."
+  }
+}
+
