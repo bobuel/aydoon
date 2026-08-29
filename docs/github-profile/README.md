@@ -1,27 +1,33 @@
+<a href="https://bobuel.github.io/aydoon/">
+  <img src="https://bobuel.github.io/aydoon/og.jpg" alt="Alex Aidun — Enterprise AI Product & Adoption Leader" width="100%">
+</a>
+
 # Hi, I’m Alex Aidun
 
-### Enterprise AI Product & Adoption Leader
+## Enterprise AI Product & Adoption Leader
 
 I turn ambiguous expert workflows into trusted AI products—and pair the technology with the operating systems, guidance, and champions that make adoption stick.
 
-- I currently lead enterprise AI adoption work at Automattic across an environment serving 1,500 employees.
-- At Dremio, I shaped four AI initiatives: an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot.
-- Separately, Dremio University reached 3,200+ users in six months with +78 NPS and a 50% completion rate.
-- My BloomGPT experiment recorded more than 1,000 uses and informed a source-grounded quiz-building workflow.
+**[Explore my portfolio](https://bobuel.github.io/aydoon/)** · **[View résumé](https://bobuel.github.io/aydoon/alexander-aidun-resume.pdf)** · [LinkedIn](https://www.linkedin.com/in/aaidun/) · [Email](mailto:bobuel@gmail.com)
 
-## Selected work
+## Evidence over adjectives
 
-- [Enterprise AI adoption at Automattic](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic)
-- [AI product leadership at Dremio](https://aydoon.com/case-studies/ai-product-leadership-dremio)
-- [Bloom assessment workflow](https://aydoon.com/case-studies/bloom-assessment-workflow)
-- [Retrieval Guard](https://github.com/bobuel/retrieval-guard) — evaluation tooling for retrieval pipelines
-- [Bloom Taxonomy Quiz Builder Skill](https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill) — source-grounded assessment workflow
+- **1,500 employees:** enterprise AI environment I help operate at Automattic.
+- **Four AI initiatives:** AI Agent, MCP server, AI SQL functions, and analyst chat shaped at Dremio.
+- **3,200+ learners:** Dremio University reach in six months, with +78 NPS and 50% completion.
+- **1,000+ uses:** BloomGPT signal that informed a more structured, source-grounded assessment workflow.
 
-## Connect
+## Featured case studies
 
-[Portfolio](https://aydoon.com) · [LinkedIn](https://www.linkedin.com/in/aaidun/) · [Résumé](https://aydoon.com/alexander-aidun-resume.pdf) · [Email](mailto:bobuel@gmail.com)
+- **[Scaling practical AI across Automattic](https://bobuel.github.io/aydoon/case-studies/enterprise-ai-adoption-automattic)** — enterprise products, learning, and a champion network for sustained adoption.
+- **[From customer signal to an AI portfolio at Dremio](https://bobuel.github.io/aydoon/case-studies/ai-product-leadership-dremio)** — discovery, product direction, and engineering partnership across four AI initiatives.
+- **[Turning 1,000+ uses into a better assessment workflow](https://bobuel.github.io/aydoon/case-studies/bloom-assessment-workflow)** — translating usage evidence into a source-grounded workflow with explicit teacher review.
 
----
+## Selected open-source work
 
-**Review artifact only:** this draft belongs to the portfolio preview branch. Do not publish it as `bobuel/bobuel` until the new site is approved and stable.
+- **[Retrieval Guard](https://github.com/bobuel/retrieval-guard)** — evaluation tooling for retrieval pipelines.
+- **[Bloom Taxonomy Quiz Builder Skill](https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill)** — a source-grounded assessment workflow with teacher checkpoints.
 
+## What I’m interested in
+
+Enterprise AI product leadership, adoption, enablement, agentic workflows, and product-led transformation—especially where trust and sustained use matter as much as the technology.
