@@ -2,14 +2,15 @@ import path from 'path';
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'pages' ? '/aydoon/' : '/',
   server: {
     port: 3000,
     host: '127.0.0.1',
   },
   plugins: [react()],
   build: {
-    outDir: 'dist/client',
+    outDir: 'dist',
     emptyOutDir: true,
   },
   test: {
@@ -23,5 +24,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, '.'),
     },
   },
-});
-
+}));

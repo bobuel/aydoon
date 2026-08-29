@@ -12,6 +12,7 @@ describe('EmployerPortfolio', () => {
     expect(screen.getByText('3,200+')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /View résumé/i })).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
     expect(screen.getAllByRole('link', { name: /LinkedIn/i })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/aaidun/');
+    expect(screen.queryByRole('button', { name: /Ask/i })).not.toBeInTheDocument();
   });
 
   it('renders private projects without a fake or empty interactive link', () => {
@@ -29,4 +30,3 @@ describe('EmployerPortfolio', () => {
     expect(results.violations.filter((violation) => violation.impact === 'critical')).toEqual([]);
   });
 });
-

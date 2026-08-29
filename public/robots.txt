@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: https://aydoon.com/sitemap.xml
-
+Sitemap: https://bobuel.github.io/aydoon/sitemap.xml

@@ -1,17 +1,16 @@
 import { useMemo, useState } from 'react';
-import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CAREER_HIGHLIGHTS, CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS } from '../content';
 import type { ProjectCategory } from '../types';
+import { siteAsset } from '../sitePaths';
 import BuildCard from './BuildCard';
-import ChatModal from './ChatModal';
 import SiteHeader from './SiteHeader';
 
 const filters: Array<'All' | ProjectCategory> = ['All', 'Products', 'Agents & Tools', 'Games', 'Open Source'];
 
 export default function EmployerPortfolio() {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');
-  const [isChatOpen, setChatOpen] = useState(false);
   const visibleProjects = useMemo(
     () => PROJECTS.filter((project) => filter === 'All' || project.category === filter),
     [filter],
@@ -20,7 +19,7 @@ export default function EmployerPortfolio() {
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">Skip to main content</a>
-      <SiteHeader onOpenChat={() => setChatOpen(true)} />
+      <SiteHeader />
 
       <main id="main">
         <section className="hero section-grid" aria-labelledby="hero-heading">
@@ -32,7 +31,7 @@ export default function EmployerPortfolio() {
               <a className="button button-primary" href="#case-studies">
                 Explore the work <ArrowRight aria-hidden="true" size={18} />
               </a>
-              <a className="button button-secondary" href={PROFILE.resume}>View résumé</a>
+              <a className="button button-secondary" href={siteAsset(PROFILE.resume)}>View résumé</a>
             </div>
             <div className="social-links" aria-label="Contact links">
               <a href={PROFILE.github} target="_blank" rel="noreferrer">
@@ -157,9 +156,7 @@ export default function EmployerPortfolio() {
               <a className="button button-light" href={`mailto:${PROFILE.email}`}>
                 Email Alex <Mail aria-hidden="true" size={18} />
               </a>
-              <button className="button button-outline-light" type="button" onClick={() => setChatOpen(true)}>
-                Ask the portfolio <MessageCircle aria-hidden="true" size={18} />
-              </button>
+              <a className="button button-outline-light" href={siteAsset(PROFILE.resume)}>Download résumé</a>
             </div>
           </div>
         </section>
@@ -169,15 +166,12 @@ export default function EmployerPortfolio() {
         <div className="section-grid footer-inner">
           <p>© {new Date().getFullYear()} Alex Aidun</p>
           <nav aria-label="Footer links">
-            <a href={PROFILE.resume}>Résumé</a>
+            <a href={siteAsset(PROFILE.resume)}>Résumé</a>
             <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub</a>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           </nav>
         </div>
       </footer>
-
-      <ChatModal isOpen={isChatOpen} onClose={() => setChatOpen(false)} />
     </div>
   );
 }
-

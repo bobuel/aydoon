@@ -5,7 +5,7 @@ import NotFound from './components/NotFound';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<EmployerPortfolio />} />
         <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
@@ -14,4 +14,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-

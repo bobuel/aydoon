@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, MessageCircle } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { CASE_STUDIES, getCaseStudy, PROFILE } from '../content';
-import ChatModal from './ChatModal';
+import { siteUrl } from '../sitePaths';
 import SiteHeader from './SiteHeader';
 
 export default function CaseStudyPage() {
   const { slug = '' } = useParams();
   const study = getCaseStudy(slug);
-  const [isChatOpen, setChatOpen] = useState(false);
   const priorTitle = useRef(document.title);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ export default function CaseStudyPage() {
     const priorDescription = description?.content;
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     const priorCanonical = canonical?.href;
-    const pageUrl = `https://aydoon.com/case-studies/${study.slug}`;
+    const pageUrl = siteUrl(`case-studies/${study.slug}`);
     const socialUpdates = [
       ['meta[property="og:title"]', `${study.title} | Alex Aidun`],
       ['meta[property="og:description"]', study.summary],
@@ -55,7 +54,7 @@ export default function CaseStudyPage() {
   return (
     <div className="site-shell case-page">
       <a className="skip-link" href="#main">Skip to main content</a>
-      <SiteHeader onOpenChat={() => setChatOpen(true)} />
+      <SiteHeader />
       <main id="main">
         <header className="case-hero section-grid">
           <Link className="back-link" to="/#case-studies">
@@ -117,14 +116,12 @@ export default function CaseStudyPage() {
           </div>
           <div className="contact-actions dark-actions">
             <a className="button button-primary" href={`mailto:${PROFILE.email}`}>Email Alex</a>
-            <button className="button button-secondary" type="button" onClick={() => setChatOpen(true)}>
-              Ask the portfolio <MessageCircle aria-hidden="true" size={18} />
-            </button>
+            <a className="button button-secondary" href={PROFILE.linkedin} target="_blank" rel="noreferrer">
+              View LinkedIn
+            </a>
           </div>
         </section>
       </main>
-      <ChatModal isOpen={isChatOpen} onClose={() => setChatOpen(false)} />
     </div>
   );
 }
-

@@ -6,7 +6,7 @@ describe('CaseStudyPage', () => {
   it('loads a case study directly and keeps Dremio product and learning evidence distinct', () => {
     const canonical = document.createElement('link');
     canonical.rel = 'canonical';
-    canonical.href = 'https://aydoon.com/';
+    canonical.href = 'https://bobuel.github.io/aydoon/';
     document.head.append(canonical);
     const { unmount } = render(
       <MemoryRouter initialEntries={['/case-studies/ai-product-leadership-dremio']}>
@@ -21,10 +21,9 @@ describe('CaseStudyPage', () => {
     expect(screen.getByText(/Dremio University, not to the AI products/i)).toBeInTheDocument();
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
       'href',
-      'https://aydoon.com/case-studies/ai-product-leadership-dremio',
+      'https://bobuel.github.io/aydoon/case-studies/ai-product-leadership-dremio',
     );
     unmount();
     canonical.remove();
   });
 });
-

@@ -1,5 +1,6 @@
 import { ArrowUpRight, LockKeyhole } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { siteAsset } from '../sitePaths';
 import type { Project } from '../types';
 
 export default function BuildCard({ project }: { project: Project }) {
@@ -7,7 +8,7 @@ export default function BuildCard({ project }: { project: Project }) {
     <article className="build-card">
       <div className={`build-visual accent-${project.accent}`}>
         {project.image ? (
-          <img src={project.image} alt={project.imageAlt ?? ''} />
+          <img src={siteAsset(project.image)} alt={project.imageAlt ?? ''} />
         ) : (
           <span aria-hidden="true">{project.title.slice(0, 2).toUpperCase()}</span>
         )}
@@ -42,4 +43,3 @@ export default function BuildCard({ project }: { project: Project }) {
     </article>
   );
 }
-
