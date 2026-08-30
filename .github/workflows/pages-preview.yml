@@ -1,8 +1,8 @@
-name: Publish GitHub Pages Preview
+name: Publish GitHub Pages
 
 on:
   push:
-    branches: ["codex/employer-portfolio-preview"]
+    branches: ["codex/employer-portfolio-preview", "main"]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages-preview
+  group: github-pages
   cancel-in-progress: true
 
 jobs:
@@ -29,12 +29,17 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - run: npm run build:pages
+      - name: Build branch preview
+        if: github.ref_name != 'main'
+        run: npm run build:pages
+      - name: Build production site
+        if: github.ref_name == 'main'
+        run: npm run build:pages:production
       - run: npm run scan:secrets
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-      - name: Deploy preview
+      - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4

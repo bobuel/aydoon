@@ -1,4 +1,4 @@
-const previewOrigin = 'https://bobuel.github.io/aydoon';
+const siteOrigin = import.meta.env.VITE_SITE_ORIGIN;
 
 export function siteAsset(path: string) {
   const relativePath = path.replace(/^\//, '');
@@ -7,5 +7,5 @@ export function siteAsset(path: string) {
 
 export function siteUrl(path = '') {
   const relativePath = path.replace(/^\//, '');
-  return relativePath ? `${previewOrigin}/${relativePath}` : `${previewOrigin}/`;
+  return relativePath ? `${siteOrigin}/${relativePath}` : `${siteOrigin}/`;
 }

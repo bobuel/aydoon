@@ -4,6 +4,7 @@ import path from 'node:path';
 const outputDirectory = path.resolve('dist');
 const homeHtml = await readFile(path.join(outputDirectory, 'index.html'), 'utf8');
 const previewOrigin = 'https://bobuel.github.io/aydoon';
+const deployOrigin = process.argv[2] || previewOrigin;
 
 const caseStudies = [
   {
@@ -51,7 +52,7 @@ function escapeAttribute(value) {
 }
 
 function withMetadata(html, page) {
-  const url = `${previewOrigin}/${page.path}`;
+  const url = `${deployOrigin}/${page.path}`;
   const pageTitle = `${page.title} | Alex Aidun`;
   const replacements = [
     [/<title>.*?<\/title>/, `<title>${pageTitle}</title>`],
@@ -78,5 +79,15 @@ for (const page of routePages) {
 }
 
 await copyFile(path.join(outputDirectory, 'index.html'), path.join(outputDirectory, '404.html'));
+
+const robotsPath = path.join(outputDirectory, 'robots.txt');
+const sitemapPath = path.join(outputDirectory, 'sitemap.xml');
+const robots = deployOrigin === previewOrigin
+  ? await readFile(robotsPath, 'utf8')
+  : `User-agent: *\nAllow: /\n\nSitemap: ${deployOrigin}/sitemap.xml\n`;
+const sitemap = (await readFile(sitemapPath, 'utf8')).replaceAll(previewOrigin, deployOrigin);
+
+await writeFile(robotsPath, robots);
+await writeFile(sitemapPath, sitemap);
 await writeFile(path.join(outputDirectory, '.nojekyll'), '');
-console.log(`Prepared ${routePages.length} direct routes and the Pages fallback.`);
+console.log(`Prepared ${routePages.length} direct routes for ${deployOrigin} and the Pages fallback.`);

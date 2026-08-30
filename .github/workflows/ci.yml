@@ -22,4 +22,5 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run build:pages
+      - run: npm run build:pages:production
       - run: npm run scan:secrets

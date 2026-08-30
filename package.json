@@ -10,6 +10,7 @@
     "test:watch": "vitest",
     "build": "vite build && node scripts/prepare-static-routes.mjs",
     "build:pages": "vite build --mode pages && node scripts/prepare-static-routes.mjs",
+    "build:pages:production": "vite build --mode production-pages && node scripts/prepare-static-routes.mjs https://aydoon.com",
     "preview": "vite preview --host 127.0.0.1 --port 8080",
     "preview:pages": "vite preview --mode pages --host 127.0.0.1 --port 8080",
     "check": "npm run typecheck && npm test && npm run build",
