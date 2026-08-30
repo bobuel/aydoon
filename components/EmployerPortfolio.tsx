@@ -1,21 +1,16 @@
-import { useMemo, useState } from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { CAREER_HIGHLIGHTS, CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS } from '../content';
-import type { ProjectCategory } from '../types';
+import { CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS } from '../content';
 import { siteAsset } from '../sitePaths';
-import BuildCard from './BuildCard';
+import CompactBuildCard from './CompactBuildCard';
+import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
-const filters: Array<'All' | ProjectCategory> = ['All', 'Products', 'Agents & Tools', 'Games', 'Open Source'];
+const homepageBuildIds = new Set(['certifyfast', 'kidgrow', 'retrieval-guard']);
+const featuredProjects = PROJECTS.filter((project) => homepageBuildIds.has(project.id));
+const creativeProjects = PROJECTS.filter((project) => project.collections?.includes('Games'));
 
 export default function EmployerPortfolio() {
-  const [filter, setFilter] = useState<(typeof filters)[number]>('All');
-  const visibleProjects = useMemo(
-    () => PROJECTS.filter((project) => filter === 'All' || project.category === filter),
-    [filter],
-  );
-
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">Skip to main content</a>
@@ -28,11 +23,12 @@ export default function EmployerPortfolio() {
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
             <p className="hero-lede">{PROFILE.summary}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#case-studies">
-                Explore the work <ArrowRight aria-hidden="true" size={18} />
-              </a>
-              <a className="button button-secondary" href={siteAsset(PROFILE.resume)}>View résumé</a>
+              <Link className="button button-primary" to="/work">
+                See my professional impact <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+              <Link className="button button-secondary" to="/builds">Explore the Build Lab</Link>
             </div>
+            <p className="hero-personal">I also build games, creative tools, and odd experiments—because making things is how I learn.</p>
             <div className="social-links" aria-label="Contact links">
               <a href={PROFILE.github} target="_blank" rel="noreferrer">
                 GitHub
@@ -76,11 +72,11 @@ export default function EmployerPortfolio() {
               <p className="eyebrow">Selected case studies</p>
               <h2 id="case-heading">Evidence over adjectives.</h2>
             </div>
-            <p>How I frame the problem, make product decisions, and create the conditions for sustained use.</p>
+            <p>Problems framed, product decisions made, and adoption earned.</p>
           </div>
-          <div className="case-grid">
+          <div className="case-grid home-case-grid">
             {CASE_STUDIES.map((study, index) => (
-              <article className="case-card" key={study.slug}>
+              <article className="case-card home-case-card" key={study.slug}>
                 <span className="case-number">0{index + 1}</span>
                 <p className="eyebrow">{study.eyebrow}</p>
                 <h3>{study.title}</h3>
@@ -93,85 +89,66 @@ export default function EmployerPortfolio() {
           </div>
         </section>
 
-        <section className="build-section" id="builds" aria-labelledby="build-heading">
+        <section className="build-section home-build-section" id="builds" aria-labelledby="build-heading">
           <div className="section-grid">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Selected builds</p>
-                <h2 id="build-heading">Product thinking, made tangible.</h2>
+                <p className="eyebrow">Build Lab</p>
+                <h2 id="build-heading">A few things I’ve made.</h2>
               </div>
-              <p>Small experiments and working prototypes that explore trustworthy workflows, useful interfaces, and playful systems.</p>
+              <p>Selected products and open-source experiments. The full catalog lives in the Build Lab.</p>
             </div>
-            <div className="filter-row" aria-label="Filter selected builds">
-              {filters.map((item) => (
-                <button
-                  className={filter === item ? 'filter-button active' : 'filter-button'}
-                  key={item}
-                  type="button"
-                  aria-pressed={filter === item}
-                  onClick={() => setFilter(item)}
-                >
-                  {item}
-                </button>
+            <div className="compact-build-grid">
+              {featuredProjects.map((project) => <CompactBuildCard key={project.id} project={project} />)}
+            </div>
+            <div className="section-action"><Link className="button button-primary" to="/builds">Browse the complete Build Lab <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          </div>
+        </section>
+
+        <section className="games-gateway" id="games" aria-labelledby="games-home-heading">
+          <div className="section-grid games-gateway-inner">
+            <div>
+              <div><p className="eyebrow">Games & creative work</p><h2 id="games-home-heading">Systems, stories, and things made for fun.</h2></div>
+              <p>Playful projects are part of the same making practice: loops, atmosphere, probability, voice, and interaction.</p>
+              <Link className="button button-primary" to="/games">Explore the games collection <ArrowRight aria-hidden="true" size={18} /></Link>
+            </div>
+            <div className="games-preview-grid">
+              {creativeProjects.map((project) => (
+                <Link className="game-preview" key={project.id} to="/games" aria-label={`Explore ${project.title} in the games collection`}>
+                  <div className={`game-preview-image accent-${project.accent}`}>
+                    {project.image ? <img src={siteAsset(project.image)} alt="" /> : <span aria-hidden="true">{project.title.slice(0, 2).toUpperCase()}</span>}
+                  </div>
+                  <span>{project.title}</span>
+                </Link>
               ))}
             </div>
-            <div className="build-grid" aria-live="polite">
-              {visibleProjects.map((project) => <BuildCard key={project.id} project={project} />)}
-            </div>
           </div>
         </section>
 
-        <section className="career-section section-grid" id="experience" aria-labelledby="career-heading">
-          <div className="section-heading compact-heading">
-            <div>
-              <p className="eyebrow">Experience</p>
-              <h2 id="career-heading">Across the product–adoption seam.</h2>
+        <section className="home-close" id="contact" aria-labelledby="profile-home-heading">
+          <div className="section-grid home-close-inner">
+            <div className="home-close-profile">
+              <p className="eyebrow">About Alex</p>
+              <h2 id="profile-home-heading">AI adoption leader, hands-on builder.</h2>
+              <p>Education → documentation → product → adoption. I prototype to expose assumptions early and make games to explore systems from a different angle.</p>
+              <Link className="text-link" to="/about">Read the profile <ArrowRight aria-hidden="true" size={16} /></Link>
             </div>
-            <p>I’ve spent my career making technical products easier to understand, use, and trust.</p>
-          </div>
-          <div className="timeline">
-            {CAREER_HIGHLIGHTS.map((item) => (
-              <article className="timeline-item" key={item.company}>
-                <div>
-                  <p className="timeline-period">{item.period}</p>
-                  <h3>{item.company}</h3>
-                </div>
-                <div>
-                  <strong>{item.role}</strong>
-                  <p>{item.detail}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="contact-section" id="contact" aria-labelledby="contact-heading">
-          <div className="section-grid contact-inner">
-            <div>
+            <div className="home-close-contact">
               <p className="eyebrow">Let’s compare notes</p>
-              <h2 id="contact-heading">Building AI people can actually use?</h2>
-              <p>I’m especially interested in enterprise AI product, adoption, enablement, and product-led transformation roles.</p>
-            </div>
-            <div className="contact-actions">
+              <h2>Building AI people can actually use?</h2>
+              <p>I’m interested in enterprise AI product, adoption, enablement, and transformation roles.</p>
+              <div className="contact-actions">
               <a className="button button-light" href={`mailto:${PROFILE.email}`}>
                 Email Alex <Mail aria-hidden="true" size={18} />
               </a>
               <a className="button button-outline-light" href={siteAsset(PROFILE.resume)}>Download résumé</a>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="section-grid footer-inner">
-          <p>© {new Date().getFullYear()} Alex Aidun</p>
-          <nav aria-label="Footer links">
-            <a href={siteAsset(PROFILE.resume)}>Résumé</a>
-            <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

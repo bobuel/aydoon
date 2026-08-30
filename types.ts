@@ -2,6 +2,8 @@ export type ProjectCategory = 'Products' | 'Agents & Tools' | 'Games' | 'Open So
 
 export type ProjectStatus = 'Live prototype' | 'Private prototype' | 'Open source';
 
+export type ProjectCollection = 'Home' | 'Games';
+
 export interface EvidenceMetric {
   value: string;
   label: string;
@@ -23,6 +25,7 @@ export interface Project {
   status: ProjectStatus;
   tags: string[];
   featured: boolean;
+  collections?: ProjectCollection[];
   accent: string;
   image?: string;
   imageAlt?: string;
@@ -53,4 +56,3 @@ export interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
 }
-

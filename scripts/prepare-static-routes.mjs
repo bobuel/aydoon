@@ -23,32 +23,60 @@ const caseStudies = [
   },
 ];
 
+const standalonePages = [
+  {
+    path: 'work',
+    title: 'Professional impact',
+    description: 'Alex Aidun\'s case studies in enterprise AI adoption, AI product leadership, enablement, and product-led transformation.',
+  },
+  {
+    path: 'builds',
+    title: 'Build Lab',
+    description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.',
+  },
+  {
+    path: 'games',
+    title: 'Games and creative work',
+    description: 'Games and creative experiments by Alex Aidun exploring systems, story, voice, probability, and interaction.',
+  },
+  {
+    path: 'about',
+    title: 'About Alex Aidun',
+    description: 'The professional and creative story behind Alex Aidun\'s work in enterprise AI, product adoption, and hands-on building.',
+  },
+];
+
 function escapeAttribute(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
 }
 
-function withMetadata(html, study) {
-  const url = `${previewOrigin}/case-studies/${study.slug}`;
-  const pageTitle = `${study.title} | Alex Aidun`;
+function withMetadata(html, page) {
+  const url = `${previewOrigin}/${page.path}`;
+  const pageTitle = `${page.title} | Alex Aidun`;
   const replacements = [
     [/<title>.*?<\/title>/, `<title>${pageTitle}</title>`],
-    [/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeAttribute(study.description)}" />`],
+    [/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeAttribute(page.description)}" />`],
     [/<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${url}" />`],
     [/<meta property="og:title" content="[^"]*"\s*\/>/, `<meta property="og:title" content="${escapeAttribute(pageTitle)}" />`],
-    [/<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeAttribute(study.description)}" />`],
+    [/<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeAttribute(page.description)}" />`],
     [/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${url}" />`],
     [/<meta name="twitter:title" content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeAttribute(pageTitle)}" />`],
-    [/<meta name="twitter:description" content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeAttribute(study.description)}" />`],
+    [/<meta name="twitter:description" content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeAttribute(page.description)}" />`],
   ];
   return replacements.reduce((updated, [pattern, replacement]) => updated.replace(pattern, replacement), html);
 }
 
-for (const study of caseStudies) {
-  const routeDirectory = path.join(outputDirectory, 'case-studies', study.slug);
+const routePages = [
+  ...standalonePages,
+  ...caseStudies.map((study) => ({ ...study, path: `case-studies/${study.slug}` })),
+];
+
+for (const page of routePages) {
+  const routeDirectory = path.join(outputDirectory, page.path);
   await mkdir(routeDirectory, { recursive: true });
-  await writeFile(path.join(routeDirectory, 'index.html'), withMetadata(homeHtml, study));
+  await writeFile(path.join(routeDirectory, 'index.html'), withMetadata(homeHtml, page));
 }
 
 await copyFile(path.join(outputDirectory, 'index.html'), path.join(outputDirectory, '404.html'));
 await writeFile(path.join(outputDirectory, '.nojekyll'), '');
-console.log(`Prepared ${caseStudies.length} direct case-study routes and the Pages fallback.`);
+console.log(`Prepared ${routePages.length} direct routes and the Pages fallback.`);

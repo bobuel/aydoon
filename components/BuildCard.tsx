@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { siteAsset } from '../sitePaths';
 import type { Project } from '../types';
 
-export default function BuildCard({ project }: { project: Project }) {
+export default function BuildCard({ project, collectionLabel }: { project: Project; collectionLabel?: string }) {
   return (
     <article className="build-card">
       <div className={`build-visual accent-${project.accent}`}>
@@ -15,7 +15,7 @@ export default function BuildCard({ project }: { project: Project }) {
       </div>
       <div className="build-body">
         <div className="build-meta">
-          <span>{project.category}</span>
+          <span>{collectionLabel ?? project.category}</span>
           <span className="status-pill">
             {project.status === 'Private prototype' && <LockKeyhole aria-hidden="true" size={12} />}
             {project.status}

@@ -199,6 +199,7 @@ export const PROJECTS: Project[] = [
     status: 'Live prototype',
     tags: ['Certification', 'Source grounding', 'Human review'],
     featured: true,
+    collections: ['Home'],
     accent: 'blue',
     image: '/projects/certifyfast.jpg',
     imageAlt: 'CertifyFast certification workflow interface',
@@ -219,7 +220,7 @@ export const PROJECTS: Project[] = [
     category: 'Agents & Tools',
     status: 'Private prototype',
     tags: ['AgentMail', 'Voice', 'Signal processing'],
-    featured: true,
+    featured: false,
     accent: 'violet',
     links: [],
   },
@@ -233,6 +234,7 @@ export const PROJECTS: Project[] = [
     status: 'Live prototype',
     tags: ['Document analysis', 'Recommendations', 'Family UX'],
     featured: true,
+    collections: ['Home'],
     accent: 'green',
     image: '/projects/kidgrow.jpg',
     imageAlt: 'KidGrow child development interface',
@@ -248,6 +250,7 @@ export const PROJECTS: Project[] = [
     status: 'Live prototype',
     tags: ['AI images', 'Voice', 'Creative collaboration'],
     featured: false,
+    collections: ['Games'],
     accent: 'orange',
     image: '/projects/kid-comic.jpg',
     imageAlt: 'Kid Comic Storyteller interface',
@@ -284,6 +287,7 @@ export const PROJECTS: Project[] = [
     status: 'Live prototype',
     tags: ['Narrative design', 'Generative game', 'Atmosphere'],
     featured: false,
+    collections: ['Games'],
     accent: 'amber',
     image: '/projects/25hours.jpg',
     imageAlt: '25Hours narrative game interface',
@@ -299,6 +303,7 @@ export const PROJECTS: Project[] = [
     status: 'Live prototype',
     tags: ['Game systems', 'Inventory', 'Poker'],
     featured: false,
+    collections: ['Games'],
     accent: 'red',
     image: '/projects/iron-hand.jpg',
     imageAlt: 'Iron Hand poker combat interface',
@@ -320,6 +325,7 @@ export const PROJECTS: Project[] = [
     status: 'Open source',
     tags: ['Education', 'Workflow design', 'AI skill'],
     featured: true,
+    collections: ['Home'],
     accent: 'teal',
     evidence: [{ value: '1,000+', label: 'uses of the preceding BloomGPT' }],
     links: [
@@ -332,6 +338,26 @@ export const PROJECTS: Project[] = [
         label: 'Read case study',
         href: '/case-studies/bloom-assessment-workflow',
         kind: 'case-study',
+      },
+    ],
+  },
+  {
+    id: 'retrieval-guard',
+    slug: 'retrieval-guard',
+    title: 'Retrieval Guard',
+    description:
+      'An experimental Python toolkit for benchmarking retrieval regressions and filtering structurally similar near misses before context reaches an LLM or agent.',
+    category: 'Open Source',
+    status: 'Open source',
+    tags: ['RAG evaluation', 'Regression testing', 'Two-stage retrieval'],
+    featured: true,
+    collections: ['Home'],
+    accent: 'violet',
+    links: [
+      {
+        label: 'View source',
+        href: 'https://github.com/bobuel/retrieval-guard',
+        kind: 'source',
       },
     ],
   },
@@ -370,4 +396,3 @@ Do not claim that Alex is a production ML engineer, research scientist, platform
 export function getCaseStudy(slug: string) {
   return CASE_STUDIES.find((study) => study.slug === slug);
 }
-
