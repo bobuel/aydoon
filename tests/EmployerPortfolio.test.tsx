@@ -9,6 +9,7 @@ describe('EmployerPortfolio', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI product.*adoption.*leader/i);
+    expect(screen.getByText(/as execution gets cheaper, judgment and design carry more of the value/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.getByText('3,200+')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /résumé/i })[0]).toHaveAttribute('href', '/alexander-aidun-resume.pdf');

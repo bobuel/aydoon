@@ -4,7 +4,7 @@ export const PROFILE = {
   name: 'Alex Aidun',
   headline: 'Enterprise AI Product & Adoption Leader',
   summary:
-    'I turn ambiguous expert workflows into trusted AI products—and pair the technology with the operating systems, guidance, and champions that make adoption stick.',
+    'I connect domain expertise, systems thinking, and hands-on AI building. I frame the problem, shape the workflow, and build the adoption system—because as execution gets cheaper, judgment and design carry more of the value.',
   email: 'bobuel@gmail.com',
   location: 'New York',
   linkedin: 'https://www.linkedin.com/in/aaidun/',
@@ -41,7 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'Enterprise adoption',
     title: 'Scaling practical AI across Automattic',
     summary:
-      'Operating an enterprise AI environment while shaping internal products, learning, and a champion network for 1,500 employees.',
+      'Operating an enterprise AI environment as one connected adoption system across products, learning, guidance, and a champion network for 1,500 employees.',
     role: 'AI Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
@@ -95,7 +95,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'AI product leadership',
     title: 'From customer signal to an AI portfolio at Dremio',
     summary:
-      'Customer discovery, product direction, and engineering partnership across four AI initiatives for data and analytics workflows.',
+      'Turning customer signal into a four-initiative AI portfolio by connecting product direction, workflow design, and engineering partnership.',
     role: 'Senior AI Product Manager and Director, Education & Documentation',
     period: 'January 2024–March 2026',
     evidence: [
@@ -150,7 +150,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'Builder case study',
     title: 'Turning 1,000+ uses into a better assessment workflow',
     summary:
-      'BloomGPT’s usage became the signal for a more structured, source-grounded quiz-building skill with explicit teacher review.',
+      'Turning observed demand into a source-grounded assessment system that keeps teacher judgment inside the workflow.',
     role: 'Product concept, workflow design, and implementation',
     period: 'Independent project',
     evidence: [

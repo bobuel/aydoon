@@ -19,7 +19,7 @@ export default function EmployerPortfolio() {
       <main id="main">
         <section className="hero section-grid" aria-labelledby="hero-heading">
           <div className="hero-copy">
-            <p className="eyebrow">Enterprise AI · Product · Adoption</p>
+            <p className="eyebrow">Enterprise AI · Systems · Adoption</p>
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
             <p className="hero-lede">{PROFILE.summary}</p>
             <div className="hero-actions">
@@ -28,7 +28,7 @@ export default function EmployerPortfolio() {
               </Link>
               <Link className="button button-secondary" to="/builds">Explore the Build Lab</Link>
             </div>
-            <p className="hero-personal">I also build games, creative tools, and odd experiments—because making things is how I learn.</p>
+            <p className="hero-personal">I build with the tools myself because making sharpens product sense: it reveals where agents create leverage and where human judgment still carries the design premium.</p>
             <div className="social-links" aria-label="Contact links">
               <a href={PROFILE.github} target="_blank" rel="noreferrer">
                 GitHub
@@ -51,7 +51,7 @@ export default function EmployerPortfolio() {
             </p>
             <div className="now-foot">
               <span>New York</span>
-              <span>Hands-on by default</span>
+              <span>Systems thinker · hands-on builder</span>
             </div>
           </aside>
         </section>
@@ -129,8 +129,8 @@ export default function EmployerPortfolio() {
           <div className="section-grid home-close-inner">
             <div className="home-close-profile">
               <p className="eyebrow">About Alex</p>
-              <h2 id="profile-home-heading">AI adoption leader, hands-on builder.</h2>
-              <p>Education → documentation → product → adoption. I prototype to expose assumptions early and make games to explore systems from a different angle.</p>
+              <h2 id="profile-home-heading">Systems thinker, adoption leader, hands-on builder.</h2>
+              <p>As agents absorb more execution, the work shifts toward steering: framing the right problem, designing the system around it, defining quality, and helping people adapt. I build to keep that judgment grounded in what the technology can actually do.</p>
               <Link className="text-link" to="/about">Read the profile <ArrowRight aria-hidden="true" size={16} /></Link>
             </div>
             <div className="home-close-contact">
