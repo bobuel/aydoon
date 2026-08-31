@@ -1,16 +1,17 @@
 # Alex Aidun — professional portfolio and Build Lab
 
-An evidence-led professional portfolio with a first-class home for products, tools, open source, games, and future experiments. The homepage gives hiring teams a fast path to positioning and proof without reducing the wider site to a résumé.
+The source for [aydoon.com](https://aydoon.com): an evidence-led professional portfolio presenting Alex Aidun as an enterprise AI product, systems, and adoption leader. The site pairs employer-facing proof and case studies with a complete Build Lab for products, tools, open source work, games, and experiments.
 
-> Safety status: isolated GitHub Pages preview. The preview does not modify `aydoon.com`, DNS, the production Cloud Run service, or the default branch.
+## Production
 
-## Preview
+- Live site: [https://aydoon.com](https://aydoon.com)
+- Hosting: GitHub Pages
+- Production branch: `main`
+- Deployment workflow: `.github/workflows/pages-preview.yml`
+- Launch commit for the systems-thinking narrative: `22fbf4b`
+- Pre-narrative rollback reference: `40bec76`
 
-- GitHub Pages preview: [https://bobuel.github.io/aydoon/](https://bobuel.github.io/aydoon/)
-- Production baseline: [https://aydoon.com](https://aydoon.com) — intentionally unchanged during review
-- Résumé: `alexander-aidun-resume.pdf`
-
-The public preview is marked `noindex, nofollow` and blocked in `robots.txt` while it is under review. This is search-engine guidance, not access control.
+Only pushes to `main` deploy the public site. Branches and pull requests run CI but cannot publish to the GitHub Pages production environment. Ordinary content releases do not require DNS or Cloud Run changes.
 
 ## Product rationale
 
@@ -19,16 +20,16 @@ The experience uses one identity with two clear paths:
 1. **Professional impact:** positioning, verified proof, case studies, experience, and résumé.
 2. **The making practice:** a complete Build Lab plus a dedicated Games collection.
 
-The homepage curates both paths. It leads with employer evidence, then introduces selected builds, creative work, and a human profile. The complete catalog remains available and can grow without making the homepage progressively longer.
+The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. The homepage gives hiring teams a short path to positioning and evidence; deeper routes hold the full case studies and project catalog.
 
-Dremio’s AI portfolio and Dremio University metrics are deliberately separated. Private or unsupported employer claims are not included.
+Dremio's AI product portfolio and Dremio University learning metrics are deliberately separate. Claims must remain résumé-verified or linked to an approved source. Do not add confidential employer details, invented savings, unsupported governance claims, or unverified psychometric claims.
 
 ## Architecture
 
 ```text
 GitHub Pages
   └─ Static Vite build
-       ├─ Curated React portfolio homepage
+       ├─ React portfolio homepage
        ├─ Professional Work route
        ├─ Complete Build Lab with filters
        ├─ Games and creative-work collection
@@ -38,7 +39,7 @@ GitHub Pages
        └─ Résumé, screenshots, metadata, and social preview
 ```
 
-The portfolio intentionally has no AI assistant, runtime API, API key, server container, or database. GitHub Actions builds the `codex/employer-portfolio-preview` branch with the `/aydoon/` base path and publishes only the `dist` artifact.
+The public site intentionally has no AI assistant, runtime API, API key, server container, or database. The repository's production artifact is a static Vite build.
 
 ## Local development
 
@@ -47,23 +48,39 @@ Requirements: Node.js 22+
 ```bash
 npm ci
 npm run check
+npm run build:pages:production
 npm run preview
 ```
 
-The local preview opens at `http://127.0.0.1:8080/`. To test the exact GitHub Pages path layout, run `npm run build:pages` followed by `npm run preview:pages`, then open `http://127.0.0.1:8080/aydoon/`.
+The standard local preview is `http://127.0.0.1:8080/`. `npm run build:pages` remains available for testing the repository-path build locally, while `npm run build:pages:production` produces the exact custom-domain build for `https://aydoon.com`.
 
 ## Verification
+
+Before publication, run:
 
 ```bash
 npm run typecheck
 npm test
 npm run build
-npm run build:pages
+npm run build:pages:production
 npm run scan:secrets
 ```
 
-The test suite covers employer positioning, proof and CTAs, the complete project catalog, the dedicated games collection, optional links, direct route rendering, static path handling, and critical automated accessibility checks. Branch/PR CI contains no production deployment step.
+The test suite covers employer positioning, proof and CTAs, the project catalog, games, optional links, direct-route rendering, static path handling, the About narrative, research attribution, and critical automated accessibility checks.
 
-## Publication boundary
+After a deployment, smoke-test:
 
-The Pages workflow publishes only this isolated review branch. It does not configure a custom domain. Merging to the default branch, changing `aydoon.com`, publishing the GitHub profile README, or changing repository pins still requires separate approval.
+- `/`
+- `/about`
+- `/work`
+- `/builds`
+- All three `/case-studies/...` routes
+- `/alexander-aidun-resume.pdf`
+- `/sitemap.xml`
+- `/robots.txt`
+
+Also confirm the deployed JavaScript asset contains the intended new copy, since HTML-only checks cannot see text rendered by React.
+
+## Working with Codex
+
+Durable project and release instructions live in [`AGENTS.md`](./AGENTS.md). It is the first handoff reference for a new Codex task. Keep it focused on stable operating rules; use commits and pull requests for historical detail.

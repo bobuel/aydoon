@@ -2,7 +2,7 @@ name: Publish GitHub Pages
 
 on:
   push:
-    branches: ["codex/employer-portfolio-preview", "main"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -29,11 +29,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - name: Build branch preview
-        if: github.ref_name != 'main'
-        run: npm run build:pages
       - name: Build production site
-        if: github.ref_name == 'main'
         run: npm run build:pages:production
       - run: npm run scan:secrets
       - uses: actions/configure-pages@v5
