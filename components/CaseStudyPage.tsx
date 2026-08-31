@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { CASE_STUDIES, getCaseStudy, PROFILE } from '../content';
 import { siteUrl } from '../sitePaths';
+import SkipLink from './SkipLink';
 import SiteHeader from './SiteHeader';
 
 export default function CaseStudyPage() {
@@ -53,9 +54,9 @@ export default function CaseStudyPage() {
 
   return (
     <div className="site-shell case-page">
-      <a className="skip-link" href="#main">Skip to main content</a>
+      <SkipLink />
       <SiteHeader />
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <header className="case-hero section-grid">
           <Link className="back-link" to="/#case-studies">
             <ArrowLeft aria-hidden="true" size={17} /> All case studies

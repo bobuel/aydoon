@@ -43,6 +43,7 @@ describe('unified portfolio architecture', () => {
   it('keeps professional case studies and experience together', () => {
     render(<MemoryRouter><WorkPage /></MemoryRouter>);
 
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/systems that make enterprise AI usable/i);
     expect(screen.getByRole('heading', { name: /Scaling practical AI/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /AI portfolio at Dremio/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Automattic' })).toBeInTheDocument();

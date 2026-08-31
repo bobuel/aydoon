@@ -7,7 +7,7 @@ describe('AboutPage', () => {
   it('explains the human judgment and agent execution thesis with attributed evidence', () => {
     render(<MemoryRouter><AboutPage /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Systems thinker/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Systems thinker for AI operations and adoption/i);
     expect(screen.getByRole('heading', { name: /design premium is rising/i })).toBeInTheDocument();
     expect(screen.getByText('70% / 80%')).toBeInTheDocument();
     expect(screen.getByText('43.5%')).toBeInTheDocument();

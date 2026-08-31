@@ -9,8 +9,8 @@ export default function WorkPage() {
     <PageShell>
       <section className="page-hero section-grid" aria-labelledby="work-heading">
         <p className="eyebrow">Professional impact</p>
-        <h1 id="work-heading">AI products are only valuable when people can use them.</h1>
-        <p>Case studies in product direction, enterprise adoption, enablement, and the systems that connect them.</p>
+        <h1 id="work-heading">I design the systems that make enterprise AI usable.</h1>
+        <p>Across functional and cost operations, product workflows, learning, and adoption.</p>
       </section>
 
       <section className="proof-band" aria-label="Verified proof points">

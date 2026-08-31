@@ -1,5 +1,5 @@
 import axe from 'axe-core';
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import BuildLabPage from '../components/BuildLabPage';
 import EmployerPortfolio from '../components/EmployerPortfolio';
@@ -9,7 +9,7 @@ describe('EmployerPortfolio', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI product.*adoption.*leader/i);
-    expect(screen.getByText(/as execution gets cheaper, judgment and design carry more of the value/i)).toBeInTheDocument();
+    expect(screen.getByText(/connect AI operations, product workflows, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.getByText('3,200+')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /résumé/i })[0]).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
@@ -18,6 +18,13 @@ describe('EmployerPortfolio', () => {
     expect(screen.getByRole('link', { name: /professional impact/i })).toHaveAttribute('href', '/work');
     expect(screen.getAllByRole('link', { name: /Build Lab/i })[0]).toHaveAttribute('href', '/builds');
     expect(screen.getAllByRole('link', { name: /games/i })[0]).toHaveAttribute('href', '/games');
+  });
+
+  it('moves keyboard focus to the main content from the skip link', () => {
+    render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
+
+    fireEvent.click(screen.getByRole('link', { name: /Skip to main content/i }));
+    expect(document.querySelector('main')).toHaveFocus();
   });
 
   it('renders private projects without a fake or empty interactive link', () => {

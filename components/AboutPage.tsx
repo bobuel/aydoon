@@ -9,8 +9,8 @@ export default function AboutPage() {
     <PageShell>
       <section className="page-hero section-grid about-hero" aria-labelledby="about-heading">
         <p className="eyebrow">About Alex</p>
-        <h1 id="about-heading">Systems thinker, adoption operator, hands-on builder.</h1>
-        <p>I help organizations adapt as agents take on more execution and the value shifts toward judgment, problem framing, workflow design, and adoption.</p>
+        <h1 id="about-heading">Systems thinker for AI operations and adoption.</h1>
+        <p>I design the system around enterprise AI—from functional and cost operations to product workflows, learning, evaluation, and peer adoption—and I build with the tools to keep that judgment grounded.</p>
       </section>
 
       <section className="about-story about-story-editorial section-grid" aria-labelledby="about-story-heading">

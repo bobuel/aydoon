@@ -2,9 +2,9 @@ import type { CaseStudy, EvidenceMetric, Project } from './types';
 
 export const PROFILE = {
   name: 'Alex Aidun',
-  headline: 'Enterprise AI Product & Adoption Leader',
+  headline: 'Enterprise AI Product, Operations & Adoption Leader',
   summary:
-    'I connect domain expertise, systems thinking, and hands-on AI building. I frame the problem, shape the workflow, and build the adoption system—because as execution gets cheaper, judgment and design carry more of the value.',
+    'I design the systems that connect AI operations, product workflows, and adoption—turning emerging capability into useful, repeatable work.',
   email: 'bobuel@gmail.com',
   location: 'New York',
   linkedin: 'https://www.linkedin.com/in/aaidun/',
@@ -120,7 +120,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'What I led',
         body: [
-          'I used discovery and cross-functional prioritization to shape a portfolio rather than force every need into one interface.',
+          'I treated the opportunity as a system-design problem: use discovery and cross-functional prioritization to place each need in the right interface rather than force every workflow into one chatbot.',
         ],
         bullets: [
           'An AI Agent for guided product interaction.',
@@ -140,7 +140,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'What this demonstrates',
         body: [
-          'My product approach connects discovery, delivery, documentation, learning, and adoption. That is especially valuable for AI products whose success depends on changing both software behavior and user behavior.',
+          'This was system design across product and adoption surfaces: discovery, delivery, documentation, learning, and user behavior had to reinforce one another rather than become separate handoffs.',
         ],
       },
     ],
@@ -385,7 +385,7 @@ export const CAREER_HIGHLIGHTS = [
 ];
 
 export const AI_CONTEXT = `
-Alex Aidun is an Enterprise AI Product & Adoption Leader based in New York.
+Alex Aidun is an Enterprise AI Product, Operations & Adoption Leader based in New York.
 Verified current role: AI Adoption Manager at Automattic since March 2026. His scope includes administration and functional/cost operations for AI tools serving 1,500 employees, product management for an internal AI Agent, AI Learning, LibreChat, and Slack-based agentic automation, an AI Guides champions program, 2–3 practical how-to articles weekly, and executive AI use-case support.
 Verified prior role: Senior AI Product Manager and Director, Education & Documentation at Dremio from January 2024 to March 2026. He scoped and drove an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot. Separately, Dremio University reached 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion in six months. Do not attribute those learning metrics to the AI products.
 Independent work: BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.

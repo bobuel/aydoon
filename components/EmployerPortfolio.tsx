@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS } from '../content';
 import { siteAsset } from '../sitePaths';
 import CompactBuildCard from './CompactBuildCard';
+import SkipLink from './SkipLink';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
@@ -13,13 +14,13 @@ const creativeProjects = PROJECTS.filter((project) => project.collections?.inclu
 export default function EmployerPortfolio() {
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main">Skip to main content</a>
+      <SkipLink />
       <SiteHeader />
 
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <section className="hero section-grid" aria-labelledby="hero-heading">
           <div className="hero-copy">
-            <p className="eyebrow">Enterprise AI · Systems · Adoption</p>
+            <p className="eyebrow">Enterprise AI · Systems · Operations · Adoption</p>
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
             <p className="hero-lede">{PROFILE.summary}</p>
             <div className="hero-actions">
@@ -46,8 +47,9 @@ export default function EmployerPortfolio() {
             <p className="now-label"><span /> Currently</p>
             <h2>AI Adoption Manager at Automattic</h2>
             <p>
-              Product manager and operator for internal AI products, learning, and agentic
-              workflows—plus an AI Guides champion program.
+              Designing and operating the system around enterprise AI: functional and cost
+              operations, internal products, learning, agentic workflows, and an AI Guides
+              champion network.
             </p>
             <div className="now-foot">
               <span>New York</span>
