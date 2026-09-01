@@ -12,6 +12,13 @@ describe('EmployerPortfolio', () => {
     expect(screen.getByText(/connect AI operations, product workflows, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.getByText('3,200+')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Three hiring lanes/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI operations & systems' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Enterprise AI adoption' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI education & academies' })).toBeInTheDocument();
+    expect(screen.getByText(/Director or Head-level role/i)).toBeInTheDocument();
+    expect(screen.getByText(/Principal PM roles/i)).toBeInTheDocument();
+    expect(screen.getByText(/Open to remote or NYC-hybrid roles/i)).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /LinkedIn/i })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/aaidun/');
     expect(screen.queryByRole('button', { name: /Ask/i })).not.toBeInTheDocument();

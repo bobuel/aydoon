@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { CAREER_HIGHLIGHTS, CASE_STUDIES, PROFILE, PROOF_METRICS } from '../content';
+import { CAREER_HIGHLIGHTS, CASE_STUDIES, OWNERSHIP_PATH, PROFILE, PROOF_METRICS } from '../content';
 import PageShell from './PageShell';
 
 export default function WorkPage() {
@@ -20,6 +20,27 @@ export default function WorkPage() {
             {metric.note && <small>{metric.note}</small>}
           </div>
         ))}
+      </section>
+
+      <section className="ownership-section section-grid" aria-labelledby="ownership-heading">
+        <div className="ownership-copy">
+          <div>
+            <p className="eyebrow">End-to-end ownership</p>
+            <h2 id="ownership-heading">From signal to sustained use.</h2>
+          </div>
+          <p>
+            My strongest work combines product ownership with the systems, rollout, and
+            adoption required to make a capability useful in practice.
+          </p>
+        </div>
+        <ol className="ownership-path">
+          {OWNERSHIP_PATH.map(([label, detail]) => (
+            <li key={label}>
+              <strong>{label}</strong>
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="case-section" aria-labelledby="work-cases-heading">
@@ -65,7 +86,7 @@ export default function WorkPage() {
 
       <section className="contact-section" aria-labelledby="work-contact-heading">
         <div className="section-grid contact-inner">
-          <div><p className="eyebrow">Let’s compare notes</p><h2 id="work-contact-heading">Building AI people can actually use?</h2><p>I’m interested in enterprise AI product, adoption, enablement, and product-led transformation roles.</p></div>
+          <div><p className="eyebrow">Let’s compare notes</p><h2 id="work-contact-heading">Building AI people can actually use?</h2><p>I’m interested in enterprise AI product, adoption, enablement, and product-led transformation roles. That can mean Director or Head-level scope in AI operations, adoption, or academy programs—or a Principal PM role combining product ownership with rollout and adoption.</p><p className="availability-line">Based in New York · Open to remote or NYC-hybrid roles</p></div>
           <div className="contact-actions">
             <a className="button button-light" href={`mailto:${PROFILE.email}`}>Email Alex</a>
           </div>

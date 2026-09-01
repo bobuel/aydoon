@@ -11,6 +11,35 @@ export const PROFILE = {
   github: 'https://github.com/bobuel',
 };
 
+export const ROLE_LANES = [
+  {
+    title: 'AI operations & systems',
+    description:
+      'Enterprise platforms, functional and cost operations, internal AI products, agentic workflows, and executive use cases.',
+    proof: 'Automattic · roughly 1,500 employees',
+  },
+  {
+    title: 'Enterprise AI adoption',
+    description:
+      'Workflow design, practical guidance, champion networks, feedback loops, and behavior change.',
+    proof: 'AI Guides · internal products · 2–3 how-to articles weekly',
+  },
+  {
+    title: 'AI education & academies',
+    description:
+      'Learning, documentation, certification, and enablement systems for employees, customers, and partners.',
+    proof: 'DremioU · 3,200+ users · 1,000+ badges · +78 NPS',
+  },
+];
+
+export const OWNERSHIP_PATH = [
+  ['Signal', 'Customer or employee need'],
+  ['Product', 'Direction and roadmap'],
+  ['Deploy', 'Workflow and rollout'],
+  ['Adopt', 'Guidance, champions, and learning'],
+  ['Measure', 'Usage, feedback, and iteration'],
+];
+
 export const PROOF_METRICS: EvidenceMetric[] = [
   {
     value: '1,500',
