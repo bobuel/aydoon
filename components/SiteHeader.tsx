@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
-import { PROFILE } from '../content';
-import { siteAsset } from '../sitePaths';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +27,6 @@ export default function SiteHeader() {
         <NavLink to="/builds" onClick={closeMenu}>Build Lab</NavLink>
         <NavLink to="/games" onClick={closeMenu}>Games</NavLink>
         <NavLink to="/about" onClick={closeMenu}>About</NavLink>
-        <a href={siteAsset(PROFILE.resume)} onClick={closeMenu}>Résumé</a>
         <a className="header-cta" href="mailto:bobuel@gmail.com" onClick={closeMenu}>Let’s talk</a>
       </nav>
     </header>

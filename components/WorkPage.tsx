@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CAREER_HIGHLIGHTS, CASE_STUDIES, PROFILE, PROOF_METRICS } from '../content';
-import { siteAsset } from '../sitePaths';
 import PageShell from './PageShell';
 
 export default function WorkPage() {
@@ -69,7 +68,6 @@ export default function WorkPage() {
           <div><p className="eyebrow">Let’s compare notes</p><h2 id="work-contact-heading">Building AI people can actually use?</h2><p>I’m interested in enterprise AI product, adoption, enablement, and product-led transformation roles.</p></div>
           <div className="contact-actions">
             <a className="button button-light" href={`mailto:${PROFILE.email}`}>Email Alex</a>
-            <a className="button button-outline-light" href={siteAsset(PROFILE.resume)}>Download résumé</a>
           </div>
         </div>
       </section>

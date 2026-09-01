@@ -9,7 +9,6 @@ export const PROFILE = {
   location: 'New York',
   linkedin: 'https://www.linkedin.com/in/aaidun/',
   github: 'https://github.com/bobuel',
-  resume: '/alexander-aidun-resume.pdf',
 };
 
 export const PROOF_METRICS: EvidenceMetric[] = [

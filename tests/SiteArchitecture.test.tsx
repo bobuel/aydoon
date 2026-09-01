@@ -27,7 +27,7 @@ describe('unified portfolio architecture', () => {
     expect(screen.getByRole('link', { name: 'Build Lab' })).toHaveAttribute('href', '/builds');
     expect(screen.getByRole('link', { name: 'Games' })).toHaveAttribute('href', '/games');
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
-    expect(screen.getByRole('link', { name: 'Résumé' })).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
+    expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();
   });
 
   it('gives games and creative work a first-class collection', () => {

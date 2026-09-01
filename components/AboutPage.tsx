@@ -1,7 +1,6 @@
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CAREER_HIGHLIGHTS, PROFILE } from '../content';
-import { siteAsset } from '../sitePaths';
 import PageShell from './PageShell';
 
 export default function AboutPage() {
@@ -22,7 +21,6 @@ export default function AboutPage() {
           <p>That hands-on practice lets me explain the shift without reducing it to hype. I can connect what the technology does now to the operating systems, learning, and behavior change an organization needs next.</p>
           <div className="hero-actions">
             <Link className="button button-primary" to="/work">See professional impact <ArrowRight aria-hidden="true" size={18} /></Link>
-            <a className="button button-secondary" href={siteAsset(PROFILE.resume)}>View résumé</a>
           </div>
         </div>
       </section>

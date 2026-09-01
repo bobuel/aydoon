@@ -12,7 +12,7 @@ describe('EmployerPortfolio', () => {
     expect(screen.getByText(/connect AI operations, product workflows, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.getByText('3,200+')).toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: /résumé/i })[0]).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
+    expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /LinkedIn/i })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/aaidun/');
     expect(screen.queryByRole('button', { name: /Ask/i })).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: /professional impact/i })).toHaveAttribute('href', '/work');

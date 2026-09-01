@@ -143,7 +143,6 @@ export default function EmployerPortfolio() {
               <a className="button button-light" href={`mailto:${PROFILE.email}`}>
                 Email Alex <Mail aria-hidden="true" size={18} />
               </a>
-              <a className="button button-outline-light" href={siteAsset(PROFILE.resume)}>Download résumé</a>
               </div>
             </div>
           </div>
