@@ -1,6 +1,6 @@
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS, ROLE_LANES } from '../content';
+import { CASE_STUDIES, PROFILE, PROJECTS, PROOF_METRICS } from '../content';
 import { siteAsset } from '../sitePaths';
 import CompactBuildCard from './CompactBuildCard';
 import SkipLink from './SkipLink';
@@ -66,34 +66,6 @@ export default function EmployerPortfolio() {
               {metric.note && <small>{metric.note}</small>}
             </div>
           ))}
-        </section>
-
-        <section className="role-fit-section section-grid" aria-labelledby="role-fit-heading">
-          <div className="section-heading role-fit-heading">
-            <div>
-              <p className="eyebrow">Where I fit</p>
-              <h2 id="role-fit-heading">Three hiring lanes. One operating system.</h2>
-            </div>
-            <p>
-              The strongest fit is a Director or Head-level role spanning these areas. I also
-              consider Principal PM roles where ownership includes customer feedback,
-              deployment, rollout, and adoption.
-            </p>
-          </div>
-          <div className="role-fit-grid">
-            {ROLE_LANES.map((lane, index) => (
-              <article className="role-fit-card" key={lane.title}>
-                <span>0{index + 1}</span>
-                <h3>{lane.title}</h3>
-                <p>{lane.description}</p>
-                <small>{lane.proof}</small>
-              </article>
-            ))}
-          </div>
-          <p className="role-fit-throughline">
-            <strong>What I can own end to end:</strong> customer or employee need → product
-            direction → deployment → operating system → adoption → measurable use.
-          </p>
         </section>
 
         <section className="case-section" id="case-studies" aria-labelledby="case-heading">
@@ -167,7 +139,6 @@ export default function EmployerPortfolio() {
               <p className="eyebrow">Let’s compare notes</p>
               <h2>Building AI people can actually use?</h2>
               <p>I’m interested in enterprise AI product, adoption, enablement, and transformation roles.</p>
-              <p className="availability-line">Based in New York · Open to remote or NYC-hybrid roles</p>
               <div className="contact-actions">
               <a className="button button-light" href={`mailto:${PROFILE.email}`}>
                 Email Alex <Mail aria-hidden="true" size={18} />

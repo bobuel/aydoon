@@ -47,10 +47,5 @@ describe('unified portfolio architecture', () => {
     expect(screen.getByRole('heading', { name: /Scaling practical AI/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /AI portfolio at Dremio/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Automattic' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /From signal to sustained use/i })).toBeInTheDocument();
-    expect(screen.getByText('Customer or employee need')).toBeInTheDocument();
-    expect(screen.getByText('Usage, feedback, and iteration')).toBeInTheDocument();
-    expect(screen.getByText(/Principal PM role combining product ownership/i)).toBeInTheDocument();
-    expect(screen.getByText(/Open to remote or NYC-hybrid roles/i)).toBeInTheDocument();
   });
 });
