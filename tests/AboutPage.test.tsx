@@ -4,29 +4,14 @@ import { MemoryRouter } from 'react-router-dom';
 import AboutPage from '../components/AboutPage';
 
 describe('AboutPage', () => {
-  it('explains the human judgment and agent execution thesis with attributed evidence', () => {
+  it('keeps Alex’s point of view concise and personal', () => {
     render(<MemoryRouter><AboutPage /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Systems thinker for AI operations and adoption/i);
-    expect(screen.getByRole('heading', { name: /design premium is rising/i })).toBeInTheDocument();
-    expect(screen.getByText('70% / 80%')).toBeInTheDocument();
-    expect(screen.getByText('43.5%')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Anthropic research/i })).toHaveAttribute(
-      'href',
-      'https://www.anthropic.com/research/claude-code-expertise',
-    );
-    expect(screen.getByRole('link', { name: /OpenAI research/i })).toHaveAttribute(
-      'href',
-      'https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/',
-    );
-  });
-
-  it('connects the research to Alex’s operating point of view', () => {
-    render(<MemoryRouter><AboutPage /></MemoryRouter>);
-
-    expect(screen.getByText(/distinguish capability from theater/i)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Systems thinkers in the AI era/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /AI product sense through hands-on use/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/AI operations, product, and adoption/i);
+    expect(screen.getByRole('heading', { name: /complex systems easier to use/i })).toBeInTheDocument();
+    expect(screen.getByText(/design premium rises/i)).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /The through line/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Anthropic research/i })).not.toBeInTheDocument();
   });
 
   it('has no critical automated accessibility violations', async () => {

@@ -95,6 +95,7 @@ img { display: block; max-width: 100%; }
 .section-action { display: flex; justify-content: center; margin-top: 38px; }
 .home-case-card { min-height: 300px; padding: 24px; }
 .home-case-card .eyebrow { margin-top: 24px; }
+.home-case-section { padding-block: 82px 92px; }
 
 .build-section { padding: 100px 0 120px; border-block: 1px solid var(--line); background: #edf0eb; }
 .filter-row { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 32px; }
@@ -312,6 +313,7 @@ img { display: block; max-width: 100%; }
   .metric strong { font-size: 36px; }
   .section-heading { grid-template-columns: 1fr; gap: 22px; }
   .case-section, .build-section, .career-section { padding: 60px 0 68px; }
+  .home-case-section { padding-block: 56px 64px; }
   .home-build-section { padding: 58px 0 64px; }
   .games-collection { padding: 72px 0 86px; }
   .build-grid { grid-template-columns: 1fr; }

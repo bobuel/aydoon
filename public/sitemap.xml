@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bobuel.github.io/aydoon/</loc></url>
-  <url><loc>https://bobuel.github.io/aydoon/work</loc></url>
   <url><loc>https://bobuel.github.io/aydoon/builds</loc></url>
-  <url><loc>https://bobuel.github.io/aydoon/games</loc></url>
   <url><loc>https://bobuel.github.io/aydoon/about</loc></url>
   <url><loc>https://bobuel.github.io/aydoon/case-studies/enterprise-ai-adoption-automattic</loc></url>
   <url><loc>https://bobuel.github.io/aydoon/case-studies/ai-product-leadership-dremio</loc></url>

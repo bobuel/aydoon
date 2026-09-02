@@ -15,12 +15,12 @@ Only pushes to `main` deploy the public site. Branches and pull requests run CI 
 
 ## Product rationale
 
-The experience uses one identity with two clear paths:
+The experience uses one identity with two clear destinations:
 
-1. **Professional impact:** positioning, verified proof, case studies, experience, and résumé.
-2. **The making practice:** a complete Build Lab plus a dedicated Games collection.
+1. **Professional impact:** the homepage moves directly from positioning to verified proof, three case studies, and contact.
+2. **The making practice:** the Build Lab contains the complete catalog, including games and creative work.
 
-The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. The homepage gives hiring teams a short path to positioning and evidence; deeper routes hold the full case studies and project catalog.
+The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab so existing links continue to work. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
 
 Dremio's AI product portfolio and Dremio University learning metrics are deliberately separate. Claims must remain résumé-verified or linked to an approved source. Do not add confidential employer details, invented savings, unsupported governance claims, or unverified psychometric claims.
 
@@ -30,10 +30,9 @@ Dremio's AI product portfolio and Dremio University learning metrics are deliber
 GitHub Pages
   └─ Static Vite build
        ├─ React portfolio homepage
-       ├─ Professional Work route
-       ├─ Complete Build Lab with filters
-       ├─ Games and creative-work collection
-       ├─ About/profile route
+       ├─ Complete Build Lab with project and games filters
+       ├─ Concise About/profile route
+       ├─ Legacy Work and Games redirects
        ├─ Three prebuilt case-study entry paths
        ├─ Shared typed content model
        └─ Résumé, screenshots, metadata, and social preview
@@ -66,7 +65,7 @@ npm run build:pages:production
 npm run scan:secrets
 ```
 
-The test suite covers employer positioning, proof and CTAs, the project catalog, games, optional links, direct-route rendering, static path handling, the About narrative, research attribution, and critical automated accessibility checks.
+The test suite covers employer positioning, proof and CTAs, the complete project and games catalog, optional links, simplified navigation, static path handling, the concise About narrative, and critical automated accessibility checks.
 
 After a deployment, smoke-test:
 
@@ -74,6 +73,7 @@ After a deployment, smoke-test:
 - `/about`
 - `/work`
 - `/builds`
+- `/games`
 - All three `/case-studies/...` routes
 - `/alexander-aidun-resume.pdf`
 - `/sitemap.xml`

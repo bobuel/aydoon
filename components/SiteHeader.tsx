@@ -23,11 +23,10 @@ export default function SiteHeader() {
         <span>{menuOpen ? 'Close' : 'Menu'}</span>
       </button>
       <nav id="primary-menu" className={menuOpen ? 'header-links open' : 'header-links'} aria-label="Primary navigation">
-        <NavLink to="/work" onClick={closeMenu}>Work</NavLink>
-        <NavLink to="/builds" onClick={closeMenu}>Build Lab</NavLink>
-        <NavLink to="/games" onClick={closeMenu}>Games</NavLink>
+        <NavLink to="/" end onClick={closeMenu}>Work</NavLink>
+        <NavLink to="/builds" onClick={closeMenu}>Builds</NavLink>
         <NavLink to="/about" onClick={closeMenu}>About</NavLink>
-        <a className="header-cta" href="mailto:bobuel@gmail.com" onClick={closeMenu}>Let’s talk</a>
+        <a className="header-cta" href="mailto:bobuel@gmail.com" onClick={closeMenu}>Contact</a>
       </nav>
     </header>
   );

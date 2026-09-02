@@ -15,9 +15,9 @@ describe('EmployerPortfolio', () => {
     expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /LinkedIn/i })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/aaidun/');
     expect(screen.queryByRole('button', { name: /Ask/i })).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /professional impact/i })).toHaveAttribute('href', '/work');
-    expect(screen.getAllByRole('link', { name: /Build Lab/i })[0]).toHaveAttribute('href', '/builds');
-    expect(screen.getAllByRole('link', { name: /games/i })[0]).toHaveAttribute('href', '/games');
+    expect(screen.getByRole('link', { name: /selected work/i })).toHaveAttribute('href', '#work');
+    expect(screen.getByRole('link', { name: /Browse what I’ve built/i })).toHaveAttribute('href', '/builds');
+    expect(screen.queryByRole('link', { name: /games/i })).not.toBeInTheDocument();
   });
 
   it('moves keyboard focus to the main content from the skip link', () => {
@@ -36,11 +36,13 @@ describe('EmployerPortfolio', () => {
     expect(within(card as HTMLElement).getByText(/Private working prototype/i)).toBeInTheDocument();
   });
 
-  it('features only public, reviewable projects on the homepage', () => {
+  it('keeps the homepage focused on professional evidence instead of the project catalog', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { name: 'Retrieval Guard' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Scaling practical AI/i })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Retrieval Guard' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Informa' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /Systems, stories/i })).not.toBeInTheDocument();
   });
 
   it('has no critical automated accessibility violations in the homepage content', async () => {

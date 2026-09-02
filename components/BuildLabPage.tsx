@@ -9,7 +9,11 @@ const filters: Array<'All' | ProjectCategory> = ['All', 'Products', 'Agents & To
 export default function BuildLabPage() {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');
   const visibleProjects = useMemo(
-    () => PROJECTS.filter((project) => filter === 'All' || project.category === filter),
+    () => PROJECTS.filter(
+      (project) => filter === 'All'
+        || project.category === filter
+        || (filter === 'Games' && project.collections?.includes('Games')),
+    ),
     [filter],
   );
 

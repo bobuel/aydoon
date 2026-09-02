@@ -29,7 +29,7 @@ This repository powers `https://aydoon.com`, Alex Aidun's employer-facing portfo
 - `content.ts`: verified profile, proof, project, and case-study content.
 - `types.ts`: typed content model.
 - `components/EmployerPortfolio.tsx`: homepage.
-- `components/AboutPage.tsx`: systems-thinking and AI-adoption narrative.
+- `components/AboutPage.tsx`: concise systems-thinking and AI-adoption narrative; do not duplicate the homepage evidence or career history here.
 - `styles.css`: global responsive presentation.
 - `index.html`: metadata, social tags, canonical data, and Person JSON-LD.
 - `public/alexander-aidun-resume.pdf`: public résumé; preserve the URL.
@@ -47,7 +47,7 @@ npm run build:pages:production
 npm run scan:secrets
 ```
 
-After deployment, verify the homepage, About, Work, Builds, every case-study route, résumé, sitemap, and robots file on `https://aydoon.com`. Confirm that the live JavaScript asset contains the new React-rendered copy and that canonical metadata uses the custom domain.
+After deployment, verify the homepage, About, Builds, every case-study route, the legacy Work and Games redirects, résumé, sitemap, and robots file on `https://aydoon.com`. Confirm that the live JavaScript asset contains the new React-rendered copy and that canonical metadata uses the custom domain.
 
 ## Release discipline
 
