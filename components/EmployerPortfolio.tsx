@@ -1,6 +1,6 @@
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { CASE_STUDIES, PROFILE, PROOF_METRICS } from '../content';
+import { CASE_STUDIES, PROFILE } from '../content';
 import SkipLink from './SkipLink';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
@@ -46,16 +46,6 @@ export default function EmployerPortfolio() {
           </aside>
         </section>
 
-        <section className="proof-band" aria-label="Verified proof points">
-          {PROOF_METRICS.map((metric) => (
-            <div className="metric" key={metric.value + metric.label}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-              {metric.note && <small>{metric.note}</small>}
-            </div>
-          ))}
-        </section>
-
         <section className="case-section home-case-section" id="work" aria-labelledby="case-heading">
           <div className="section-heading">
             <div>
@@ -70,6 +60,10 @@ export default function EmployerPortfolio() {
                 <span className="case-number">0{index + 1}</span>
                 <p className="eyebrow">{study.eyebrow}</p>
                 <h3>{study.title}</h3>
+                <div className="case-proof">
+                  <strong>{study.evidence[0].value}</strong>
+                  <span>{study.evidence[0].label}</span>
+                </div>
                 <p>{study.summary}</p>
                 <Link className="text-link" to={`/case-studies/${study.slug}`}>
                   Read case study <ArrowRight aria-hidden="true" size={16} />
