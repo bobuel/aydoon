@@ -23,6 +23,7 @@ This repository powers `https://aydoon.com`, Alex Aidun's employer-facing portfo
 - The Anthropic finding is approximately 70% of planning decisions by people and 80% of execution decisions by Claude in the studied Claude Code sessions.
 - The OpenAI finding is that 43.5% of occupation-specific ChatGPT messages cross occupational boundaries. Broader ownership and fewer handoffs are Alex's interpretation, not OpenAI's stated finding.
 - Maintain the current concise hierarchy. Add new homepage material only when it improves employer comprehension enough to justify additional scrolling.
+- Preserve the homepage's split-screen working-surface concept: identity and role context in the profile rail, with evidence and workflow logic in the case-study panel. Avoid turning it back into a generic marketing-page sequence.
 
 ## Important files
 

@@ -2,94 +2,109 @@ import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE } from '../content';
 import SkipLink from './SkipLink';
-import SiteFooter from './SiteFooter';
-import SiteHeader from './SiteHeader';
+
+const SYSTEM_FLOWS: Record<string, string[]> = {
+  'enterprise-ai-adoption-automattic': ['Access', 'Guidance', 'Peer practice', 'Feedback'],
+  'ai-product-leadership-dremio': ['Customer signal', 'Product direction', 'Engineering', 'Delivery'],
+  'bloom-assessment-workflow': ['Source material', 'Generation', 'Teacher review', 'Structured output'],
+};
 
 export default function EmployerPortfolio() {
   return (
-    <div className="site-shell">
+    <div className="site-shell hybrid-home">
       <SkipLink />
-      <SiteHeader />
 
-      <main id="main" tabIndex={-1}>
-        <section className="hero section-grid" aria-labelledby="hero-heading">
-          <div className="hero-copy">
-            <p className="eyebrow">Enterprise AI · Systems · Operations · Adoption</p>
+      <div className="hybrid-layout">
+        <aside className="profile-rail" aria-labelledby="hero-heading">
+          <Link className="rail-brand" to="/" aria-label="Alex Aidun home">
+            <span className="rail-brand-mark" aria-hidden="true">A</span>
+            <span>Alex Aidun</span>
+          </Link>
+
+          <div className="rail-story">
+            <p className="rail-eyebrow">Enterprise AI · systems · adoption</p>
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
-            <p className="hero-lede">{PROFILE.summary}</p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                See selected work <ArrowRight aria-hidden="true" size={18} />
-              </a>
-              <Link className="button button-secondary" to="/builds">Browse what I’ve built</Link>
+            <p className="rail-summary">{PROFILE.summary}</p>
+
+            <div className="rail-status" aria-label="Current role">
+              <div className="rail-status-label"><span /> Currently</div>
+              <strong>AI Adoption Manager</strong>
+              <p>Automattic · roughly 1,500 employees</p>
             </div>
-            <p className="hero-personal">I build with the tools myself because making sharpens product sense: it reveals where agents create leverage and where human judgment still carries the design premium.</p>
-            <div className="social-links" aria-label="Contact links">
+
+            <p className="rail-perspective">I build with the tools because proximity sharpens judgment: where agents create leverage, where they lose context, and where human design still carries the premium.</p>
+          </div>
+
+          <div className="rail-footer">
+            <nav aria-label="Profile links">
               <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub</a>
               <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href={`mailto:${PROFILE.email}`}><Mail aria-hidden="true" size={18} /> Email</a>
-            </div>
+            </nav>
+            <a className="rail-contact" href={`mailto:${PROFILE.email}`}>
+              <Mail aria-hidden="true" size={17} /> Email Alex
+            </a>
+            <small>© {new Date().getFullYear()} Alex Aidun</small>
           </div>
+        </aside>
 
-          <aside className="now-card" aria-label="Current role">
-            <p className="now-label"><span /> Currently</p>
-            <h2>AI Adoption Manager at Automattic</h2>
-            <p>
-              Designing and operating the system around enterprise AI: functional and cost
-              operations, internal products, learning, agentic workflows, and an AI Guides
-              champion network.
-            </p>
-            <div className="now-foot">
-              <span>New York</span>
-              <span>Systems thinker · hands-on builder</span>
-            </div>
-          </aside>
-        </section>
-
-        <section className="case-section home-case-section" id="work" aria-labelledby="case-heading">
-          <div className="section-heading">
+        <main className="work-surface" id="main" tabIndex={-1}>
+          <header className="surface-header">
             <div>
-              <p className="eyebrow">Selected case studies</p>
+              <span>Portfolio</span>
+              <strong>Selected systems</strong>
+            </div>
+            <nav aria-label="Primary navigation">
+              <a className="active" href="#work">Work</a>
+              <Link to="/builds">Builds</Link>
+              <Link to="/about">About</Link>
+              <a href={`mailto:${PROFILE.email}`}>Contact</a>
+            </nav>
+          </header>
+
+          <section className="surface-intro" id="work" aria-labelledby="case-heading">
+            <div>
+              <p className="eyebrow">Professional work</p>
               <h2 id="case-heading">Evidence over adjectives.</h2>
             </div>
-            <p>Problems framed, product decisions made, and adoption earned.</p>
-          </div>
-          <div className="case-grid home-case-grid">
+            <p>Three examples of how I connect operating models, products, and adoption around work people need to do.</p>
+          </section>
+
+          <section className="system-list" aria-label="Selected case studies">
             {CASE_STUDIES.map((study, index) => (
-              <article className="case-card home-case-card" key={study.slug}>
-                <span className="case-number">0{index + 1}</span>
-                <p className="eyebrow">{study.eyebrow}</p>
-                <h3>{study.title}</h3>
-                <div className="case-proof">
-                  <strong>{study.evidence[0].value}</strong>
-                  <span>{study.evidence[0].label}</span>
+              <article className="system-card" key={study.slug}>
+                <div className="system-index" aria-hidden="true">0{index + 1}</div>
+                <div className="system-copy">
+                  <p className="eyebrow">{study.eyebrow}</p>
+                  <h3>{study.title}</h3>
+                  <p>{study.summary}</p>
+                  <ol className="system-flow" aria-label={`${study.title} workflow`}>
+                    {SYSTEM_FLOWS[study.slug]?.map((step) => <li key={step}>{step}</li>)}
+                  </ol>
                 </div>
-                <p>{study.summary}</p>
-                <Link className="text-link" to={`/case-studies/${study.slug}`}>
-                  Read case study <ArrowRight aria-hidden="true" size={16} />
-                </Link>
+                <div className="system-result">
+                  <span>Evidence</span>
+                  <strong>{study.evidence[0].value}</strong>
+                  <p>{study.evidence[0].label}</p>
+                  <Link to={`/case-studies/${study.slug}`} aria-label={`Read case study: ${study.title}`}>
+                    Read the case <ArrowRight aria-hidden="true" size={16} />
+                  </Link>
+                </div>
               </article>
             ))}
-          </div>
-        </section>
+          </section>
 
-        <section className="contact-section" id="contact" aria-labelledby="contact-heading">
-          <div className="section-grid contact-inner">
+          <section className="surface-close" aria-labelledby="surface-close-heading">
             <div>
-              <p className="eyebrow">Let’s compare notes</p>
-              <h2 id="contact-heading">Building AI people can actually use?</h2>
-              <p>I’m interested in enterprise AI product, operations, adoption, and transformation work.</p>
+              <p className="eyebrow">Making practice</p>
+              <h2 id="surface-close-heading">Products, tools, and experiments.</h2>
+              <p>The Build Lab is where I work through product ideas, interaction loops, and the practical limits of current AI systems.</p>
             </div>
-            <div className="contact-actions">
-              <a className="button button-light" href={`mailto:${PROFILE.email}`}>
-                Email Alex <Mail aria-hidden="true" size={18} />
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <SiteFooter />
+            <Link className="surface-close-link" to="/builds">
+              Browse the Build Lab <ArrowRight aria-hidden="true" size={17} />
+            </Link>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }

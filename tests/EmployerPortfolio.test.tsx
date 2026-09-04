@@ -15,8 +15,9 @@ describe('EmployerPortfolio', () => {
     expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /LinkedIn/i })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/aaidun/');
     expect(screen.queryByRole('button', { name: /Ask/i })).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /selected work/i })).toHaveAttribute('href', '#work');
-    expect(screen.getByRole('link', { name: /Browse what I’ve built/i })).toHaveAttribute('href', '/builds');
+    expect(screen.getByRole('link', { name: 'Work' })).toHaveAttribute('href', '#work');
+    expect(screen.getByRole('link', { name: 'Builds' })).toHaveAttribute('href', '/builds');
+    expect(screen.getByRole('link', { name: /Browse the Build Lab/i })).toHaveAttribute('href', '/builds');
     expect(screen.queryByRole('link', { name: /games/i })).not.toBeInTheDocument();
   });
 
@@ -44,7 +45,9 @@ describe('EmployerPortfolio', () => {
     const dremio = screen.getByRole('heading', { name: /AI portfolio at Dremio/i }).closest('article');
     const bloom = screen.getByRole('heading', { name: /observed demand/i }).closest('article');
     expect(within(automattic as HTMLElement).getByText('1,500')).toBeInTheDocument();
+    expect(within(automattic as HTMLElement).getByRole('list', { name: /Automattic workflow/i })).toHaveTextContent(/Access.*Guidance.*Peer practice.*Feedback/i);
     expect(within(dremio as HTMLElement).getByText('4')).toBeInTheDocument();
+    expect(within(dremio as HTMLElement).getByRole('list', { name: /Dremio workflow/i })).toHaveTextContent(/Customer signal.*Product direction.*Engineering.*Delivery/i);
     expect(within(dremio as HTMLElement).queryByText('3,200+')).not.toBeInTheDocument();
     expect(within(bloom as HTMLElement).getByText('1,000+')).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Retrieval Guard' })).not.toBeInTheDocument();

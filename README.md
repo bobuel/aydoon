@@ -20,7 +20,7 @@ The experience uses one identity with two clear destinations:
 1. **Professional impact:** the homepage moves directly from positioning to verified proof, three case studies, and contact.
 2. **The making practice:** the Build Lab contains the complete catalog, including games and creative work.
 
-The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab so existing links continue to work. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
+The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. On desktop, the homepage uses a split-screen working surface: a sticky identity rail anchors the profile while a portfolio panel presents three evidence-bearing systems and their workflow logic. The layout becomes a single column on smaller screens. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab so existing links continue to work. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
 
 Dremio's AI product portfolio and Dremio University learning metrics are deliberately separate. Claims must remain résumé-verified or linked to an approved source. Do not add confidential employer details, invented savings, unsupported governance claims, or unverified psychometric claims.
 
@@ -29,7 +29,9 @@ Dremio's AI product portfolio and Dremio University learning metrics are deliber
 ```text
 GitHub Pages
   └─ Static Vite build
-       ├─ React portfolio homepage
+       ├─ Split-screen React portfolio homepage
+       │    ├─ Sticky identity and current-role rail
+       │    └─ Evidence-led case-study system rows
        ├─ Complete Build Lab with project and games filters
        ├─ Concise About/profile route
        ├─ Legacy Work and Games redirects
