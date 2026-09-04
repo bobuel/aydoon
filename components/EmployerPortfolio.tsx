@@ -9,6 +9,12 @@ const SYSTEM_FLOWS: Record<string, string[]> = {
   'bloom-assessment-workflow': ['Source material', 'Generation', 'Teacher review', 'Structured output'],
 };
 
+const HOME_CASE_SUMMARIES: Record<string, string> = {
+  'enterprise-ai-adoption-automattic': 'Connecting AI products, guidance, learning, and peer support into one adoption system.',
+  'ai-product-leadership-dremio': 'Connecting customer signal, product direction, and engineering delivery.',
+  'bloom-assessment-workflow': 'Source-grounded assessment generation with teacher judgment built in.',
+};
+
 export default function EmployerPortfolio() {
   return (
     <div className="site-shell hybrid-home">
@@ -24,7 +30,7 @@ export default function EmployerPortfolio() {
           <div className="rail-story">
             <p className="rail-eyebrow">Enterprise AI · systems · adoption</p>
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
-            <p className="rail-summary">{PROFILE.summary}</p>
+            <p className="rail-summary">I connect AI operations, product workflows, and adoption—then build hands-on to understand what makes new systems useful.</p>
 
             <div className="rail-status" aria-label="Current role">
               <div className="rail-status-label"><span /> Currently</div>
@@ -32,7 +38,6 @@ export default function EmployerPortfolio() {
               <p>Automattic · roughly 1,500 employees</p>
             </div>
 
-            <p className="rail-perspective">I build with the tools because proximity sharpens judgment: where agents create leverage, where they lose context, and where human design still carries the premium.</p>
           </div>
 
           <div className="rail-footer">
@@ -64,9 +69,9 @@ export default function EmployerPortfolio() {
           <section className="surface-intro" id="work" aria-labelledby="case-heading">
             <div>
               <p className="eyebrow">Professional work</p>
-              <h2 id="case-heading">Evidence over adjectives.</h2>
+              <h2 id="case-heading">Design is the premium.</h2>
             </div>
-            <p>Three examples of how I connect operating models, products, and adoption around work people need to do.</p>
+            <p>Three systems connecting products, operations, and behavior change.</p>
           </section>
 
           <section className="system-list" aria-label="Selected case studies">
@@ -76,7 +81,7 @@ export default function EmployerPortfolio() {
                 <div className="system-copy">
                   <p className="eyebrow">{study.eyebrow}</p>
                   <h3>{study.title}</h3>
-                  <p>{study.summary}</p>
+                  <p>{HOME_CASE_SUMMARIES[study.slug]}</p>
                   <ol className="system-flow" aria-label={`${study.title} workflow`}>
                     {SYSTEM_FLOWS[study.slug]?.map((step) => <li key={step}>{step}</li>)}
                   </ol>
@@ -97,7 +102,7 @@ export default function EmployerPortfolio() {
             <div>
               <p className="eyebrow">Making practice</p>
               <h2 id="surface-close-heading">Products, tools, and experiments.</h2>
-              <p>The Build Lab is where I work through product ideas, interaction loops, and the practical limits of current AI systems.</p>
+              <p>Hands-on experiments in product and AI interaction design.</p>
             </div>
             <Link className="surface-close-link" to="/builds">
               Browse the Build Lab <ArrowRight aria-hidden="true" size={17} />

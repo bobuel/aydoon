@@ -407,7 +407,6 @@ img { display: block; max-width: 100%; }
 .rail-status-label span { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .rail-status strong { display: block; font-size: 17px; font-weight: 700; }
 .rail-status p { margin: 5px 0 0; color: rgba(244, 243, 239, .68); font-size: 13px; }
-.rail-perspective { max-width: 500px; margin: 22px 0 0; color: rgba(244, 243, 239, .68); font-size: 13px; line-height: 1.62; }
 .rail-footer { position: relative; z-index: 1; padding-top: 22px; border-top: 1px solid rgba(244, 243, 239, .2); }
 .rail-footer nav { display: flex; gap: 20px; margin-bottom: 16px; color: rgba(244, 243, 239, .72); font-size: 13px; font-weight: 600; }
 .rail-footer nav a:hover { color: #f4f3ef; }
@@ -479,7 +478,7 @@ img { display: block; max-width: 100%; }
   .profile-rail { position: relative; height: auto; min-height: 720px; padding: 30px clamp(28px, 7vw, 56px); }
   .rail-story { padding-block: 60px; }
   .rail-story h1 { max-width: 620px; font-size: clamp(43px, 8.2vw, 66px); }
-  .rail-summary, .rail-status, .rail-perspective { max-width: 620px; }
+  .rail-summary, .rail-status { max-width: 620px; }
   .rail-footer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px 24px; }
   .rail-footer nav { margin: 0; }
   .rail-contact { min-width: 180px; }
@@ -493,7 +492,6 @@ img { display: block; max-width: 100%; }
   .rail-story { padding-block: 46px; }
   .rail-story h1 { font-size: clamp(39px, 12.5vw, 51px); }
   .rail-summary { font-size: 17px; }
-  .rail-perspective { display: none; }
   .rail-footer { display: block; }
   .rail-footer nav { margin-bottom: 15px; }
   .rail-contact { width: 100%; }
