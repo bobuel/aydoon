@@ -9,7 +9,7 @@ describe('EmployerPortfolio', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI product.*adoption.*leader/i);
-    expect(screen.getByText(/connect AI operations, product workflows, and adoption/i)).toBeInTheDocument();
+    expect(screen.getByText(/work across AI operations, product, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.queryByText('3,200+')).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /résumé/i })).not.toBeInTheDocument();

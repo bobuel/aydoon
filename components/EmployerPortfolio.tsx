@@ -10,9 +10,9 @@ const SYSTEM_FLOWS: Record<string, string[]> = {
 };
 
 const HOME_CASE_SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'Connecting AI products, guidance, learning, and peer support into one adoption system.',
-  'ai-product-leadership-dremio': 'Connecting customer signal, product direction, and engineering delivery.',
-  'bloom-assessment-workflow': 'Source-grounded assessment generation with teacher judgment built in.',
+  'enterprise-ai-adoption-automattic': 'I connect access, products, guidance, and peer support so AI becomes part of everyday work.',
+  'ai-product-leadership-dremio': 'I turned customer needs into four AI initiatives, working across product, design, and engineering.',
+  'bloom-assessment-workflow': 'I turned clear demand into a source-grounded assessment workflow that keeps teachers in control.',
 };
 
 export default function EmployerPortfolio() {
@@ -28,9 +28,9 @@ export default function EmployerPortfolio() {
           </Link>
 
           <div className="rail-story">
-            <p className="rail-eyebrow">Enterprise AI · systems · adoption</p>
+            <p className="rail-eyebrow">AI operations · product · adoption</p>
             <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
-            <p className="rail-summary">I connect AI operations, product workflows, and adoption—then build hands-on to understand what makes new systems useful.</p>
+            <p className="rail-summary">I work across AI operations, product, and adoption—building the systems that make AI useful in real work.</p>
 
             <div className="rail-status" aria-label="Current role">
               <div className="rail-status-label"><span /> Currently</div>
@@ -71,7 +71,7 @@ export default function EmployerPortfolio() {
               <p className="eyebrow">Professional work</p>
               <h2 id="case-heading">Design is the premium.</h2>
             </div>
-            <p>Three systems connecting products, operations, and behavior change.</p>
+            <p>Three examples of making AI useful across operations, products, and everyday work.</p>
           </section>
 
           <section className="system-list" aria-label="Selected case studies">
@@ -100,9 +100,9 @@ export default function EmployerPortfolio() {
 
           <section className="surface-close" aria-labelledby="surface-close-heading">
             <div>
-              <p className="eyebrow">Making practice</p>
+              <p className="eyebrow">What I build</p>
               <h2 id="surface-close-heading">Products, tools, and experiments.</h2>
-              <p>Hands-on experiments in product and AI interaction design.</p>
+              <p>I build to test ideas, understand the tools, and see where AI actually works.</p>
             </div>
             <Link className="surface-close-link" to="/builds">
               Browse the Build Lab <ArrowRight aria-hidden="true" size={17} />
