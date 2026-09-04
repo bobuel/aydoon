@@ -8,7 +8,8 @@ describe('EmployerPortfolio', () => {
   it('presents the employer positioning, proof, and working calls to action', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI operations.*product.*adoption.*leader/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI leader/i);
+    expect(screen.getByText('AI operations · product · adoption')).toBeInTheDocument();
     expect(screen.getByText(/work across AI operations, product, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.queryByText('3,200+')).not.toBeInTheDocument();

@@ -33,7 +33,7 @@ export default function EmployerPortfolio() {
 
           <div className="rail-story">
             <p className="rail-eyebrow">AI operations · product · adoption</p>
-            <h1 id="hero-heading">Enterprise AI operations, product <span>&amp; adoption</span> leader.</h1>
+            <h1 id="hero-heading">Enterprise AI leader.</h1>
             <p className="rail-summary">I work across AI operations, product, and adoption—building the systems that make AI useful in real work.</p>
 
             <div className="rail-status" aria-label="Current role">
