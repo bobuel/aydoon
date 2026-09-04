@@ -10,9 +10,13 @@ const SYSTEM_FLOWS: Record<string, string[]> = {
 };
 
 const HOME_CASE_SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'I connect access, products, guidance, and peer support so AI becomes part of everyday work.',
+  'enterprise-ai-adoption-automattic': 'I manage operations for ChatGPT, Codex, and Claude, alongside internal products and the AI Guides program.',
   'ai-product-leadership-dremio': 'I turned customer needs into four AI initiatives, working across product, design, and engineering.',
   'bloom-assessment-workflow': 'I turned clear demand into a source-grounded assessment workflow that keeps teachers in control.',
+};
+
+const HOME_CASE_EYEBROWS: Record<string, string> = {
+  'bloom-assessment-workflow': 'AI education workflow',
 };
 
 export default function EmployerPortfolio() {
@@ -29,7 +33,7 @@ export default function EmployerPortfolio() {
 
           <div className="rail-story">
             <p className="rail-eyebrow">AI operations · product · adoption</p>
-            <h1 id="hero-heading">Enterprise AI product <span>&amp; adoption</span> leader.</h1>
+            <h1 id="hero-heading">Enterprise AI operations, product <span>&amp; adoption</span> leader.</h1>
             <p className="rail-summary">I work across AI operations, product, and adoption—building the systems that make AI useful in real work.</p>
 
             <div className="rail-status" aria-label="Current role">
@@ -79,7 +83,7 @@ export default function EmployerPortfolio() {
               <article className="system-card" key={study.slug}>
                 <div className="system-index" aria-hidden="true">0{index + 1}</div>
                 <div className="system-copy">
-                  <p className="eyebrow">{study.eyebrow}</p>
+                  <p className="eyebrow">{HOME_CASE_EYEBROWS[study.slug] ?? study.eyebrow}</p>
                   <h3>{study.title}</h3>
                   <p>{HOME_CASE_SUMMARIES[study.slug]}</p>
                   <ol className="system-flow" aria-label={`${study.title} workflow`}>

@@ -8,7 +8,7 @@ describe('EmployerPortfolio', () => {
   it('presents the employer positioning, proof, and working calls to action', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI product.*adoption.*leader/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Enterprise AI operations.*product.*adoption.*leader/i);
     expect(screen.getByText(/work across AI operations, product, and adoption/i)).toBeInTheDocument();
     expect(screen.getByText('1,500')).toBeInTheDocument();
     expect(screen.queryByText('3,200+')).not.toBeInTheDocument();
@@ -50,6 +50,7 @@ describe('EmployerPortfolio', () => {
     expect(within(dremio as HTMLElement).getByRole('list', { name: /Dremio workflow/i })).toHaveTextContent(/Customer signal.*Product direction.*Engineering.*Delivery/i);
     expect(within(dremio as HTMLElement).queryByText('3,200+')).not.toBeInTheDocument();
     expect(within(bloom as HTMLElement).getByText('1,000+')).toBeInTheDocument();
+    expect(within(bloom as HTMLElement).getByText('AI education workflow')).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Retrieval Guard' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Informa' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: /Systems, stories/i })).not.toBeInTheDocument();
