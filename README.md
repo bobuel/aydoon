@@ -1,28 +1,18 @@
-# Alex Aidun — professional portfolio and Build Lab
+# aydoon.com
 
-The source for [aydoon.com](https://aydoon.com): an evidence-led professional portfolio presenting Alex Aidun as an enterprise AI product, systems, and adoption leader. The site pairs employer-facing proof and case studies with a complete Build Lab for products, tools, open source work, games, and experiments.
+My site brings together AI operations, product, and adoption work, alongside the tools and games I build to test ideas.
 
-## Production
+[Visit the site](https://aydoon.com/) · [Read the AI adoption case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Browse the Build Lab](https://aydoon.com/builds)
 
-- Live site: [https://aydoon.com](https://aydoon.com)
-- Hosting: GitHub Pages
-- Production branch: `main`
-- Deployment workflow: `.github/workflows/pages-preview.yml`
-- Launch commit for the systems-thinking narrative: `22fbf4b`
-- Pre-narrative rollback reference: `40bec76`
+## Design decisions
 
-Only pushes to `main` deploy the public site. Branches and pull requests run CI but cannot publish to the GitHub Pages production environment. Ordinary content releases do not require DNS or Cloud Run changes.
+- **Keep the first visit short.** A compact introduction and three case studies make the work easy to scan. Detailed decisions and results live inside each case.
+- **Separate professional work from experiments.** The Build Lab has its own route for tools, games, and prototypes, with clear availability labels.
+- **Keep the system simple.** React, typed content, and a static build on GitHub Pages. No chatbot, runtime API, database, or client secrets.
 
-## Product rationale
+On desktop, an identity rail sits beside the work. On mobile, navigation comes first. The same compact type scale carries through About, Builds, and case studies, with keyboard focus and scroll reset when navigating between routes.
 
-The experience uses one identity with two clear destinations:
-
-1. **Professional impact:** the homepage moves directly from positioning to verified proof, three case studies, and contact.
-2. **Build Lab:** the complete catalog, including games and creative work.
-
-The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. On desktop, a sticky identity rail sits beside three compact case studies with ownership summaries and inline metrics. Workflow detail stays inside the cases. On smaller screens, navigation comes first and the introduction fits its content rather than filling the viewport. About, Builds, and case studies share a compact type scale. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab. Case-study return links use `/#work`; old `#case-studies` links still land at the work section. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
-
-Dremio's AI product portfolio and Dremio University learning metrics are deliberately separate. Claims must remain résumé-verified or linked to an approved source. Do not add confidential employer details, invented savings, unsupported governance claims, or unverified psychometric claims.
+The cases distinguish my ownership, the decisions made, and the available evidence. Dremio AI product work and Dremio University learning metrics remain separate. Editorial and factual boundaries are documented in [AGENTS.md](AGENTS.md).
 
 ## Architecture
 
@@ -39,8 +29,6 @@ GitHub Pages
        ├─ Shared typed content model
        └─ Résumé, screenshots, metadata, and social preview
 ```
-
-The public site intentionally has no AI assistant, runtime API, API key, server container, or database. The repository's production artifact is a static Vite build.
 
 ## Local development
 
@@ -68,6 +56,18 @@ npm run scan:secrets
 ```
 
 The test suite covers employer positioning, proof and CTAs, the complete project and games catalog, optional links, navigation reading order, route scroll/focus reset, current and legacy case-list anchors, static path handling, the concise About narrative, and critical automated accessibility checks. Before publishing layout changes, also check desktop, tablet, and phone viewports for readable type, compact introductions, and horizontal overflow.
+
+## Deployment and maintenance
+
+- Hosting: GitHub Pages at [aydoon.com](https://aydoon.com/).
+- Production branch: `main`.
+- Deployment workflow: [`.github/workflows/pages-preview.yml`](.github/workflows/pages-preview.yml).
+- Branch and pull-request checks: [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+- Latest layout release notes: [compact portfolio](docs/releases/2026-09-05-compact-portfolio.md).
+
+Push-triggered deployment runs only on `main`. Branch and pull-request CI is verification-only; do not manually dispatch the Pages workflow from a review branch. Ordinary releases do not require DNS or Cloud Run changes. Record the live commit before publication and use a revert commit for rollback rather than rewriting shared history.
+
+Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab. Case-study return links use `/#work`; old `#case-studies` links remain supported. The résumé file retains its stable URL but is intentionally not promoted in the interface.
 
 After a deployment, smoke-test:
 
