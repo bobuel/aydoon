@@ -24,16 +24,17 @@ This repository powers `https://aydoon.com`, Alex Aidun's employer-facing portfo
 - The OpenAI finding is that 43.5% of occupation-specific ChatGPT messages cross occupational boundaries. Broader ownership and fewer handoffs are Alex's interpretation, not OpenAI's stated finding.
 - Maintain the current concise hierarchy. Add new homepage material only when it improves employer comprehension enough to justify additional scrolling.
 - Omit redundant section labels such as “Portfolio,” “Selected work,” and “What I build” when headings or navigation already provide that context. Keep useful case categories, role context, project availability, and accessible labels.
-- Preserve the homepage's split-screen concept: identity and role context in the profile rail, with short case titles, ownership summaries, and inline evidence on the right. Keep workflow detail inside case studies, not decorative homepage chips. On mobile, navigation comes first and the introduction has no fixed minimum height.
+- The approved production design is Hybrid: a light, persistent identity sidebar, flat content rows, and Work / Builds / Games links. Alex Aidun is the primary name heading; “Design is the premium.” is the tagline. Keep the compact type scale, muted palette, and small inline evidence. Do not restore the navy rail, boxed project grids, oversized numbers, or local design-switching controls.
+- The sidebar comes before content on mobile and has no fixed minimum height. Keep workflow detail inside case studies, not decorative homepage chips. About remains linked from the profile links and directly accessible.
 - Keep inner-page titles at the shared compact scale (maximum 36px at default text size), case metrics modest, and body copy readable. Do not restore oversized editorial heroes. `/#work` is the case-list destination; old `#case-studies` links remain supported.
 
 ## Important files
 
 - `content.ts`: verified profile, proof, project, and case-study content.
 - `types.ts`: typed content model.
-- `components/EmployerPortfolio.tsx`: homepage.
-- `components/AboutPage.tsx`: concise systems-thinking and AI-adoption narrative; do not duplicate the homepage evidence or career history here.
-- `styles.css`: global responsive presentation.
+- `components/HybridPortfolio.tsx`: production shell, Work / Builds / Games navigation, About, case studies, metadata, and shared anchors. The older page components are not production entry points.
+- `hybrid.css`: production responsive presentation. The older `styles.css` is not imported by the production entry point.
+- `tests/HybridPortfolio.test.tsx`: production integration, route, content, optional-link, focus, metadata, and accessibility regression tests.
 - `index.html`: metadata, social tags, canonical data, and Person JSON-LD.
 - `public/alexander-aidun-resume.pdf`: public résumé; preserve the URL.
 - `scripts/prepare-static-routes.mjs`: direct-route output for GitHub Pages.
@@ -50,7 +51,7 @@ npm run build:pages:production
 npm run scan:secrets
 ```
 
-After deployment, verify the homepage, About, Builds, every case-study route, the legacy Work and Games redirects, résumé, sitemap, and robots file on `https://aydoon.com`. Confirm that the live JavaScript asset contains the new React-rendered copy and that canonical metadata uses the custom domain.
+After deployment, verify the homepage, About, Builds, Games, every case-study route, the legacy Work redirect, résumé, sitemap, and robots file on `https://aydoon.com`. Games now has its own filtered view rather than redirecting to Builds. Confirm that the live JavaScript asset contains the new React-rendered copy and that canonical metadata uses the custom domain.
 
 ## Release discipline
 
