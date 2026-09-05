@@ -146,7 +146,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'bloom-assessment-workflow',
-    eyebrow: 'Builder case study',
+    eyebrow: 'AI education workflow',
     title: 'Bloom assessment workflow',
     summary:
       'Turning observed demand into a source-grounded assessment system that keeps teacher judgment inside the workflow.',

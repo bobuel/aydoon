@@ -10,6 +10,9 @@ describe('AboutPage', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/AI operations, product, and adoption/i);
     expect(screen.getByRole('heading', { name: /complex systems easier to use/i })).toBeInTheDocument();
     expect(screen.getByText(/design premium rises/i)).toBeInTheDocument();
+    for (const label of ['About Alex', 'How I work', 'Say hello']) {
+      expect(screen.queryByText(label, { exact: true })).not.toBeInTheDocument();
+    }
     expect(screen.queryByRole('heading', { name: /The through line/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /Anthropic research/i })).not.toBeInTheDocument();
   });

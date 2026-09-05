@@ -29,3 +29,7 @@ Navigation now resets scroll and moves keyboard focus into new route content. Ca
 Publish only the validated commit. GitHub Actions reruns verification before deployment. Check the deployed homepage, About, Builds, all three cases, legacy redirects, résumé URL, sitemap, robots, canonical URLs, and the new JavaScript asset.
 
 If a critical regression appears, restore the baseline content through a new revert commit; do not rewrite main history or change DNS. Preserve unrelated Windows-incompatible prompt-history paths, which appear deleted locally but are not part of this release.
+
+## Label cleanup follow-up
+
+The follow-up starts from live commit `5e9bb44c08426fcc4ae26e718d2798feb00c2aa8` (rollback reference for this small change). It removes redundant homepage and About labels, the homepage's “Three examples…” introduction, and duplicate category/status labels on open-source projects. Meaningful case categories, “Currently,” private/live statuses, headings, navigation, and body copy remain. Bloom uses the same “AI education workflow” category on the homepage and case page. Verified with all 18 tests, the production build, secret scan, and desktop/phone browser checks.

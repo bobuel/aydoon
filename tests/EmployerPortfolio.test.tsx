@@ -6,6 +6,29 @@ import BuildLabPage from '../components/BuildLabPage';
 import EmployerPortfolio from '../components/EmployerPortfolio';
 
 describe('EmployerPortfolio', () => {
+  it('keeps meaningful context without redundant section labels', () => {
+    render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
+    for (const label of ['Portfolio', 'Selected work', 'Professional work', 'What I build']) {
+      expect(screen.queryByText(label, { exact: true })).not.toBeInTheDocument();
+    }
+    expect(screen.queryByText(/^Three examples of/)).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Design is the premium.' })).toBeInTheDocument();
+    expect(screen.getByText('Currently')).toBeInTheDocument();
+    expect(screen.getByText('Enterprise adoption')).toBeInTheDocument();
+    expect(screen.getByText('AI product leadership')).toBeInTheDocument();
+    expect(screen.getByText('AI education workflow')).toBeInTheDocument();
+  });
+
+  it('shows each project category and status without repeating identical labels', () => {
+    render(<MemoryRouter><BuildLabPage /></MemoryRouter>);
+    const openSource = screen.getByRole('heading', { name: 'Retrieval Guard' }).closest('article')!;
+    expect(within(openSource).getAllByText(/^open source$/i)).toHaveLength(1);
+    const privateProject = screen.getByRole('heading', { name: 'Informa' }).closest('article')!;
+    expect(within(privateProject).getByText('Private prototype')).toBeInTheDocument();
+    const liveProject = screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')!;
+    expect(within(liveProject).getByText('Live prototype')).toBeInTheDocument();
+  });
+
   it('presents the employer positioning, proof, and working calls to action', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 

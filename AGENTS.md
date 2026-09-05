@@ -23,6 +23,7 @@ This repository powers `https://aydoon.com`, Alex Aidun's employer-facing portfo
 - The Anthropic finding is approximately 70% of planning decisions by people and 80% of execution decisions by Claude in the studied Claude Code sessions.
 - The OpenAI finding is that 43.5% of occupation-specific ChatGPT messages cross occupational boundaries. Broader ownership and fewer handoffs are Alex's interpretation, not OpenAI's stated finding.
 - Maintain the current concise hierarchy. Add new homepage material only when it improves employer comprehension enough to justify additional scrolling.
+- Omit redundant section labels such as “Portfolio,” “Selected work,” and “What I build” when headings or navigation already provide that context. Keep useful case categories, role context, project availability, and accessible labels.
 - Preserve the homepage's split-screen concept: identity and role context in the profile rail, with short case titles, ownership summaries, and inline evidence on the right. Keep workflow detail inside case studies, not decorative homepage chips. On mobile, navigation comes first and the introduction has no fixed minimum height.
 - Keep inner-page titles at the shared compact scale (maximum 36px at default text size), case metrics modest, and body copy readable. Do not restore oversized editorial heroes. `/#work` is the case-list destination; old `#case-studies` links remain supported.
 

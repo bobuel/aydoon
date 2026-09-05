@@ -4,6 +4,7 @@ import { siteAsset } from '../sitePaths';
 import type { Project } from '../types';
 
 export default function BuildCard({ project, collectionLabel }: { project: Project; collectionLabel?: string }) {
+  const category = collectionLabel ?? project.category;
   return (
     <article className="build-card">
       <div className={`build-visual accent-${project.accent}`}>
@@ -15,11 +16,11 @@ export default function BuildCard({ project, collectionLabel }: { project: Proje
       </div>
       <div className="build-body">
         <div className="build-meta">
-          <span>{collectionLabel ?? project.category}</span>
-          <span className="status-pill">
+          <span>{category}</span>
+          {category.toLowerCase() !== project.status.toLowerCase() && <span className="status-pill">
             {project.status === 'Private prototype' && <LockKeyhole aria-hidden="true" size={12} />}
             {project.status}
-          </span>
+          </span>}
         </div>
         <h2>{project.title}</h2>
         <p>{project.description}</p>
