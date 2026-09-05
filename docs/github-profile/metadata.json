@@ -1,0 +1,27 @@
+{
+  "status": "proposed-only",
+  "profile": {
+    "login": "bobuel",
+    "bio": "AI operations, product, and adoption. I build tools, run enterprise AI programs, and help people put AI to work.",
+    "website": "https://aydoon.com/"
+  },
+  "repositories": {
+    "aydoon": {
+      "description": "My work in AI operations, product, and adoption, plus the tools and games I build to test ideas.",
+      "homepage": "https://aydoon.com/"
+    },
+    "bloom-taxonomy-quiz-builder-skill": {
+      "description": "A source-grounded quiz-building workflow with teacher review, Bloom-level questions, and structured output.",
+      "homepage": "https://aydoon.com/case-studies/bloom-assessment-workflow"
+    },
+    "retrieval-guard": {
+      "description": "Experimental Python tools for retrieval regression tests and near-miss filtering in RAG workflows.",
+      "homepage": "https://github.com/bobuel/retrieval-guard#readme"
+    }
+  },
+  "pins": [
+    "bobuel/aydoon",
+    "bobuel/bloom-taxonomy-quiz-builder-skill",
+    "bobuel/retrieval-guard"
+  ]
+}

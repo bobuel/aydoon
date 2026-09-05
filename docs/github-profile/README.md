@@ -1,33 +1,13 @@
-<a href="https://bobuel.github.io/aydoon/">
-  <img src="https://bobuel.github.io/aydoon/og.jpg" alt="Alex Aidun — Enterprise AI Product & Adoption Leader" width="100%">
-</a>
+# Alex Aidun
 
-# Hi, I’m Alex Aidun
+Design is the premium.
 
-## Enterprise AI Product & Adoption Leader
+I work across AI operations, product, and adoption. At Automattic, I help run enterprise AI tools, build internal products, and lead the AI Guides program. My background connects product management with education and enablement.
 
-I turn ambiguous expert workflows into trusted AI products—and pair the technology with the operating systems, guidance, and champions that make adoption stick.
+[Website](https://aydoon.com/) · [AI adoption case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [LinkedIn](https://www.linkedin.com/in/aaidun/) · [Email](mailto:bobuel@gmail.com)
 
-**[Explore my portfolio](https://bobuel.github.io/aydoon/)** · **[View résumé](https://bobuel.github.io/aydoon/alexander-aidun-resume.pdf)** · [LinkedIn](https://www.linkedin.com/in/aaidun/) · [Email](mailto:bobuel@gmail.com)
+## Projects
 
-## Evidence over adjectives
-
-- **1,500 employees:** enterprise AI environment I help operate at Automattic.
-- **Four AI initiatives:** AI Agent, MCP server, AI SQL functions, and analyst chat shaped at Dremio.
-- **3,200+ learners:** Dremio University reach in six months, with +78 NPS and 50% completion.
-- **1,000+ uses:** BloomGPT signal that informed a more structured, source-grounded assessment workflow.
-
-## Featured case studies
-
-- **[Scaling practical AI across Automattic](https://bobuel.github.io/aydoon/case-studies/enterprise-ai-adoption-automattic)** — enterprise products, learning, and a champion network for sustained adoption.
-- **[From customer signal to an AI portfolio at Dremio](https://bobuel.github.io/aydoon/case-studies/ai-product-leadership-dremio)** — discovery, product direction, and engineering partnership across four AI initiatives.
-- **[Turning 1,000+ uses into a better assessment workflow](https://bobuel.github.io/aydoon/case-studies/bloom-assessment-workflow)** — translating usage evidence into a source-grounded workflow with explicit teacher review.
-
-## Selected open-source work
-
-- **[Retrieval Guard](https://github.com/bobuel/retrieval-guard)** — evaluation tooling for retrieval pipelines.
-- **[Bloom Taxonomy Quiz Builder Skill](https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill)** — a source-grounded assessment workflow with teacher checkpoints.
-
-## What I’m interested in
-
-Enterprise AI product leadership, adoption, enablement, agentic workflows, and product-led transformation—especially where trust and sustained use matter as much as the technology.
+- [Bloom Quiz Builder](https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill) — a source-grounded assessment workflow with teacher review built in.
+- [retrieval-guard](https://github.com/bobuel/retrieval-guard) — an experimental tool for checking retrieval quality before context reaches an AI system.
+- [Brassline](https://bobuel.github.io/brassline/) — a train-heist tactical autobattler. I build games, too.
