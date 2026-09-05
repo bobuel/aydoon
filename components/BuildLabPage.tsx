@@ -20,17 +20,12 @@ export default function BuildLabPage() {
   return (
     <PageShell>
       <section className="page-hero section-grid lab-hero" aria-labelledby="lab-heading">
-        <p className="eyebrow">Build Lab</p>
-        <h1 id="lab-heading">Products, tools, open source, games, and experiments.</h1>
-        <p>This is the complete making practice—not just the projects that fit neatly into a résumé.</p>
+        <h1 id="lab-heading">Build Lab</h1>
+        <p>Products, AI tools, open source, and games. I build to test ideas and see what works.</p>
       </section>
 
-      <section className="build-section page-build-section" aria-labelledby="all-builds-heading">
+      <section className="build-section page-build-section" aria-label="Browse projects">
         <div className="section-grid">
-          <div className="section-heading">
-            <div><p className="eyebrow">Everything so far</p><h2 id="all-builds-heading">Browse the lab.</h2></div>
-            <p>Working prototypes, private explorations, open-source workflows, and playful systems.</p>
-          </div>
           <div className="filter-row" aria-label="Filter Build Lab projects">
             {filters.map((item) => (
               <button

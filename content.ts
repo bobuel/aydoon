@@ -38,7 +38,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'enterprise-ai-adoption-automattic',
     eyebrow: 'Enterprise adoption',
-    title: 'Scaling practical AI across Automattic',
+    title: 'AI operations at Automattic',
     summary:
       'Operating an enterprise AI environment as one connected adoption system across products, learning, guidance, and a champion network.',
     role: 'AI Adoption Manager, Automattic',
@@ -92,7 +92,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'ai-product-leadership-dremio',
     eyebrow: 'AI product leadership',
-    title: 'From customer signal to an AI portfolio at Dremio',
+    title: 'AI products at Dremio',
     summary:
       'Turning customer signal into an AI portfolio by connecting product direction, workflow design, and engineering partnership.',
     role: 'Senior AI Product Manager and Director, Education & Documentation',
@@ -147,7 +147,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'bloom-assessment-workflow',
     eyebrow: 'Builder case study',
-    title: 'From observed demand to a better assessment workflow',
+    title: 'Bloom assessment workflow',
     summary:
       'Turning observed demand into a source-grounded assessment system that keeps teacher judgment inside the workflow.',
     role: 'Product concept, workflow design, and implementation',

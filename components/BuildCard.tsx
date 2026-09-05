@@ -21,7 +21,7 @@ export default function BuildCard({ project, collectionLabel }: { project: Proje
             {project.status}
           </span>
         </div>
-        <h3>{project.title}</h3>
+        <h2>{project.title}</h2>
         <p>{project.description}</p>
         <ul className="tag-list" aria-label={`${project.title} technologies and themes`}>
           {project.tags.map((tag) => <li key={tag}>{tag}</li>)}

@@ -13,10 +13,10 @@ export default function AboutPage() {
 
       <section className="about-story about-story-editorial section-grid" aria-labelledby="about-story-heading">
         <div>
-          <p className="eyebrow">The connective tissue</p>
+          <p className="eyebrow">How I work</p>
           <h2 id="about-story-heading">I make complex systems easier to use.</h2>
           <p>My career has moved through education, documentation, product, and adoption, but the central question has stayed consistent: how do people understand a technical system, build confidence with it, and turn its capability into useful, repeatable work?</p>
-          <p>I build working products because proximity matters. It shows me where agents accelerate execution, where they lose context, and where the workflow, feedback, constraints, and human review determine whether the result is useful.</p>
+          <p>I build products myself to understand where AI helps, where it loses context, and where people need to stay involved. That experience shapes how I design workflows and help others use them.</p>
           <p>As execution gets cheaper, the design premium rises. I help organizations turn that shift into practical operating systems, products, learning, and behavior change—without reducing it to hype.</p>
         </div>
       </section>

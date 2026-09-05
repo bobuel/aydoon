@@ -1,6 +1,7 @@
 import axe from 'axe-core';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
 import BuildLabPage from '../components/BuildLabPage';
 import EmployerPortfolio from '../components/EmployerPortfolio';
 
@@ -41,20 +42,32 @@ describe('EmployerPortfolio', () => {
   it('keeps the homepage focused on professional evidence instead of the project catalog', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    expect(screen.getByRole('heading', { name: /Scaling practical AI/i })).toBeInTheDocument();
-    const automattic = screen.getByRole('heading', { name: /Scaling practical AI/i }).closest('article');
-    const dremio = screen.getByRole('heading', { name: /AI portfolio at Dremio/i }).closest('article');
-    const bloom = screen.getByRole('heading', { name: /observed demand/i }).closest('article');
+    const automattic = screen.getByRole('heading', { name: 'AI operations at Automattic' }).closest('article');
+    const dremio = screen.getByRole('heading', { name: 'AI products at Dremio' }).closest('article');
+    const bloom = screen.getByRole('heading', { name: 'Bloom assessment workflow' }).closest('article');
     expect(within(automattic as HTMLElement).getByText('1,500')).toBeInTheDocument();
-    expect(within(automattic as HTMLElement).getByRole('list', { name: /Automattic workflow/i })).toHaveTextContent(/Access.*Guidance.*Peer practice.*Feedback/i);
+    expect(within(automattic as HTMLElement).queryByRole('list')).not.toBeInTheDocument();
     expect(within(dremio as HTMLElement).getByText('4')).toBeInTheDocument();
-    expect(within(dremio as HTMLElement).getByRole('list', { name: /Dremio workflow/i })).toHaveTextContent(/Customer signal.*Product direction.*Engineering.*Delivery/i);
     expect(within(dremio as HTMLElement).queryByText('3,200+')).not.toBeInTheDocument();
     expect(within(bloom as HTMLElement).getByText('1,000+')).toBeInTheDocument();
     expect(within(bloom as HTMLElement).getByText('AI education workflow')).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Retrieval Guard' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Informa' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: /Systems, stories/i })).not.toBeInTheDocument();
+  });
+
+  it.each(['#work', '#case-studies'])('lands shared %s links at the case studies', (hash) => {
+    const scroll = vi.spyOn(HTMLElement.prototype, 'scrollIntoView');
+    render(<MemoryRouter initialEntries={[`/${hash}`]}><EmployerPortfolio /></MemoryRouter>);
+    expect(scroll).toHaveBeenCalled();
+    expect(scroll.mock.instances.at(-1)).toBe(document.getElementById('work'));
+    scroll.mockRestore();
+  });
+
+  it('puts primary navigation before the introduction in reading order', () => {
+    render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
+    const navigation = screen.getByRole('navigation', { name: 'Primary navigation' });
+    expect(navigation.compareDocumentPosition(screen.getByRole('heading', { level: 1 })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('has no critical automated accessibility violations in the homepage content', async () => {

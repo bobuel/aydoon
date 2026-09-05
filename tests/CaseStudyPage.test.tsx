@@ -16,7 +16,8 @@ describe('CaseStudyPage', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/AI portfolio at Dremio/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AI products at Dremio');
+    expect(screen.getByRole('link', { name: 'All case studies' })).toHaveAttribute('href', '/#work');
     expect(screen.getByRole('heading', { name: /Adoption evidence—kept distinct/i })).toBeInTheDocument();
     expect(screen.getByText(/Dremio University, not to the AI products/i)).toBeInTheDocument();
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(

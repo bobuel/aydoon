@@ -18,9 +18,9 @@ Only pushes to `main` deploy the public site. Branches and pull requests run CI 
 The experience uses one identity with two clear destinations:
 
 1. **Professional impact:** the homepage moves directly from positioning to verified proof, three case studies, and contact.
-2. **The making practice:** the Build Lab contains the complete catalog, including games and creative work.
+2. **Build Lab:** the complete catalog, including games and creative work.
 
-The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. On desktop, the homepage uses a split-screen working surface: a sticky identity rail anchors the profile while a portfolio panel presents three evidence-bearing systems and their workflow logic. The layout becomes a single column on smaller screens. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab so existing links continue to work. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
+The employer narrative connects domain expertise, systems thinking, hands-on building, and adoption. On desktop, a sticky identity rail sits beside three compact case studies with ownership summaries and inline metrics. Workflow detail stays inside the cases. On smaller screens, navigation comes first and the introduction fits its content rather than filling the viewport. About, Builds, and case studies share a compact type scale. The About page holds a concise personal point of view without repeating the case studies, experience history, or research library. Legacy `/work` and `/games` URLs redirect to the homepage and Build Lab. Case-study return links use `/#work`; old `#case-studies` links still land at the work section. The résumé artifact remains available at its stable URL but is intentionally not linked from the interface.
 
 Dremio's AI product portfolio and Dremio University learning metrics are deliberately separate. Claims must remain résumé-verified or linked to an approved source. Do not add confidential employer details, invented savings, unsupported governance claims, or unverified psychometric claims.
 
@@ -67,7 +67,7 @@ npm run build:pages:production
 npm run scan:secrets
 ```
 
-The test suite covers employer positioning, proof and CTAs, the complete project and games catalog, optional links, simplified navigation, static path handling, the concise About narrative, and critical automated accessibility checks.
+The test suite covers employer positioning, proof and CTAs, the complete project and games catalog, optional links, navigation reading order, route scroll/focus reset, current and legacy case-list anchors, static path handling, the concise About narrative, and critical automated accessibility checks. Before publishing layout changes, also check desktop, tablet, and phone viewports for readable type, compact introductions, and horizontal overflow.
 
 After a deployment, smoke-test:
 

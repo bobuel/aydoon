@@ -58,7 +58,7 @@ export default function CaseStudyPage() {
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <header className="case-hero section-grid">
-          <Link className="back-link" to="/#case-studies">
+          <Link className="back-link" to="/#work">
             <ArrowLeft aria-hidden="true" size={17} /> All case studies
           </Link>
           <p className="eyebrow">{study.eyebrow}</p>

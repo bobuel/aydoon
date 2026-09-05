@@ -9,18 +9,18 @@ const deployOrigin = process.argv[2] || previewOrigin;
 const caseStudies = [
   {
     slug: 'enterprise-ai-adoption-automattic',
-    title: 'Enterprise AI adoption at Automattic',
+    title: 'AI operations at Automattic',
     description: 'How Alex Aidun approaches enterprise AI adoption through product ownership, enablement, and a distributed champion network.',
   },
   {
     slug: 'ai-product-leadership-dremio',
-    title: 'AI portfolio at Dremio',
+    title: 'AI products at Dremio',
     description: 'How Alex Aidun shaped four AI product initiatives while keeping product evidence distinct from Dremio University adoption metrics.',
   },
   {
     slug: 'bloom-assessment-workflow',
     title: 'Bloom assessment workflow',
-    description: 'How Alex Aidun turned Bloom\'s taxonomy into a repeatable assessment workflow used more than 1,000 times.',
+    description: 'How Alex Aidun used demand from 1,000+ BloomGPT uses to design a source-grounded assessment workflow with teacher review.',
   },
 ];
 

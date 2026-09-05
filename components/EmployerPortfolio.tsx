@@ -1,13 +1,8 @@
 import { ArrowRight, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE } from '../content';
 import SkipLink from './SkipLink';
-
-const SYSTEM_FLOWS: Record<string, string[]> = {
-  'enterprise-ai-adoption-automattic': ['Access', 'Guidance', 'Peer practice', 'Feedback'],
-  'ai-product-leadership-dremio': ['Customer signal', 'Product direction', 'Engineering', 'Delivery'],
-  'bloom-assessment-workflow': ['Source material', 'Generation', 'Teacher review', 'Structured output'],
-};
 
 const HOME_CASE_SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'I manage operations for ChatGPT, Codex, and Claude, alongside internal products and the AI Guides program.',
@@ -20,11 +15,30 @@ const HOME_CASE_EYEBROWS: Record<string, string> = {
 };
 
 export default function EmployerPortfolio() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    // React mounts the destination after client-side navigation; keep old shared anchors working too.
+    if (hash === '#work' || hash === '#case-studies') {
+      document.getElementById('work')?.scrollIntoView();
+    }
+  }, [hash]);
+
   return (
     <div className="site-shell hybrid-home">
       <SkipLink />
 
       <div className="hybrid-layout">
+        <header className="surface-header">
+          <Link className="mobile-brand" to="/" aria-label="Alex Aidun home">Alex Aidun</Link>
+          <div className="surface-label"><span>Portfolio</span><strong>Selected work</strong></div>
+          <nav aria-label="Primary navigation">
+            <a className="active" href="#work">Work</a>
+            <Link to="/builds">Builds</Link>
+            <Link to="/about">About</Link>
+            <a href={`mailto:${PROFILE.email}`}>Contact</a>
+          </nav>
+        </header>
         <aside className="profile-rail" aria-labelledby="hero-heading">
           <Link className="rail-brand" to="/" aria-label="Alex Aidun home">
             <span className="rail-brand-mark" aria-hidden="true">A</span>
@@ -57,19 +71,6 @@ export default function EmployerPortfolio() {
         </aside>
 
         <main className="work-surface" id="main" tabIndex={-1}>
-          <header className="surface-header">
-            <div>
-              <span>Portfolio</span>
-              <strong>Selected systems</strong>
-            </div>
-            <nav aria-label="Primary navigation">
-              <a className="active" href="#work">Work</a>
-              <Link to="/builds">Builds</Link>
-              <Link to="/about">About</Link>
-              <a href={`mailto:${PROFILE.email}`}>Contact</a>
-            </nav>
-          </header>
-
           <section className="surface-intro" id="work" aria-labelledby="case-heading">
             <div>
               <p className="eyebrow">Professional work</p>
@@ -79,21 +80,15 @@ export default function EmployerPortfolio() {
           </section>
 
           <section className="system-list" aria-label="Selected case studies">
-            {CASE_STUDIES.map((study, index) => (
+            {CASE_STUDIES.map((study) => (
               <article className="system-card" key={study.slug}>
-                <div className="system-index" aria-hidden="true">0{index + 1}</div>
                 <div className="system-copy">
                   <p className="eyebrow">{HOME_CASE_EYEBROWS[study.slug] ?? study.eyebrow}</p>
                   <h3>{study.title}</h3>
                   <p>{HOME_CASE_SUMMARIES[study.slug]}</p>
-                  <ol className="system-flow" aria-label={`${study.title} workflow`}>
-                    {SYSTEM_FLOWS[study.slug]?.map((step) => <li key={step}>{step}</li>)}
-                  </ol>
                 </div>
                 <div className="system-result">
-                  <span>Evidence</span>
-                  <strong>{study.evidence[0].value}</strong>
-                  <p>{study.evidence[0].label}</p>
+                  <p><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>
                   <Link to={`/case-studies/${study.slug}`} aria-label={`Read case study: ${study.title}`}>
                     Read the case <ArrowRight aria-hidden="true" size={16} />
                   </Link>
@@ -105,7 +100,7 @@ export default function EmployerPortfolio() {
           <section className="surface-close" aria-labelledby="surface-close-heading">
             <div>
               <p className="eyebrow">What I build</p>
-              <h2 id="surface-close-heading">Products, tools, and experiments.</h2>
+              <h2 id="surface-close-heading">Build Lab</h2>
               <p>I build to test ideas, understand the tools, and see where AI actually works.</p>
             </div>
             <Link className="surface-close-link" to="/builds">
