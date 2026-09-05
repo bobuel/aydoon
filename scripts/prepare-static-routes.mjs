@@ -32,7 +32,7 @@ const standalonePages = [
   },
   {
     path: 'builds',
-    title: 'Build Lab',
+    title: 'Builds',
     description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.',
   },
   {

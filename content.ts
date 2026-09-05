@@ -193,7 +193,7 @@ export const PROJECTS: Project[] = [
     slug: 'certifyfast',
     title: 'CertifyFast',
     description:
-      'A prototype for turning authoritative source material into job-task analysis and exam-development artifacts with traceability for expert review.',
+      'Turn source material into certification and exam-development artifacts, ready for expert review.',
     category: 'Products',
     status: 'Live prototype',
     tags: ['Certification', 'Source grounding', 'Human review'],
@@ -215,7 +215,7 @@ export const PROJECTS: Project[] = [
     slug: 'informa',
     title: 'Informa',
     description:
-      'A private intelligence-agent prototype for combining feeds, producing a morning audio digest, supporting live queries, and tracking trend velocity.',
+      'A private intelligence-agent prototype for feeds, morning audio summaries, and live queries.',
     category: 'Agents & Tools',
     status: 'Private prototype',
     tags: ['AgentMail', 'Voice', 'Signal processing'],
@@ -228,7 +228,7 @@ export const PROJECTS: Project[] = [
     slug: 'kidgrow',
     title: 'KidGrow',
     description:
-      'A parent-facing prototype that organizes uploaded developmental information against established childhood frameworks and suggests playful activities.',
+      'Organize developmental information and explore playful activities for parents and children.',
     category: 'Products',
     status: 'Live prototype',
     tags: ['Document analysis', 'Recommendations', 'Family UX'],
@@ -244,7 +244,7 @@ export const PROJECTS: Project[] = [
     slug: 'kid-comic-storyteller',
     title: 'Kid Comic Storyteller',
     description:
-      'A collaborative narrator that helps children turn spoken ideas into a voiced comic-book experience.',
+      'Help children turn spoken ideas into a voiced comic-book experience.',
     category: 'Agents & Tools',
     status: 'Live prototype',
     tags: ['AI images', 'Voice', 'Creative collaboration'],
@@ -266,7 +266,7 @@ export const PROJECTS: Project[] = [
     slug: 'grdn',
     title: 'Grdn',
     description:
-      'A voice-first music-management assistant that turns unstructured dictation into organized business information.',
+      'Turn voice notes into organized information for music management.',
     category: 'Agents & Tools',
     status: 'Live prototype',
     tags: ['Voice input', 'Data management', 'Music'],
@@ -297,7 +297,7 @@ export const PROJECTS: Project[] = [
     slug: 'iron-hand',
     title: 'Iron Hand',
     description:
-      'A five-card-draw poker auto-battler exploring item, inventory, and combat-loop design.',
+      'A poker auto-battler exploring items, inventory, and combat-loop design.',
     category: 'Games',
     status: 'Live prototype',
     tags: ['Game systems', 'Inventory', 'Poker'],
@@ -319,7 +319,7 @@ export const PROJECTS: Project[] = [
     slug: 'bloom-taxonomy-quiz-builder-skill',
     title: 'Bloom Quiz Builder Skill',
     description:
-      'An open-source, source-grounded assessment workflow with teacher checkpoints and structured output.',
+      'Build source-grounded assessment questions with teacher checkpoints and structured output.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['Education', 'Workflow design', 'AI skill'],
@@ -345,7 +345,7 @@ export const PROJECTS: Project[] = [
     slug: 'retrieval-guard',
     title: 'Retrieval Guard',
     description:
-      'An experimental Python toolkit for benchmarking retrieval regressions and filtering structurally similar near misses before context reaches an LLM or agent.',
+      'Check retrieval regressions and structural near misses before context reaches an AI system.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['RAG evaluation', 'Regression testing', 'Two-stage retrieval'],
@@ -359,6 +359,13 @@ export const PROJECTS: Project[] = [
         kind: 'source',
       },
     ],
+  },
+  {
+    id: 'brassline', slug: 'brassline', title: 'Brassline',
+    description: 'A free steampunk train-heist tactical autobattler.',
+    category: 'Games', status: 'Live prototype', tags: ['Godot', 'Game systems'],
+    featured: true, collections: ['Games'], accent: 'blue',
+    links: [{ label: 'Play game', href: 'https://bobuel.github.io/brassline/', kind: 'demo' }],
   },
 ];
 
