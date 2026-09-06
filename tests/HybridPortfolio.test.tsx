@@ -36,7 +36,7 @@ describe('published Hybrid design', () => {
     const identity = screen.getByRole('complementary');
     expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them.')).toBeInTheDocument();
     expect(within(identity).getByText('My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
-    expect(within(identity).getByText('I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.')).toBeInTheDocument();
+    expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.getByText('At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI operations at Automattic' }));
@@ -51,7 +51,7 @@ describe('published Hybrid design', () => {
     show();
     const identity = screen.getByRole('complementary');
     const navigation = screen.getByRole('navigation', { name: 'Primary navigation' });
-    expect(within(navigation).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games']);
+    expect(within(navigation).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games', 'Writing', 'About']);
     fireEvent.click(within(navigation).getByRole('link', { name: 'Builds' }));
     expect(screen.queryByText('Design is the premium.')).not.toBeInTheDocument();
     expect(screen.getByRole('complementary')).toBe(identity);
@@ -68,9 +68,13 @@ describe('published Hybrid design', () => {
     show();
     expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', PROFILE.github);
     expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', PROFILE.linkedin);
-    expect(screen.getByRole('link', { name: 'Email Alex' })).toHaveAttribute('href', `mailto:${PROFILE.email}`);
+    expect(screen.getByRole('link', { name: 'Email' })).toHaveAttribute('href', `mailto:${PROFILE.email}`);
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
     expect(screen.queryByRole('link', { name: /resume|résumé/i })).not.toBeInTheDocument();
+    const contacts = screen.getByRole('navigation', { name: 'Contact and profiles' });
+    expect(contacts.closest('.identity-intro')).not.toBeNull();
+    expect(contacts.compareDocumentPosition(document.querySelector('.identity-story')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(screen.queryByRole('navigation', { name: 'Profile links' })).not.toBeInTheDocument();
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 

@@ -15,12 +15,12 @@ beforeEach(() => { vi.spyOn(window, 'scrollTo').mockImplementation(() => undefin
 afterEach(() => { vi.restoreAllMocks(); });
 
 describe('published Writing section', () => {
-  it('adds a sidebar destination without changing the homepage content or primary navigation', () => {
+  it('keeps Writing in the primary navigation without changing homepage case content', () => {
     show('/');
     expect(screen.getAllByRole('article')).toHaveLength(3);
-    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games']);
+    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games', 'Writing', 'About']);
     const sidebar = screen.getByRole('complementary');
-    fireEvent.click(within(sidebar).getByRole('link', { name: 'Writing' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Writing' }));
     expect(screen.getByRole('complementary')).toBe(sidebar);
     expect(screen.getByRole('heading', { level: 2, name: 'Writing' })).toBeInTheDocument();
     expect(screen.getByRole('main')).toHaveFocus();
