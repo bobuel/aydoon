@@ -63,12 +63,13 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        heading: 'What I own',
+        heading: 'Operations, products, and adoption',
         body: [
           'I treat enterprise adoption as a product system rather than a communications campaign.',
         ],
         bullets: [
-          'Functional and cost operations for the company’s ChatGPT and Claude environments.',
+          'Functional operations for the company’s ChatGPT, Codex, and Claude environments.',
+          'Helping with cost management across those AI tools.',
           'Product management for an internal AI Agent, AI Learning, LibreChat, and Slack-based agentic automation.',
           'An AI Guides champion program that creates peer support and reusable examples.',
           'Scoping, design, and delivery support for executive AI use cases.',
@@ -127,6 +128,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           'AI SQL functions embedded in data workflows.',
           'A data-analyst chatbot experience.',
           'Roadmap and revenue prioritization in partnership with Design and Engineering.',
+          'Cross-department automation using Zapier, OpenAI, Jira, GitHub, and MCP.',
         ],
       },
       {
