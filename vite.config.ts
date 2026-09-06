@@ -1,11 +1,14 @@
 import path from 'path';
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import { getWritingArticles } from './writing/registry.mjs';
+import writingPieces from './writing/pieces.json';
+import type { WritingArticle } from './types';
 
 const previewOrigin = 'https://bobuel.github.io/aydoon';
 const productionOrigin = 'https://aydoon.com';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   const isProductionPages = mode === 'production-pages';
   const siteOrigin = isProductionPages ? productionOrigin : previewOrigin;
   const robotsDirective = isProductionPages ? 'index, follow' : 'noindex, nofollow';
@@ -18,6 +21,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.VITE_SITE_ORIGIN': JSON.stringify(siteOrigin),
+      __WRITING_ARTICLES__: JSON.stringify(getWritingArticles({ articles: writingPieces as WritingArticle[], includeDrafts: command === 'serve' })),
     },
     plugins: [
       react(),

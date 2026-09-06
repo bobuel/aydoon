@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Mail } from 'lucide-react';
 import { Link, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
 import { siteUrl } from '../sitePaths';
+import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../writing/content';
+import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.',
@@ -21,6 +23,7 @@ const PAGE_METADATA: Record<string, { title: string; description: string }> = {
 };
 
 function Identity() {
+  const { pathname } = useLocation();
   return (
     <aside className="identity" aria-label="About Alex">
       <div className="identity-intro">
@@ -41,6 +44,7 @@ function Identity() {
         <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} aria-hidden="true" /></a>
         <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={14} aria-hidden="true" /></a>
         <Link to="/about">About</Link>
+        {WRITING_ARTICLES.length > 0 && <Link to="/writing" aria-current={pathname === '/writing' || pathname.startsWith('/writing/') ? 'page' : undefined}>Writing</Link>}
         <a className="identity-email" href={`mailto:${PROFILE.email}`}><Mail size={16} aria-hidden="true" /> Email Alex</a>
       </nav>
     </aside>
@@ -147,14 +151,24 @@ function NotFound() {
   return <section className="about-copy"><h2>That page isn’t here.</h2><Link className="back-link" to="/">Back to work</Link></section>;
 }
 
+function ArticleRoute() {
+  const { slug = '' } = useParams();
+  const article = getWritingArticle(slug);
+  return article ? <WritingDetail article={article} /> : <NotFound />;
+}
+
 export default function HybridPortfolio() {
   const { pathname, hash } = useLocation();
   const path = pathname.replace(/\/$/, '') || '/';
   const study = path.startsWith('/case-studies/') ? getCaseStudy(path.slice('/case-studies/'.length)) : undefined;
+  const article = path.startsWith('/writing/') ? getWritingArticle(path.slice('/writing/'.length)) : undefined;
   const view = path === '/builds' ? 'builds' : path === '/games' ? 'games' : path === '/' || path === '/work' || study ? 'work' : '';
 
   useEffect(() => {
-    const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary } : PAGE_METADATA[path];
+    const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary }
+      : article ? { title: `${article.title} | Alex Aidun`, description: article.summary }
+      : path === '/writing' && WRITING_ARTICLES.length ? { title: 'Writing | Alex Aidun', description: WRITING_DESCRIPTION }
+      : PAGE_METADATA[path];
     if (!metadata) { document.title = 'Page not found | Alex Aidun'; return; }
     document.title = metadata.title;
     const values = [
@@ -171,7 +185,7 @@ export default function HybridPortfolio() {
     });
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = siteUrl(path);
-  }, [path, study]);
+  }, [path, study, article]);
 
   useEffect(() => {
     if (path === '/' && ['#work', '#case-studies'].includes(hash)) document.getElementById('work')?.scrollIntoView({ block: 'start' });
@@ -185,7 +199,7 @@ export default function HybridPortfolio() {
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
             {path === '/' && (
-              <p className="design-context">AI makes coding cheaper. The value shifts toward the decisions that shape what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. <strong>Design is the premium.</strong></p>
+              <p className="design-context">AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p>
             )}
             <nav className="view-navigation" aria-label="Primary navigation">
               {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, { id: 'games', label: 'Games', to: '/games' }].map(item => (
@@ -199,6 +213,8 @@ export default function HybridPortfolio() {
             <Route path="/builds" element={<ProjectList />} />
             <Route path="/games" element={<ProjectList gamesOnly />} />
             <Route path="/about" element={<About />} />
+            {WRITING_ARTICLES.length > 0 && <Route path="/writing" element={<WritingIndex />} />}
+            {WRITING_ARTICLES.length > 0 && <Route path="/writing/:slug" element={<ArticleRoute />} />}
             <Route path="/case-studies/:slug" element={<CaseDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,5 +1,7 @@
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { getWritingPages } from '../writing/registry.mjs';
+import { verifyWritingBuild } from './verify-writing-build.mjs';
 
 const outputDirectory = path.resolve('dist');
 const homeHtml = await readFile(path.join(outputDirectory, 'index.html'), 'utf8');
@@ -70,6 +72,7 @@ function withMetadata(html, page) {
 const routePages = [
   ...standalonePages,
   ...caseStudies.map((study) => ({ ...study, path: `case-studies/${study.slug}` })),
+  ...getWritingPages(),
 ];
 
 for (const page of routePages) {
@@ -85,9 +88,13 @@ const sitemapPath = path.join(outputDirectory, 'sitemap.xml');
 const robots = deployOrigin === previewOrigin
   ? await readFile(robotsPath, 'utf8')
   : `User-agent: *\nAllow: /\n\nSitemap: ${deployOrigin}/sitemap.xml\n`;
-const sitemap = (await readFile(sitemapPath, 'utf8')).replaceAll(previewOrigin, deployOrigin);
+const writingEntries = getWritingPages().map(page => `  <url><loc>${deployOrigin}/${page.path}</loc></url>`).join('\n');
+const sitemap = (await readFile(sitemapPath, 'utf8'))
+  .replaceAll(previewOrigin, deployOrigin)
+  .replace('</urlset>', writingEntries ? `${writingEntries}\n</urlset>` : '</urlset>');
 
 await writeFile(robotsPath, robots);
 await writeFile(sitemapPath, sitemap);
 await writeFile(path.join(outputDirectory, '.nojekyll'), '');
+await verifyWritingBuild(outputDirectory);
 console.log(`Prepared ${routePages.length} direct routes for ${deployOrigin} and the Pages fallback.`);
