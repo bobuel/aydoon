@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const roots = ['components', 'dist'];
-const extensions = new Set(['.js', '.mjs', '.cjs', '.ts', '.tsx', '.html', '.css', '.map']);
+const roots = ['components', 'writing', 'dist'];
+const extensions = new Set(['.js', '.mjs', '.cjs', '.ts', '.tsx', '.json', '.html', '.css', '.map']);
 const secretPatterns = [
   { name: 'Google API key', pattern: /AIza[0-9A-Za-z_-]{30,}/g },
   { name: 'client-side Gemini environment reference', pattern: /(?:VITE_GEMINI|process\.env\.(?:API_KEY|GEMINI_API_KEY))/g, clientOnly: true },

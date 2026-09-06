@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "cost-per-verified-outcome",
+    "title": "Cost per verified outcome",
+    "summary": "Manage AI cost around completed work, including failed attempts and the time spent checking the result.",
+    "category": "AI operations",
+    "status": "published",
+    "opening": [
+      "I think about AI tool cost as cost per verified outcome, not price per token.",
+      "Costs increase unexpectedly when a workflow carries stale context, exposes tools it does not need, returns huge results, asks the model to reason through deterministic work code could execute, retries without new evidence, or produces output nobody will use."
+    ],
+    "sections": [
+      {
+        "heading": "Scope the work",
+        "body": [
+          "Loose requests like “look into this” or “make it better” make the model infer the shape of the work. It may read broadly, retry from different angles, and produce a long summary without changing the outcome.",
+          "Name the outcome, the sources to consider, the tools actually needed, and the checks that prove the work is done. You are giving the AI a path to a verified result instead of an invitation to spend tokens on plausible work without a defined scope.",
+          "For a hypothetical document review, an accepted result might be a list of missing requirements with source references and unresolved questions. A polished summary does not meet that requirement. Use the same acceptance checks when comparing approaches."
+        ]
+      },
+      {
+        "heading": "Separate judgment from execution",
+        "body": [
+          "Spend model context when the task is to inspect meaning, synthesize tradeoffs, or make a judgment. Use code for deterministic parsing, filtering, counting, comparing, and validating. Let the model design the check and interpret the result. Let the runtime do the mechanical work.",
+          "Use the smallest tool set that can reach and verify the result. Search before reading broadly. Filter large inputs before passing them to the model. When the same task continues into a new phase, keep final decisions, sources checked, checks run, blockers, and the exact next step. Drop dead ends, verbose logs, and duplicate summaries.",
+          "Match model choice to uncertainty and the cost of a wrong answer. Compare results against the same checks, including the extra review or retries each approach needs."
+        ]
+      },
+      {
+        "heading": "Verify, measure, and stop",
+        "body": [
+          "For usage-based work, include the spend from all attempts, then divide by the number of outcomes that pass the checks. Failed attempts belong in the cost, not in the completed-work count. If nothing passes, report the spend and the failure rather than a cost per completed outcome.",
+          "Keep human review time alongside that figure. Compare similar tasks, and keep subscription or shared-capacity costs visible separately unless you have a clear allocation method.",
+          "A retry without new evidence often repeats the same work. Before another pass, run the focused check and feed back only the relevant failure or source gap. Say whether the model may broaden. Stop when the stated check passes."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "make-good-workflows-reusable",
+    "title": "Make good workflows reusable",
+    "summary": "Treat a reusable AI workflow as a small product someone else can understand, use, and check.",
+    "category": "AI adoption",
+    "status": "published",
+    "opening": [
+      "A reusable workflow is a small product. It has users, an input, an expected result, and things it should not do. Designing those pieces is what makes it useful to someone who did not build it.",
+      "Most people using AI tooling have a set of instructions they reuse: their team’s format, personal style preferences, or the steps for a recurring task. Pasting these at the start of every conversation puts the burden on the person to remember the method every time.",
+      "A skill gives that method a place to live. It is a saved set of instructions for a recurring task, with a description of when to use it. The current document or project supplies the facts."
+    ],
+    "sections": [
+      {
+        "heading": "Write it like a handoff",
+        "body": [
+          "Write it the way you’d brief a colleague covering for you. Explain when the task applies, what to do, how the output should look, and what it should not do.",
+          "For a hypothetical event-page review, the input is the draft page and an approved brief. The job is to compare the date, location, price, and registration details. Return missing or conflicting information with a reference to the relevant part of the brief. Flag anything the brief does not establish.",
+          "“Help with writing” leaves the task open. “Check this event page against the brief” gives it a purpose. That review should not silently become a rewrite, and it should never invent a missing price or publish the page.",
+          "Keep the method separate from the event details. The skill should still work for the next event without carrying over the last venue or registration deadline."
+        ]
+      },
+      {
+        "heading": "Try it without the author",
+        "body": [
+          "Test a complete input, an incomplete one, conflicting sources, and a request outside the skill’s intended scope. Check the behavior as well as the answer: the sources it used, the uncertainty it surfaced, and whether it stayed within the task.",
+          "Then give it to someone else without a live walkthrough. They need to recognize when to use it, supply the right input, and know what to check. They should not need to reconstruct the author’s prompting technique.",
+          "That is the adoption work: making the method usable beyond the person who developed it. Keep a small set of test inputs and expected findings. When a real failure exposes a gap, update the instructions and rerun those checks."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "shared-context-for-people-and-agents",
+    "title": "Shared context for people and agents",
+    "summary": "Keep project decisions and handoffs in a maintained record that people and agents can use within their access permissions.",
+    "category": "Systems design",
+    "status": "published",
+    "opening": [
+      "If I have to explain the whole project every time I open a conversation, the project’s context is in the wrong place.",
+      "Project context, conventions, key references, decision history. These can live in a shared, human-readable record that people already use. The agent starts informed instead of cold. Access still follows the permissions of the person and the tool; a shared record does not mean unrestricted access."
+    ],
+    "sections": [
+      {
+        "heading": "Give each record a job",
+        "body": [
+          "The main page should tell any person or agent where to go and what’s current. Sub-pages hold the deeper context for each workstream.",
+          "Say which systems own which information. If the planning document owns the schedule and the task tracker owns assignments, say so. The project page can own the why: decisions, context, and coordination. Without these boundaries, agents duplicate information across systems and things drift.",
+          "Link to the underlying sources rather than maintaining competing copies. Keep behavioral instructions—tone, tool choices, review boundaries—separate from project state."
+        ]
+      },
+      {
+        "heading": "Keep the reason with the decision",
+        "body": [
+          "Record what was decided, when, who owns it, and where the supporting source is. Include the reason and what remains unresolved. A task handoff helps when multiple people or agents are working the same project: what’s in progress, what’s blocked, and who is picking up what next.",
+          "This hypothetical decision-record excerpt shows the difference between a proposal and an accepted decision. Its source and project details are fictional."
+        ],
+        "example": {
+          "label": "Hypothetical decision record",
+          "fields": [
+            {
+              "label": "Decision",
+              "value": "Keep account creation optional on the booking form."
+            },
+            {
+              "label": "Reason",
+              "value": "The brief requires a contact email to reserve a slot, not a persistent account."
+            },
+            {
+              "label": "Source",
+              "value": "Booking brief, “Required information” (fictional source)."
+            },
+            {
+              "label": "Owner and status",
+              "value": "Product owner · proposed, not approved."
+            },
+            {
+              "label": "Revisit if",
+              "value": "A later requirement needs a persistent user account."
+            }
+          ]
+        }
+      },
+      {
+        "heading": "Maintain the handoff",
+        "body": [
+          "A change log tells your future self, or your next agent session, what happened since the last read. Open questions keep undecided work visible. The page needs an owner and a last-reviewed date; being shared does not make it current.",
+          "Tell the agent when to propose an update: after a key decision, after modifying a shared document, or after resolving an open thread. Show the change for confirmation before writing it back. If a source is inaccessible, report the gap instead of filling it in.",
+          "Start with one project page, the sources it points to, and an instruction to read it when that project’s context is needed. Check that another person can continue the work from the record without a private briefing."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "a-briefing-that-helps-you-act",
+    "title": "A briefing that helps you act",
+    "summary": "Cross-check what is still open, carry unresolved work forward, and separate proposed actions from completed ones.",
+    "category": "Workflow design",
+    "status": "published",
+    "opening": [
+      "A useful daily briefing tells me what needs my attention, gives me drafts I can use, and proposes actions I can approve or skip.",
+      "The useful work often happens in the gaps between tools. A task can say “awaiting response” when the response has already arrived somewhere else. Summarizing each source separately can leave me with the same problem I started with."
+    ],
+    "sections": [
+      {
+        "heading": "Check before calling it blocked",
+        "body": [
+          "Tell the workflow exactly which projects and sources to pull from, then what to do with what it finds: check status, read comments, flag overdue items, and identify decisions needing a response.",
+          "Read full threads, not just top-level messages. The actual decisions and context often live in the replies. Before calling an item blocked, cross-reference the sources the workflow is allowed to access.",
+          "A hypothetical briefing item could look like this. The records below are fictional; nothing has been updated."
+        ],
+        "example": {
+          "label": "Hypothetical briefing item",
+          "fields": [
+            {
+              "label": "Item",
+              "value": "Venue booking · tracker still says “awaiting confirmation.”"
+            },
+            {
+              "label": "Checked",
+              "value": "The venue reply confirms the room; the tracker has not been updated."
+            },
+            {
+              "label": "Next step",
+              "value": "Approve a draft status update. No need to chase the venue again."
+            },
+            {
+              "label": "Sources",
+              "value": "Venue reply and booking task (fictional sources)."
+            }
+          ]
+        }
+      },
+      {
+        "heading": "Carry forward what is still open",
+        "body": [
+          "Use a carry-forward record that persists between sessions so items you did not act on yesterday show up today. Remove completed items, keep unresolved ones, and record what changed. If the record cannot be read or updated, report the gap instead of pretending anything changed.",
+          "Set the source window to cover the period since the last successful check, including skipped days. Keep unresolved work even when it falls outside that window. Put failed reads under Source gaps; an empty result is not proof that there is nothing to do."
+        ]
+      },
+      {
+        "heading": "Make the next action usable",
+        "body": [
+          "Specify how the results should be organized. Short entries are enough: the item, its current status, what the cross-check found, the source, and the next step. Anything needing a reply gets a draft response. Proposed actions should have their own section so the reader can approve individual changes or skip them.",
+          "Default to drafts. Show the proposed reply or update and wait for approval before writing to another system.",
+          "Run the briefing manually before scheduling it. Check for missed decisions, resolved items brought back as open, and confident claims from incomplete sources. Adjust the instructions against those failures before making the workflow repeat."
+        ]
+      }
+    ]
+  }
+]

@@ -23,7 +23,7 @@ describe('published Hybrid design', () => {
     const closingLine = screen.getByText('Design is the premium.', { selector: 'strong' });
     expect(closingLine.parentElement?.tagName).toBe('P');
     expect(closingLine.parentElement?.lastChild).toBe(closingLine);
-    expect(closingLine.parentElement).toHaveTextContent('AI makes coding cheaper. The value shifts toward the decisions that shape what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Design is the premium.');
+    expect(closingLine.parentElement).toHaveTextContent('AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. Design is the premium.');
     expect(closingLine.parentElement?.textContent).not.toContain('?');
     expect(screen.queryByRole('navigation', { name: 'Choose a design option' })).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Choose a copy option' })).not.toBeInTheDocument();

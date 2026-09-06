@@ -51,6 +51,23 @@ export interface CaseStudy {
   relatedProjectSlug?: string;
 }
 
+export interface WritingArticle {
+  slug: string;
+  title: string;
+  summary: string;
+  category: string;
+  status: 'draft' | 'published';
+  opening: string[];
+  sections: {
+    heading: string;
+    body: string[];
+    example?: {
+      label: string;
+      fields: { label: string; value: string }[];
+    };
+  }[];
+}
+
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
