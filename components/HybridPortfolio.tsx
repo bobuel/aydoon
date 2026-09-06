@@ -5,7 +5,7 @@ import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
 import { siteUrl } from '../sitePaths';
 
 const SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'I manage operations for ChatGPT, Codex, and Claude, alongside internal products and the AI Guides program.',
+  'enterprise-ai-adoption-automattic': 'At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.',
   'ai-product-leadership-dremio': 'I turned customer needs into four AI initiatives, working across product, design, and engineering.',
   'bloom-assessment-workflow': 'I turned clear demand into a source-grounded assessment workflow that keeps teachers in control.',
 };
@@ -28,11 +28,13 @@ function Identity() {
         <p className="identity-role">AI operations · product · adoption</p>
         <div className="identity-story">
           <p>My work connects AI tools, the people using them, and the systems around them.</p>
-          <p>I build to understand what works: simple workflows, clear guidance, and fewer dead ends.</p>
+          <p>My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
+          <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>
         </div>
         <div className="identity-current">
           <span>Currently at Automattic</span>
           <strong>AI Adoption Manager</strong>
+          <span className="champions-line">OpenAI Champions program participant</span>
         </div>
       </div>
       <nav className="identity-links" aria-label="Profile links">
@@ -52,7 +54,7 @@ function WorkList() {
         {CASE_STUDIES.map(study => (
           <article className="case-row" key={study.slug}>
             <p className="row-label">{study.eyebrow}</p>
-            <h3><Link to={`/case-studies/${study.slug}`}>{study.title}</Link></h3>
+            <h2><Link to={`/case-studies/${study.slug}`}>{study.title}</Link></h2>
             <p className="row-description">{SUMMARIES[study.slug]}</p>
             <div className="case-row-footer">
               <p className="case-proof"><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>
@@ -77,7 +79,7 @@ function ProjectList({ gamesOnly = false }: { gamesOnly?: boolean }) {
       {projects.map(project => (
         <article className="project-row" key={project.id}>
           <div className="project-row-heading">
-            <h3>{project.title}</h3>
+            <h2>{project.title}</h2>
             <span className="project-status">{project.status}</span>
           </div>
           <p className="row-description">{project.description}</p>
@@ -133,7 +135,8 @@ function About() {
     <section className="about-copy">
       <h2>I make complex systems easier to use.</h2>
       <p>My career has moved through education, documentation, product, and adoption, but the central question has stayed consistent: how do people understand a technical system, build confidence with it, and turn its capability into useful, repeatable work?</p>
-      <p>I build products myself to understand where AI helps, where it loses context, and where people need to stay involved. That experience shapes how I design workflows and help others use them.</p>
+      <p>I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.</p>
+      <p>I also participate in the OpenAI Champions program.</p>
       <p>As execution gets cheaper, the design premium rises. I help organizations turn that shift into practical operating systems, products, learning, and behavior change—without reducing it to hype.</p>
       <a className="row-link" href={`mailto:${PROFILE.email}`}>Have an interesting problem? <ArrowUpRight size={15} aria-hidden="true" /></a>
     </section>
@@ -181,7 +184,9 @@ export default function HybridPortfolio() {
         <Identity />
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
-            {!study && PAGE_METADATA[path] && <h2 className="design-tagline">Design is the premium.</h2>}
+            {path === '/' && (
+              <p className="design-context">AI makes coding cheaper. The value shifts toward the decisions that shape what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. <strong>Design is the premium.</strong></p>
+            )}
             <nav className="view-navigation" aria-label="Primary navigation">
               {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, { id: 'games', label: 'Games', to: '/games' }].map(item => (
                 <Link key={item.id} to={item.to} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>

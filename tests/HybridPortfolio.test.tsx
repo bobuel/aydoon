@@ -19,10 +19,32 @@ describe('published Hybrid design', () => {
     window.history.replaceState({}, '', import.meta.env.BASE_URL);
     render(<App />);
     expect(screen.getByRole('heading', { level: 1, name: 'Alex Aidun' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Design is the premium.' })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Design is the premium.' })).not.toBeInTheDocument();
+    const closingLine = screen.getByText('Design is the premium.', { selector: 'strong' });
+    expect(closingLine.parentElement?.tagName).toBe('P');
+    expect(closingLine.parentElement?.lastChild).toBe(closingLine);
+    expect(closingLine.parentElement).toHaveTextContent('AI makes coding cheaper. The value shifts toward the decisions that shape what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Design is the premium.');
+    expect(closingLine.parentElement?.textContent).not.toContain('?');
     expect(screen.queryByRole('navigation', { name: 'Choose a design option' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('navigation', { name: 'Choose a copy option' })).not.toBeInTheDocument();
     expect(screen.queryByText('Local previews')).not.toBeInTheDocument();
     expect(screen.queryByText('Enterprise AI leader')).not.toBeInTheDocument();
+  });
+
+  it('publishes the approved systems introduction and carefully scoped operations claims', () => {
+    show();
+    const identity = screen.getByRole('complementary');
+    expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them.')).toBeInTheDocument();
+    expect(within(identity).getByText('My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
+    expect(within(identity).getByText('I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.')).toBeInTheDocument();
+    expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
+    expect(screen.getByText('At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI operations at Automattic' }));
+    expect(screen.getByText('Helping with cost management across those AI tools.')).toBeInTheDocument();
+    expect(screen.getByText('Functional operations for the company’s ChatGPT, Codex, and Claude environments.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'About' }));
+    expect(screen.getByText('I also participate in the OpenAI Champions program.')).toBeInTheDocument();
+    expect(screen.getByText('I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.')).toBeInTheDocument();
   });
 
   it('keeps the identity panel while switching Work, Builds and Games', () => {
@@ -31,6 +53,7 @@ describe('published Hybrid design', () => {
     const navigation = screen.getByRole('navigation', { name: 'Primary navigation' });
     expect(within(navigation).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games']);
     fireEvent.click(within(navigation).getByRole('link', { name: 'Builds' }));
+    expect(screen.queryByText('Design is the premium.')).not.toBeInTheDocument();
     expect(screen.getByRole('complementary')).toBe(identity);
     expect(screen.getByRole('main')).toHaveFocus();
     expect(within(navigation).getByRole('link', { name: 'Builds' })).toHaveAttribute('aria-current', 'page');
@@ -67,7 +90,7 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 3 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['CertifyFast', 'Bloom Quiz Builder Skill', 'Brassline', 'Retrieval Guard']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['CertifyFast', 'Bloom Quiz Builder Skill', 'Brassline', 'Retrieval Guard']);
     for (const project of PROJECTS) {
       const row = screen.getByRole('heading', { name: project.title }).closest('article')!;
       for (const link of project.links) {
@@ -84,7 +107,7 @@ describe('published Hybrid design', () => {
 
   it('loads the selected Games view directly', () => {
     show('/games/');
-    expect(screen.getAllByRole('heading', { level: 3 }).map(heading => heading.textContent)).toEqual(['Brassline', '25Hours', 'Iron Hand']);
+    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Brassline', '25Hours', 'Iron Hand']);
     expect(screen.getByRole('link', { name: 'Play game: Brassline' })).toHaveAttribute('href', 'https://bobuel.github.io/brassline/');
   });
 
@@ -99,7 +122,7 @@ describe('published Hybrid design', () => {
     }
     for (const metric of study.evidence) expect(screen.getByText(metric.label)).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('link', { name: 'Back to work' })[0]);
-    expect(screen.getByRole('heading', { name: 'Design is the premium.' })).toBeInTheDocument();
+    expect(screen.getByText('Design is the premium.', { selector: 'strong' })).toBeInTheDocument();
     expect(screen.getByRole('main')).toHaveFocus();
   });
 
@@ -144,7 +167,7 @@ describe('published Hybrid design', () => {
     show(path);
     expect(screen.getByRole('heading', { name: 'That page isn’t here.' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Back to work' }));
-    expect(screen.getByRole('heading', { name: 'Design is the premium.' })).toBeInTheDocument();
+    expect(screen.getByText('Design is the premium.', { selector: 'strong' })).toBeInTheDocument();
   });
 
   it('supports the skip link', () => {
