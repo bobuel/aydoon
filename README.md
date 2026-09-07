@@ -7,10 +7,10 @@ My site brings together AI operations, product, and adoption work, alongside the
 ## Design decisions
 
 - **Keep the first visit short.** A compact introduction and three case studies make the work easy to scan. Detailed decisions and results live inside each case.
-- **Make browsing straightforward.** Work, Builds, and Games switch the content beside a stable identity panel. Builds includes all tools, games, and prototypes; Games narrows the list to games. Availability labels and real links make clear what can be tried.
+- **Make browsing straightforward.** Work, Builds, Games, Writing, and About switch the content beside a stable identity panel. Builds includes all tools, games, and prototypes; Games narrows the list to games. Availability labels and real links make clear what can be tried.
 - **Keep the system simple.** React, typed content, and a static build on GitHub Pages. No chatbot, runtime API, database, or client secrets.
 
-The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Builds, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
+The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Builds, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph sits in the left column, replacing the overlapping philosophy copy, and ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
 
 The cases distinguish my ownership, the decisions made, and the available evidence. Dremio AI product work and Dremio University learning metrics remain separate. Editorial and factual boundaries are documented in [AGENTS.md](AGENTS.md).
 
@@ -20,7 +20,7 @@ The cases distinguish my ownership, the decisions made, and the available eviden
 GitHub Pages
   └─ Static Vite build
        ├─ Shared Hybrid React shell
-       │    ├─ Sticky identity and current-role rail
+       │    ├─ Identity, top contact links, and current-role rail
        │    └─ Work / Builds / Games navigation and flat rows
        ├─ Complete project catalog including Brassline
        ├─ Concise About/profile route
@@ -46,7 +46,7 @@ The standard local preview is `http://127.0.0.1:8080/`. `npm run build:pages` re
 
 ### Writing
 
-Writing is linked from the identity sidebar. The initial four approved pieces cover AI cost management, reusable workflows, shared context, and daily briefings. They retain Alex's own non-employer-specific explanations and use clearly fictional examples. The homepage connects building for future models with useful work today and ends with **Design is the premium.**
+Writing and About are in the top primary navigation. GitHub, LinkedIn, and Email appear below the name and role. The initial four approved pieces cover AI cost management, reusable workflows, shared context, and daily briefings. They retain Alex's own non-employer-specific explanations and use clearly fictional examples. The homepage connects building for future models with useful work today and ends with **Design is the premium.**
 
 Article data lives in `writing/pieces.json`. Run `npm run dev` and open `http://127.0.0.1:3000/writing` for local editing. Only `published` entries appear in production builds, static routes, and the sitemap. Vite filters data before bundling, and every build checks for leaked draft content, including example records. This does not protect source pushed to a public repository: keep future unapproved drafts local until review. See [the editorial and publication checklist](docs/writing-review.md).
 

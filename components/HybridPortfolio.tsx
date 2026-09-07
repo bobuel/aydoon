@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
 import { siteUrl } from '../sitePaths';
@@ -29,10 +29,15 @@ function Identity() {
       <div className="identity-intro">
         <Link className="identity-name" to="/"><h1>Alex Aidun</h1></Link>
         <p className="identity-role">AI operations · product · adoption</p>
+        <nav className="identity-contact" aria-label="Contact and profiles">
+          <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={`mailto:${PROFILE.email}`}>Email</a>
+        </nav>
         <div className="identity-story">
           <p>My work connects AI tools, the people using them, and the systems around them.</p>
           <p>My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
-          <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>
+          {pathname === '/' ? <p className="design-context">AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p> : <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>}
         </div>
         <div className="identity-current">
           <span>Currently at Automattic</span>
@@ -40,13 +45,6 @@ function Identity() {
           <span className="champions-line">OpenAI Champions program participant</span>
         </div>
       </div>
-      <nav className="identity-links" aria-label="Profile links">
-        <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} aria-hidden="true" /></a>
-        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={14} aria-hidden="true" /></a>
-        <Link to="/about">About</Link>
-        {WRITING_ARTICLES.length > 0 && <Link to="/writing" aria-current={pathname === '/writing' || pathname.startsWith('/writing/') ? 'page' : undefined}>Writing</Link>}
-        <a className="identity-email" href={`mailto:${PROFILE.email}`}><Mail size={16} aria-hidden="true" /> Email Alex</a>
-      </nav>
     </aside>
   );
 }
@@ -162,7 +160,7 @@ export default function HybridPortfolio() {
   const path = pathname.replace(/\/$/, '') || '/';
   const study = path.startsWith('/case-studies/') ? getCaseStudy(path.slice('/case-studies/'.length)) : undefined;
   const article = path.startsWith('/writing/') ? getWritingArticle(path.slice('/writing/'.length)) : undefined;
-  const view = path === '/builds' ? 'builds' : path === '/games' ? 'games' : path === '/' || path === '/work' || study ? 'work' : '';
+  const view = path === '/builds' ? 'builds' : path === '/games' ? 'games' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
 
   useEffect(() => {
     const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary }
@@ -198,11 +196,8 @@ export default function HybridPortfolio() {
         <Identity />
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
-            {path === '/' && (
-              <p className="design-context">AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p>
-            )}
             <nav className="view-navigation" aria-label="Primary navigation">
-              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, { id: 'games', label: 'Games', to: '/games' }].map(item => (
+              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, { id: 'games', label: 'Games', to: '/games' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
                 <Link key={item.id} to={item.to} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>
               ))}
             </nav>
