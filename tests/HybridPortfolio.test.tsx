@@ -23,7 +23,7 @@ describe('published Hybrid design', () => {
     const closingLine = screen.getByText('Design is the premium.', { selector: 'strong' });
     expect(closingLine.parentElement?.tagName).toBe('P');
     expect(closingLine.parentElement?.lastChild).toBe(closingLine);
-    expect(closingLine.parentElement).toHaveTextContent('AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. Design is the premium.');
+    expect(closingLine.parentElement).toHaveTextContent('Build for tomorrow’s models while delivering something useful today. Today’s limitations shouldn’t become permanent architecture. Design is the premium.');
     expect(closingLine.parentElement?.textContent).not.toContain('?');
     expect(screen.queryByRole('navigation', { name: 'Choose a design option' })).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Choose a copy option' })).not.toBeInTheDocument();
@@ -34,8 +34,9 @@ describe('published Hybrid design', () => {
   it('publishes the approved systems introduction and carefully scoped operations claims', () => {
     show();
     const identity = screen.getByRole('complementary');
-    expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them.')).toBeInTheDocument();
-    expect(within(identity).getByText('My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
+    expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
+    expect(within(identity).getByText('AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.')).toBeInTheDocument();
+    expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(3);
     expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.getByText('At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.')).toBeInTheDocument();

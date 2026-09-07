@@ -35,9 +35,15 @@ function Identity() {
           <a href={`mailto:${PROFILE.email}`}>Email</a>
         </nav>
         <div className="identity-story">
-          <p>My work connects AI tools, the people using them, and the systems around them.</p>
-          <p>My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
-          {pathname === '/' ? <p className="design-context">AI makes coding cheaper. Build for the model of tomorrow while delivering something useful today. The value is in deciding what gets built, how it’s evaluated and monitored, how people experience it, and what it achieves. Today’s model limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p> : <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>}
+          {pathname === '/' ? <>
+            <p>My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
+            <p className="design-context">AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.</p>
+            <p className="design-context">Build for tomorrow’s models while delivering something useful today. Today’s limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p>
+          </> : <>
+            <p>My work connects AI tools, the people using them, and the systems around them.</p>
+            <p>My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
+            <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>
+          </>}
         </div>
         <div className="identity-current">
           <span>Currently at Automattic</span>
