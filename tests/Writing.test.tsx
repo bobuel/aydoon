@@ -18,7 +18,7 @@ describe('published Writing section', () => {
   it('keeps Writing in the primary navigation without changing homepage case content', () => {
     show('/');
     expect(screen.getAllByRole('article')).toHaveLength(3);
-    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Games', 'Writing', 'About']);
+    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Builds', 'Writing', 'About']);
     const sidebar = screen.getByRole('complementary');
     fireEvent.click(screen.getByRole('link', { name: 'Writing' }));
     expect(screen.getByRole('complementary')).toBe(sidebar);
