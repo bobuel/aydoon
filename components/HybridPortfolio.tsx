@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Link, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
 import { siteUrl } from '../sitePaths';
 import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../writing/content';
@@ -78,12 +78,21 @@ function WorkList() {
   );
 }
 
-function ProjectList({ gamesOnly = false }: { gamesOnly?: boolean }) {
+function ProjectList() {
+  const [searchParams] = useSearchParams();
+  const requestedFilter = searchParams.get('filter');
+  const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
   const firstIds = ['certifyfast', 'bloom-skill', 'brassline', 'retrieval-guard'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
-  const projects = gamesOnly ? ordered.filter(project => project.category === 'Games') : ordered;
+  const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
-    <div className="project-list" aria-label={gamesOnly ? 'Games' : 'Projects'}>
+    <>
+    <nav className="build-filters" aria-label="Build filters">
+      {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
+        <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>
+      ))}
+    </nav>
+    <div className="project-list" aria-label={filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
       {projects.map(project => (
         <article className="project-row" key={project.id}>
           <div className="project-row-heading">
@@ -109,6 +118,7 @@ function ProjectList({ gamesOnly = false }: { gamesOnly?: boolean }) {
         </article>
       ))}
     </div>
+    </>
   );
 }
 
@@ -166,7 +176,7 @@ export default function HybridPortfolio() {
   const path = pathname.replace(/\/$/, '') || '/';
   const study = path.startsWith('/case-studies/') ? getCaseStudy(path.slice('/case-studies/'.length)) : undefined;
   const article = path.startsWith('/writing/') ? getWritingArticle(path.slice('/writing/'.length)) : undefined;
-  const view = path === '/builds' ? 'builds' : path === '/games' ? 'games' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
+  const view = path === '/builds' || path === '/games' ? 'builds' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
 
   useEffect(() => {
     const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary }
@@ -203,7 +213,7 @@ export default function HybridPortfolio() {
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
             <nav className="view-navigation" aria-label="Primary navigation">
-              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, { id: 'games', label: 'Games', to: '/games' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
+              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
                 <Link key={item.id} to={item.to} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>
               ))}
             </nav>
@@ -212,7 +222,7 @@ export default function HybridPortfolio() {
             <Route path="/" element={<WorkList />} />
             <Route path="/work" element={<Navigate to="/" replace />} />
             <Route path="/builds" element={<ProjectList />} />
-            <Route path="/games" element={<ProjectList gamesOnly />} />
+            <Route path="/games" element={<Navigate to="/builds?filter=games" replace />} />
             <Route path="/about" element={<About />} />
             {WRITING_ARTICLES.length > 0 && <Route path="/writing" element={<WritingIndex />} />}
             {WRITING_ARTICLES.length > 0 && <Route path="/writing/:slug" element={<ArticleRoute />} />}

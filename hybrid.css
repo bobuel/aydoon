@@ -45,6 +45,9 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .view-navigation { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--line); gap: clamp(10px, 2vw, 25px); }
 .view-navigation a { display: inline-flex; min-height: 44px; padding: 4px 0 13px; align-items: center; justify-content: center; font-size: .875rem; color: var(--muted); font-weight: 650; border-bottom: 2px solid transparent; }
 .view-navigation a[aria-current] { color: var(--ink); border-color: var(--ink); }
+.build-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+.build-filters a { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 6px 14px; border: 1px solid transparent; border-radius: 5px; font-size: .875rem; color: var(--muted); }
+.build-filters a[aria-current] { color: var(--ink); background: #f6f7f8; border-color: var(--line); font-weight: 650; }
 .case-row, .project-row { border-bottom: 1px solid var(--line); padding: 23px 0; }
 .case-row h2, .project-row h2, .case-row h3, .project-row h3 { font-size: 1.25rem; line-height: 1.4; font-weight: 700; }
 .row-label { font-size: .8125rem; line-height: 1.5; font-weight: 650; color: var(--muted); margin-bottom: 5px; }

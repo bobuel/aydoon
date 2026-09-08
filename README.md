@@ -7,7 +7,7 @@ My site brings together AI operations, product, and adoption work, alongside the
 ## Design decisions
 
 - **Keep the first visit short.** A compact introduction and three case studies make the work easy to scan. Detailed decisions and results live inside each case.
-- **Make browsing straightforward.** Work, Builds, Games, Writing, and About switch the content beside a stable identity panel. Builds includes all tools, games, and prototypes; Games narrows the list to games. Availability labels and real links make clear what can be tried.
+- **Make browsing straightforward.** Work, Builds, Writing, and About switch the content beside a stable identity panel. Builds has All, Tools, and Games filters. All includes every project; Tools excludes games; Games shows games only. Filters use shareable query URLs, and legacy /games links redirect to /builds?filter=games. Availability labels and real links make clear what can be tried.
 - **Keep the system simple.** React, typed content, and a static build on GitHub Pages. No chatbot, runtime API, database, or client secrets.
 
 The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Builds, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph sits in the left column, replacing the overlapping philosophy copy, and ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
