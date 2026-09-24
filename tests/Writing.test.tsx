@@ -28,7 +28,7 @@ describe('published Writing section', () => {
     expect(screen.queryByText('Design is the premium.')).not.toBeInTheDocument();
   });
 
-  it('lists approved articles without draft labels, dates, downloads, or an extra hero', () => {
+  it('lists approved articles with publication dates and without draft labels or an extra hero', () => {
     show('/writing/');
     expect(screen.getAllByRole('article')).toHaveLength(4);
     expect(screen.queryByText('Local review. Drafts are excluded from production builds.')).not.toBeInTheDocument();
@@ -37,11 +37,12 @@ describe('published Writing section', () => {
       expect(within(row).getByRole('link')).toHaveAttribute('href', `/writing/${article.slug}`);
       expect(within(row).getByText(article.summary)).toBeInTheDocument();
       expect(row).not.toHaveTextContent('Draft for review');
+      expect(within(row).getByText('Sep 6, 2026')).toHaveAttribute('datetime', '2026-09-06');
       expect(readingMinutes(article)).toBeLessThanOrEqual(3);
     }
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /download|résumé|resume/i })).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Résumé' })).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
   });
 
   it.each(WRITING_ARTICLES)('loads every paragraph of $title on its direct route', article => {

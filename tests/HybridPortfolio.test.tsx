@@ -34,7 +34,7 @@ describe('published Hybrid design', () => {
   it('publishes the approved systems introduction and carefully scoped operations claims', () => {
     show();
     const identity = screen.getByRole('complementary');
-    expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
+    expect(within(identity).getByText(`${PROFILE.summary} My background spans education, documentation, and AI product leadership; I build tools and games, too.`)).toHaveClass('identity-positioning');
     expect(within(identity).getByText('AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.')).toBeInTheDocument();
     expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(3);
     expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
@@ -65,13 +65,13 @@ describe('published Hybrid design', () => {
     expect(screen.getByRole('complementary')).toBe(identity);
   });
 
-  it('preserves profile links without reintroducing a résumé or chat CTA', () => {
+  it('keeps employer-facing profile and résumé links near the name without adding a chat CTA', () => {
     show();
     expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', PROFILE.github);
     expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', PROFILE.linkedin);
     expect(screen.getByRole('link', { name: 'Email' })).toHaveAttribute('href', `mailto:${PROFILE.email}`);
+    expect(screen.getByRole('link', { name: 'Résumé' })).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
-    expect(screen.queryByRole('link', { name: /resume|résumé/i })).not.toBeInTheDocument();
     const contacts = screen.getByRole('navigation', { name: 'Contact and profiles' });
     expect(contacts.closest('.identity-intro')).not.toBeNull();
     expect(contacts.compareDocumentPosition(document.querySelector('.identity-story')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -95,7 +95,9 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['CertifyFast', 'Bloom Quiz Builder Skill', 'Brassline', 'Retrieval Guard']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['CertifyFast', 'Bloom Quiz Builder Skill', 'Retrieval Guard', 'Brassline']);
+    expect(screen.getByText('Featured work')).toBeInTheDocument();
+    expect(screen.getByText('More builds')).toBeInTheDocument();
     for (const project of PROJECTS) {
       const row = screen.getByRole('heading', { name: project.title }).closest('article')!;
       for (const link of project.links) {
@@ -107,7 +109,8 @@ describe('published Hybrid design', () => {
       }
       if (project.category === 'Open Source') expect(within(row).getAllByText(/^open source$/i)).toHaveLength(1);
     }
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+    expect(screen.getByRole('img', { name: 'CertifyFast certification workflow interface' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Retrieval Guard' }).closest('article')).toHaveTextContent('15 built-in structural near-miss pairs');
   });
 
   it('loads the selected Games view directly', () => {
@@ -143,6 +146,9 @@ describe('published Hybrid design', () => {
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText(/the design premium rises/)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'I make complex systems easier to use.' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Career' })).toBeInTheDocument();
+    expect(screen.getByText('Braze · Arrikto · WorkFusion · Qubole')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'View résumé' })).toHaveAttribute('href', '/alexander-aidun-resume.pdf');
   });
 
   it('updates metadata on direct loading and subsequent navigation', () => {

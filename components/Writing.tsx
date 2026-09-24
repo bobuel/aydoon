@@ -4,7 +4,14 @@ import type { WritingArticle } from '../types';
 import { WRITING_ARTICLES, WRITING_DESCRIPTION, readingMinutes } from '../writing/content';
 
 function ArticleMeta({ article }: { article: WritingArticle }) {
-  return <p className="writing-meta">{article.category} · {readingMinutes(article)} min read{article.status === 'draft' && ' · Draft for review'}</p>;
+  const date = article.publishedAt ? new Intl.DateTimeFormat('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+  }).format(new Date(`${article.publishedAt}T00:00:00Z`)) : undefined;
+  return <p className="writing-meta">
+    {article.category} · {readingMinutes(article)} min read
+    {date && <> · <time dateTime={article.publishedAt}>{date}</time></>}
+    {article.status === 'draft' && ' · Draft for review'}
+  </p>;
 }
 
 export function WritingIndex() {

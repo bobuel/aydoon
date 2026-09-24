@@ -234,7 +234,7 @@ export const PROJECTS: Project[] = [
     category: 'Products',
     status: 'Live prototype',
     tags: ['Document analysis', 'Recommendations', 'Family UX'],
-    featured: true,
+    featured: false,
     collections: ['Home'],
     accent: 'green',
     image: '/projects/kidgrow.jpg',
@@ -354,6 +354,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     collections: ['Home'],
     accent: 'violet',
+    evidence: [{ value: '15', label: 'built-in structural near-miss pairs' }],
     links: [
       {
         label: 'View source',
@@ -366,7 +367,7 @@ export const PROJECTS: Project[] = [
     id: 'brassline', slug: 'brassline', title: 'Brassline',
     description: 'A free steampunk train-heist tactical autobattler.',
     category: 'Games', status: 'Live prototype', tags: ['Godot', 'Game systems'],
-    featured: true, collections: ['Games'], accent: 'blue',
+    featured: false, collections: ['Games'], accent: 'blue',
     links: [{ label: 'Play game', href: 'https://bobuel.github.io/brassline/', kind: 'demo' }],
   },
 ];

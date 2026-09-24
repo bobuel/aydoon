@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from 'react-router-dom';
-import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
+import { CAREER_HIGHLIGHTS, CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
 import { siteUrl } from '../sitePaths';
+import type { Project } from '../types';
 import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../writing/content';
 import { WritingDetail, WritingIndex } from './Writing';
+
+const RESUME_URL = `${import.meta.env.BASE_URL}alexander-aidun-resume.pdf`;
 
 const SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.',
@@ -32,11 +35,12 @@ function Identity() {
         <nav className="identity-contact" aria-label="Contact and profiles">
           <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={RESUME_URL} target="_blank" rel="noreferrer">Résumé <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={`mailto:${PROFILE.email}`}>Email</a>
         </nav>
         <div className="identity-story">
           {pathname === '/' ? <>
-            <p>My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
+            <p className="identity-positioning">{PROFILE.summary} My background spans education, documentation, and AI product leadership; I build tools and games, too.</p>
             <p className="design-context">AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.</p>
             <p className="design-context">Build for tomorrow’s models while delivering something useful today. Today’s limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p>
           </> : <>
@@ -78,13 +82,57 @@ function WorkList() {
   );
 }
 
+function ProjectRow({ project, featured = false }: { project: Project; featured?: boolean }) {
+  return (
+    <article className={`project-row${featured ? ' project-row-featured' : ''}`}>
+      <div className="project-row-copy">
+        <div className="project-row-heading">
+          <h2>{project.title}</h2>
+          <span className="project-status">{project.status}</span>
+        </div>
+        <p className="row-description">{project.description}</p>
+        {featured && <ul className="project-tags" aria-label={`${project.title} focus areas`}>
+          {project.tags.map(tag => <li key={tag}>{tag}</li>)}
+        </ul>}
+        {featured && project.evidence?.map(metric => (
+          <p className="project-evidence" key={metric.label}><strong>{metric.value}</strong> {metric.label}</p>
+        ))}
+        <div className="project-row-footer">
+          {project.category.toLowerCase() !== project.status.toLowerCase() && <span className="project-category">{project.category}</span>}
+          <div className="project-actions">
+            {project.links.map(link => link.href.startsWith('/') ? (
+              <Link className="row-link" key={link.href} to={link.href} aria-label={`${link.label}: ${project.title}`}>
+                {link.label} <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+            ) : (
+              <a className="row-link" key={link.href} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label}: ${project.title}`}>
+                {link.label} <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            ))}
+            {!project.links.length && <span className="private-note">Details available in conversation</span>}
+          </div>
+        </div>
+      </div>
+      {featured && (
+        project.image ? <img className="project-preview" src={project.image} alt={project.imageAlt ?? ''} loading="lazy" />
+          : <div className={`project-proof-panel project-proof-panel-${project.accent}`} aria-hidden="true">
+            <strong>{project.title}</strong>
+            <small>{project.tags.join(' · ')}</small>
+          </div>
+      )}
+    </article>
+  );
+}
+
 function ProjectList() {
   const [searchParams] = useSearchParams();
   const requestedFilter = searchParams.get('filter');
   const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
-  const firstIds = ['certifyfast', 'bloom-skill', 'brassline', 'retrieval-guard'];
+  const firstIds = ['certifyfast', 'bloom-skill', 'retrieval-guard', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
   const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
+  const featuredProjects = projects.filter(project => project.featured);
+  const otherProjects = projects.filter(project => !project.featured);
   return (
     <>
     <nav className="build-filters" aria-label="Build filters">
@@ -93,30 +141,10 @@ function ProjectList() {
       ))}
     </nav>
     <div className="project-list" aria-label={filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
-      {projects.map(project => (
-        <article className="project-row" key={project.id}>
-          <div className="project-row-heading">
-            <h2>{project.title}</h2>
-            <span className="project-status">{project.status}</span>
-          </div>
-          <p className="row-description">{project.description}</p>
-          <div className="project-row-footer">
-            {project.category.toLowerCase() !== project.status.toLowerCase() && <span className="project-category">{project.category}</span>}
-            <div className="project-actions">
-              {project.links.map(link => link.href.startsWith('/') ? (
-                <Link className="row-link" key={link.href} to={link.href} aria-label={`${link.label}: ${project.title}`}>
-                  {link.label} <ArrowRight size={14} aria-hidden="true" />
-                </Link>
-              ) : (
-                <a className="row-link" key={link.href} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label}: ${project.title}`}>
-                  {link.label} <ArrowUpRight size={14} aria-hidden="true" />
-                </a>
-              ))}
-              {!project.links.length && <span className="private-note">Details available in conversation</span>}
-            </div>
-          </div>
-        </article>
-      ))}
+      {featuredProjects.length > 0 && <p className="project-group-label">Featured work</p>}
+      {featuredProjects.map(project => <ProjectRow project={project} featured key={project.id} />)}
+      {featuredProjects.length > 0 && otherProjects.length > 0 && <p className="project-group-label project-group-label-secondary">More builds</p>}
+      {otherProjects.map(project => <ProjectRow project={project} key={project.id} />)}
     </div>
     </>
   );
@@ -156,7 +184,20 @@ function About() {
       <p>I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.</p>
       <p>I also participate in the OpenAI Champions program.</p>
       <p>As execution gets cheaper, the design premium rises. I help organizations turn that shift into practical operating systems, products, learning, and behavior change—without reducing it to hype.</p>
-      <a className="row-link" href={`mailto:${PROFILE.email}`}>Have an interesting problem? <ArrowUpRight size={15} aria-hidden="true" /></a>
+      <div className="career-history" aria-labelledby="career-history-title">
+        <h3 id="career-history-title">Career</h3>
+        <ol>
+          {CAREER_HIGHLIGHTS.map(item => <li key={item.company}>
+            <div className="career-heading"><strong>{item.company}</strong><span>{item.period}</span></div>
+            <p className="career-role">{item.role}</p>
+            <p>{item.detail}</p>
+          </li>)}
+        </ol>
+      </div>
+      <div className="about-actions">
+        <a className="row-link" href={RESUME_URL} target="_blank" rel="noreferrer">View résumé <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a className="row-link" href={`mailto:${PROFILE.email}`}>Have an interesting problem? <ArrowUpRight size={15} aria-hidden="true" /></a>
+      </div>
     </section>
   );
 }
