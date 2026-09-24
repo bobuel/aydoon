@@ -57,6 +57,7 @@ export interface WritingArticle {
   summary: string;
   category: string;
   status: 'draft' | 'published';
+  publishedAt?: string;
   opening: string[];
   sections: {
     heading: string;

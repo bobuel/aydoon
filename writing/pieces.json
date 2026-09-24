@@ -5,6 +5,7 @@
     "summary": "Manage AI cost around completed work, including failed attempts and the time spent checking the result.",
     "category": "AI operations",
     "status": "published",
+    "publishedAt": "2026-09-06",
     "opening": [
       "I think about AI tool cost as cost per verified outcome, not price per token.",
       "Costs increase unexpectedly when a workflow carries stale context, exposes tools it does not need, returns huge results, asks the model to reason through deterministic work code could execute, retries without new evidence, or produces output nobody will use."
@@ -42,6 +43,7 @@
     "summary": "Treat a reusable AI workflow as a small product someone else can understand, use, and check.",
     "category": "AI adoption",
     "status": "published",
+    "publishedAt": "2026-09-06",
     "opening": [
       "A reusable workflow is a small product. It has users, an input, an expected result, and things it should not do. Designing those pieces is what makes it useful to someone who did not build it.",
       "Most people using AI tooling have a set of instructions they reuse: their team’s format, personal style preferences, or the steps for a recurring task. Pasting these at the start of every conversation puts the burden on the person to remember the method every time.",
@@ -73,6 +75,7 @@
     "summary": "Keep project decisions and handoffs in a maintained record that people and agents can use within their access permissions.",
     "category": "Systems design",
     "status": "published",
+    "publishedAt": "2026-09-06",
     "opening": [
       "If I have to explain the whole project every time I open a conversation, the project’s context is in the wrong place.",
       "Project context, conventions, key references, decision history. These can live in a shared, human-readable record that people already use. The agent starts informed instead of cold. Access still follows the permissions of the person and the tool; a shared record does not mean unrestricted access."
@@ -134,6 +137,7 @@
     "summary": "Cross-check what is still open, carry unresolved work forward, and separate proposed actions from completed ones.",
     "category": "Workflow design",
     "status": "published",
+    "publishedAt": "2026-09-06",
     "opening": [
       "A useful daily briefing tells me what needs my attention, gives me drafts I can use, and proposes actions I can approve or skip.",
       "The useful work often happens in the gaps between tools. A task can say “awaiting response” when the response has already arrived somewhere else. Summarizing each source separately can leave me with the same problem I started with."
