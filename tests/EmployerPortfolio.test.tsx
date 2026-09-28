@@ -14,7 +14,7 @@ describe('EmployerPortfolio', () => {
     expect(screen.queryByText(/^Three examples of/)).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Design is the premium.' })).toBeInTheDocument();
     expect(screen.getByText('Currently')).toBeInTheDocument();
-    expect(screen.getByText('Enterprise adoption')).toBeInTheDocument();
+    expect(screen.getByText('Enterprise AI adoption')).toBeInTheDocument();
     expect(screen.getByText('AI product leadership')).toBeInTheDocument();
     expect(screen.getByText('AI education workflow')).toBeInTheDocument();
   });
@@ -65,7 +65,7 @@ describe('EmployerPortfolio', () => {
   it('keeps the homepage focused on professional evidence instead of the project catalog', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    const automattic = screen.getByRole('heading', { name: 'AI operations at Automattic' }).closest('article');
+    const automattic = screen.getByRole('heading', { name: 'AI Adoption Manager at Automattic' }).closest('article');
     const dremio = screen.getByRole('heading', { name: 'AI products at Dremio' }).closest('article');
     const bloom = screen.getByRole('heading', { name: 'Bloom assessment workflow' }).closest('article');
     expect(within(automattic as HTMLElement).getByText('1,500')).toBeInTheDocument();

@@ -23,7 +23,7 @@ describe('published Hybrid design', () => {
     const closingLine = screen.getByText('Design is the premium.', { selector: 'strong' });
     expect(closingLine.parentElement?.tagName).toBe('P');
     expect(closingLine.parentElement?.lastChild).toBe(closingLine);
-    expect(closingLine.parentElement).toHaveTextContent('Build for tomorrow’s models while delivering something useful today. Today’s limitations shouldn’t become permanent architecture. Design is the premium.');
+    expect(closingLine.parentElement).toHaveTextContent('I start with a real task, build something others can reuse, and change the tools when they get in the way. Design is the premium.');
     expect(closingLine.parentElement?.textContent).not.toContain('?');
     expect(screen.queryByRole('navigation', { name: 'Choose a design option' })).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Choose a copy option' })).not.toBeInTheDocument();
@@ -31,18 +31,20 @@ describe('published Hybrid design', () => {
     expect(screen.queryByText('Enterprise AI leader')).not.toBeInTheDocument();
   });
 
-  it('publishes the approved systems introduction and carefully scoped operations claims', () => {
+  it('shows the AI Adoption Manager role and distinguishes participant outcomes from Alex’s work', () => {
     show();
     const identity = screen.getByRole('complementary');
-    expect(within(identity).getByText('My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.')).toBeInTheDocument();
-    expect(within(identity).getByText('AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.')).toBeInTheDocument();
-    expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(3);
+    expect(within(identity).getByText('AI Adoption Manager · product and operations')).toBeInTheDocument();
+    expect(within(identity).getByText('I help colleagues use AI on work they own, then make what works useful to the rest of their team.')).toBeInTheDocument();
+    expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(2);
     expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
-    expect(screen.getByText('At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI operations at Automattic' }));
-    expect(screen.getByText('Helping with cost management across those AI tools.')).toBeInTheDocument();
-    expect(screen.getByText('Functional operations for the company’s ChatGPT, Codex, and Claude environments.')).toBeInTheDocument();
+    expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Adoption Manager at Automattic' }));
+    expect(screen.getByText(/Those are participant reports, and the draft still needed review/)).toBeInTheDocument();
+    expect(screen.getByText(/another facilitator used it to prepare a session/)).toBeInTheDocument();
+    expect(screen.getByText(/Those are shared results, including work from before I joined/)).toBeInTheDocument();
+    expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText('I also participate in the OpenAI Champions program.')).toBeInTheDocument();
     expect(screen.getByText('I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.')).toBeInTheDocument();
@@ -82,7 +84,7 @@ describe('published Hybrid design', () => {
   it('keeps homepage proof inline and Dremio learning figures inside its case', () => {
     show();
     expect(screen.getAllByRole('article')).toHaveLength(3);
-    expect(screen.getByText('1,500')).toBeInTheDocument();
+    expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
     expect(screen.getByText('4')).toBeInTheDocument();
     expect(screen.getByText('1,000+')).toBeInTheDocument();
     expect(screen.queryByText('3,200+')).not.toBeInTheDocument();
@@ -139,7 +141,7 @@ describe('published Hybrid design', () => {
 
   it('keeps the legacy Work route and the About narrative accessible', () => {
     show('/work');
-    expect(screen.getByRole('heading', { name: 'AI operations at Automattic' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI Adoption Manager at Automattic' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText(/the design premium rises/)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'I make complex systems easier to use.' })).toBeInTheDocument();
