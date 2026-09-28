@@ -7,9 +7,9 @@ import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../wri
 import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'At Automattic, I connect AI operations, internal products, and employee adoption, while helping manage costs. The work is about making those pieces function together.',
-  'ai-product-leadership-dremio': 'I turned customer needs into four AI initiatives, working across product, design, and engineering.',
-  'bloom-assessment-workflow': 'I turned clear demand into a source-grounded assessment workflow that keeps teachers in control.',
+  'enterprise-ai-adoption-automattic': 'I lead hands-on learning, build teaching tools, and help shape the internal products and operations behind adoption.',
+  'ai-product-leadership-dremio': 'I scoped four AI initiatives, including an AI agent and AI SQL, with Design and Engineering.',
+  'bloom-assessment-workflow': 'I built a guided quiz workflow that ties each question to source material and keeps teachers in control.',
 };
 
 const PAGE_METADATA: Record<string, { title: string; description: string }> = {
@@ -28,7 +28,7 @@ function Identity() {
     <aside className="identity" aria-label="About Alex">
       <div className="identity-intro">
         <Link className="identity-name" to="/"><h1>Alex Aidun</h1></Link>
-        <p className="identity-role">AI operations · product · adoption</p>
+        <p className="identity-role">AI Adoption Manager · product and operations</p>
         <nav className="identity-contact" aria-label="Contact and profiles">
           <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12} aria-hidden="true" /></a>
@@ -36,13 +36,11 @@ function Identity() {
         </nav>
         <div className="identity-story">
           {pathname === '/' ? <>
-            <p>My work connects AI tools, the people using them, and the systems around them. My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
-            <p className="design-context">AI makes coding cheaper. The value is in deciding what gets built, how people experience it, how it’s evaluated and monitored, and what it actually achieves.</p>
-            <p className="design-context">Build for tomorrow’s models while delivering something useful today. Today’s limitations shouldn’t become permanent architecture. <strong>Design is the premium.</strong></p>
+            <p>I help colleagues use AI on work they own, then make what works useful to the rest of their team.</p>
+            <p className="design-context">I start with a real task, build something others can reuse, and change the tools when they get in the way. <strong>Design is the premium.</strong></p>
           </> : <>
-            <p>My work connects AI tools, the people using them, and the systems around them.</p>
-            <p>My background spans education, documentation, and AI product leadership. I build tools and games, too.</p>
-            <p>I bring systems thinking to how the pieces fit, and design thinking to how people use them. AI makes building easier. Deciding what’s useful, and how it should work, is still the hard part.</p>
+            <p>I help colleagues put AI to work on tasks they own, then make what works easier for others to use.</p>
+            <p>My background spans product, education, and documentation. I build tools and games, too.</p>
           </>}
         </div>
         <div className="identity-current">
@@ -65,7 +63,7 @@ function WorkList() {
             <h2><Link to={`/case-studies/${study.slug}`}>{study.title}</Link></h2>
             <p className="row-description">{SUMMARIES[study.slug]}</p>
             <div className="case-row-footer">
-              <p className="case-proof"><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>
+              {study.slug === 'enterprise-ai-adoption-automattic' ? <p className="case-proof">More on outcomes and impact in the case study</p> : <p className="case-proof"><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>}
               <Link className="row-link" to={`/case-studies/${study.slug}`} aria-label={`Read case study: ${study.title}`}>
                 Read the case <ArrowRight size={15} aria-hidden="true" />
               </Link>

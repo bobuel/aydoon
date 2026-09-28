@@ -37,55 +37,49 @@ export const PROOF_METRICS: EvidenceMetric[] = [
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'enterprise-ai-adoption-automattic',
-    eyebrow: 'Enterprise adoption',
-    title: 'AI operations at Automattic',
+    eyebrow: 'Enterprise AI adoption',
+    title: 'AI Adoption Manager at Automattic',
     summary:
-      'Operating an enterprise AI environment as one connected adoption system across products, learning, guidance, and a champion network.',
+      'At Automattic, I help operate an AI environment serving 1,500 employees. As AI Adoption Manager, I connect practical learning, internal product direction, and the access and distribution work that gets tools into people’s hands.',
     role: 'AI Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
-      { value: '1,500', label: 'employees in scope' },
-      { value: '2–3', label: 'how-to articles published weekly' },
-      { value: '4', label: 'internal product and workflow surfaces managed' },
+      { value: '1,500', label: 'employees in the AI environment' },
+      { value: '35', label: 'substantive internal posts, including 14 How Tos' },
+      { value: '30%', label: 'program reach in seven months, a shared result' },
     ],
     sections: [
       {
-        heading: 'Context',
+        heading: 'The aim',
         body: [
-          'Automattic’s employees work across multiple AI platforms, including ChatGPT, Codex, Claude, Cowork, and Claude Code. My role combines administration and functional operations with product ownership and hands-on adoption work.',
+          'Help people who have 3×ed themselves 10× their teams.',
         ],
       },
       {
-        heading: 'The product problem',
+        heading: 'Start with the work',
         body: [
-          'Access alone does not create useful adoption. People need clear starting points, trustworthy workflows, and visible examples that connect AI capability to work they already own.',
-          'The operating challenge is to improve everyday usefulness while managing a changing portfolio of tools, costs, internal products, and user needs.',
+          'A participant reported cutting daily social reporting from about ten minutes to one or two. Another turned a one-to-two-day campaign drafting process into a roughly five-minute first draft, then shared the workflow as a plugin. Those are participant reports, and the draft still needed review.',
+          'The work came out of the first hybrid Growth cohort I led, with live sessions, recordings, and challenges across time zones. I also facilitated a Finance cohort on partner recommendations, customer expansion, and churn risk.',
         ],
       },
       {
-        heading: 'Operations, products, and adoption',
+        heading: 'Make the method reusable',
         body: [
-          'I treat enterprise adoption as a product system rather than a communications campaign.',
-        ],
-        bullets: [
-          'Functional operations for the company’s ChatGPT, Codex, and Claude environments.',
-          'Helping with cost management across those AI tools.',
-          'Product management for an internal AI Agent, AI Learning, LibreChat, and Slack-based agentic automation.',
-          'An AI Guides champion program that creates peer support and reusable examples.',
-          'Scoping, design, and delivery support for executive AI use cases.',
-          'A steady publishing cadence of practical, task-oriented guidance.',
+          'Teaching once is not enough. I built a platform that turns a workshop plan and company context into a reviewed outline, slides, and exercises; another facilitator used it to prepare a session.',
+          'I published 35 substantive internal posts, including 14 How To guides, on tool choice, context, and cost. I helped launch the first 19 AI Guides so colleagues had local people to learn from and a way to bring their needs back into the program.',
         ],
       },
       {
-        heading: 'Product decisions',
+        heading: 'Fix what gets in the way',
         body: [
-          'The central decision is to connect platform operations, product delivery, learning, and champions. Each surface should reinforce the others: product usage reveals friction, guidance reduces that friction, and peer examples show where the tools are genuinely useful.',
+          'A tool is useless if people cannot get or install it. I fixed a plugin release that was missing files; its creator confirmed it installed and worked. I also coordinated an enterprise access transition through provider confirmation.',
+          'For the internal tools, I help shape vision and functionality, using colleague requests and market patterns to push what we think those tools can do.',
         ],
       },
       {
-        heading: 'What this demonstrates',
+        heading: 'Beyond one cohort',
         body: [
-          'Enterprise AI leadership is both technical and behavioral. The work requires enough product depth to shape useful systems and enough adoption discipline to make those systems understandable, repeatable, and trusted.',
+          'Participants organized nine local meetups, and the broader program reached 30% of the company in seven months against a 25% target. Those are shared results, including work from before I joined.',
         ],
       },
     ],
