@@ -43,7 +43,8 @@ describe('published Hybrid design', () => {
     fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Adoption Manager at Automattic' }));
     expect(screen.getByText(/The draft still needed review/)).toBeInTheDocument();
     expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
-    expect(screen.getByText(/Those are shared results, including work from before I joined/)).toBeInTheDocument();
+    expect(screen.getByText(/These are shared results, including work before I joined/)).toBeInTheDocument();
+    expect(screen.getByText(/tracking what the market makes possible/)).toBeInTheDocument();
     expect(screen.queryByText(/daily social reporting/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
