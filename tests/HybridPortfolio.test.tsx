@@ -41,9 +41,10 @@ describe('published Hybrid design', () => {
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Adoption Manager at Automattic' }));
-    expect(screen.getByText(/Those are participant reports, and the draft still needed review/)).toBeInTheDocument();
-    expect(screen.getByText(/another facilitator used it to prepare a session/)).toBeInTheDocument();
+    expect(screen.getByText(/The draft still needed review/)).toBeInTheDocument();
+    expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
     expect(screen.getByText(/Those are shared results, including work from before I joined/)).toBeInTheDocument();
+    expect(screen.queryByText(/daily social reporting/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText('I also participate in the OpenAI Champions program.')).toBeInTheDocument();
@@ -97,7 +98,7 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['CertifyFast', 'Bloom Quiz Builder Skill', 'Brassline', 'Retrieval Guard']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Bloom Quiz Builder Skill', 'Retrieval Guard', 'CertifyFast', 'Informa']);
     for (const project of PROJECTS) {
       const row = screen.getByRole('heading', { name: project.title }).closest('article')!;
       for (const link of project.links) {

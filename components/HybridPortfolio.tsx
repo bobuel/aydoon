@@ -7,7 +7,7 @@ import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../wri
 import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'I lead hands-on learning, build teaching tools, and help shape the internal products and operations behind adoption.',
+  'enterprise-ai-adoption-automattic': 'I treat adoption as product and operations work: find useful work, make the method reusable, then fix what stops it from spreading.',
   'ai-product-leadership-dremio': 'I scoped four AI initiatives, including an AI agent and AI SQL, with Design and Engineering.',
   'bloom-assessment-workflow': 'I built a guided quiz workflow that ties each question to source material and keeps teachers in control.',
 };
@@ -80,11 +80,12 @@ function ProjectList() {
   const [searchParams] = useSearchParams();
   const requestedFilter = searchParams.get('filter');
   const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
-  const firstIds = ['certifyfast', 'bloom-skill', 'brassline', 'retrieval-guard'];
+  const firstIds = ['bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
   const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
     <>
+    <p className="builds-intro">I build to see whether a product idea survives real use. These tools test source grounding, human review, and repeatable work. The games test systems and interaction.</p>
     <nav className="build-filters" aria-label="Build filters">
       {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
         <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>
