@@ -40,46 +40,40 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'Enterprise AI adoption',
     title: 'AI Adoption Manager at Automattic',
     summary:
-      'At Automattic, I help operate an AI environment serving 1,500 employees. As AI Adoption Manager, I connect practical learning, internal product direction, and the access and distribution work that gets tools into people’s hands.',
+      'At Automattic, I help turn useful AI workflows into team practice across an environment serving 1,500 employees. I connect employee demand to product direction, reusable methods, and the operations that keep them working.',
     role: 'AI Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
-      { value: '1,500', label: 'employees in the AI environment' },
-      { value: '35', label: 'substantive internal posts, including 14 How Tos' },
-      { value: '30%', label: 'program reach in seven months, a shared result' },
+      { value: '1,500', label: 'employees in the AI environment I help operate' },
+      { value: '19', label: 'AI Guides in the first launch I helped deliver' },
+      { value: '30%', label: 'company reached by the broader program in seven months; shared result' },
     ],
     sections: [
       {
-        heading: 'The aim',
+        heading: 'Why the role matters',
         body: [
-          'Help people who have 3×ed themselves 10× their teams.',
+          'A person can triple their own output and leave their team unchanged. I want to help people who have 3×ed themselves 10× their teams. That means finding work worth changing, making the method usable by others, and keeping the tool and support behind it working.',
         ],
       },
       {
-        heading: 'Start with the work',
+        heading: 'Make the product call',
         body: [
-          'A participant reported cutting daily social reporting from about ten minutes to one or two. Another turned a one-to-two-day campaign drafting process into a roughly five-minute first draft, then shared the workflow as a plugin. Those are participant reports, and the draft still needed review.',
-          'The work came out of the first hybrid Growth cohort I led, with live sessions, recordings, and challenges across time zones. I also facilitated a Finance cohort on partner recommendations, customer expansion, and churn risk.',
+          'I hear what employees are asking for, watch where market tools are going, and compare those choices with what we can build. I work with the team on the vision and functionality of internal tools. The hard call is where to invest: a product change, a reusable method, or better access to a tool we already have.',
+          'Cohorts are one place I test those decisions. The hybrid Growth cohort I led and Finance sessions I facilitated surfaced work across campaigns, partner recommendations, expansion, and churn. We start with an owner, a clear output, and a review point.',
         ],
       },
       {
-        heading: 'Make the method reusable',
+        heading: 'Run the system behind adoption',
         body: [
-          'Teaching once is not enough. I built a platform that turns a workshop plan and company context into a reviewed outline, slides, and exercises; another facilitator used it to prepare a session.',
-          'I published 35 substantive internal posts, including 14 How To guides, on tool choice, context, and cost. I helped launch the first 19 AI Guides so colleagues had local people to learn from and a way to bring their needs back into the program.',
+          'I treat access and support as part of the product. A plugin does not help if colleagues cannot install it; a workshop does not scale if only its author can teach it. I fixed a plugin packaging failure, coordinated an enterprise AI access transition, built a workshop preparation platform another facilitator used, and helped launch 19 AI Guides.',
+          'The operational work continues after launch: functional issues, distribution, and cost across the AI environment I help run. I put lessons into 35 internal posts, including 14 How Tos, so colleagues can find a working method when they need it.',
         ],
       },
       {
-        heading: 'Fix what gets in the way',
+        heading: 'Look for work that travels',
         body: [
-          'A tool is useless if people cannot get or install it. I fixed a plugin release that was missing files; its creator confirmed it installed and worked. I also coordinated an enterprise access transition through provider confirmation.',
-          'For the internal tools, I help shape vision and functionality, using colleague requests and market patterns to push what we think those tools can do.',
-        ],
-      },
-      {
-        heading: 'Beyond one cohort',
-        body: [
-          'Participants organized nine local meetups, and the broader program reached 30% of the company in seven months against a 25% target. Those are shared results, including work from before I joined.',
+          'One Growth participant reported moving a campaign first draft from a one-to-two-day process to roughly five minutes, then shared the workflow as a plugin. The draft still needed review. The method moved from one person’s time saving to something teammates could install.',
+          'The broader program reached 30% of the company in seven months against a 25% target, and participants organized nine local meetups. Those are shared results, including work from before I joined. My role is to keep the product, learning, and operations work connected as adoption grows.',
         ],
       },
     ],
@@ -189,7 +183,7 @@ export const PROJECTS: Project[] = [
     slug: 'certifyfast',
     title: 'CertifyFast',
     description:
-      'Turn source material into certification and exam-development artifacts, ready for expert review.',
+      'An exam-development prototype that starts with source material and keeps expert review in the workflow.',
     category: 'Products',
     status: 'Live prototype',
     tags: ['Certification', 'Source grounding', 'Human review'],
@@ -211,7 +205,7 @@ export const PROJECTS: Project[] = [
     slug: 'informa',
     title: 'Informa',
     description:
-      'A private intelligence-agent prototype for feeds, morning audio summaries, and live queries.',
+      'A private briefing prototype exploring source health, cost controls, audio, and delivery checks.',
     category: 'Agents & Tools',
     status: 'Private prototype',
     tags: ['AgentMail', 'Voice', 'Signal processing'],
@@ -315,7 +309,7 @@ export const PROJECTS: Project[] = [
     slug: 'bloom-taxonomy-quiz-builder-skill',
     title: 'Bloom Quiz Builder Skill',
     description:
-      'Build source-grounded assessment questions with teacher checkpoints and structured output.',
+      'BloomGPT’s 1,000+ uses pointed to a harder problem: source-grounded questions teachers can review. This skill turns that need into a guided workflow.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['Education', 'Workflow design', 'AI skill'],
@@ -341,7 +335,7 @@ export const PROJECTS: Project[] = [
     slug: 'retrieval-guard',
     title: 'Retrieval Guard',
     description:
-      'Check retrieval regressions and structural near misses before context reaches an AI system.',
+      'Tests retrieval changes for regressions and near misses before the wrong context shapes an AI answer.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['RAG evaluation', 'Regression testing', 'Two-stage retrieval'],
