@@ -40,40 +40,47 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'Enterprise AI adoption',
     title: 'AI Adoption Manager at Automattic',
     summary:
-      'At Automattic, I help turn useful AI workflows into team practice across an environment serving 1,500 employees. I connect employee demand to product direction, reusable methods, and the operations that keep them working.',
+      'At Automattic, I joined AI Enablement as its first dedicated hire. I help good AI work move beyond its first user: work with people on problems they own, productize what works, and build the access and support that help it spread across an environment serving 1,500 employees.',
     role: 'AI Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
       { value: '1,500', label: 'employees in the AI environment I help operate' },
-      { value: '19', label: 'AI Guides in the first launch I helped deliver' },
       { value: '30%', label: 'company reached by the broader program in seven months; shared result' },
+      { value: '0.5–1 pt', label: 'gain in three of four capability markers; shared program result' },
     ],
     sections: [
       {
-        heading: 'Why the role matters',
+        heading: 'Take ownership',
         body: [
-          'A person can triple their own output and leave their team unchanged. I want to help people who have 3×ed themselves 10× their teams. That means finding work worth changing, making the method usable by others, and keeping the tool and support behind it working.',
+          'I want to help people who have 3×ed themselves 10× their teams. I look for the gap between an individual win and a method others can use. That means listening to what colleagues need, tracking what the market makes possible, and helping set the vision and functionality of internal tools.',
+          'I independently led the first hybrid Growth cohort and facilitated Finance with domain and technical partners. When the program changed direction, I recommended aligning communication, Guides, and facilitators before building more material. The team adopted that sequence.',
         ],
       },
       {
-        heading: 'Make the product call',
+        heading: 'Enable on real work',
         body: [
-          'I hear what employees are asking for, watch where market tools are going, and compare those choices with what we can build. I work with the team on the vision and functionality of internal tools. The hard call is where to invest: a product change, a reusable method, or better access to a tool we already have.',
-          'Cohorts are one place I test those decisions. The hybrid Growth cohort I led and Finance sessions I facilitated surfaced work across campaigns, partner recommendations, expansion, and churn. We start with an owner, a clear output, and a review point.',
+          'A cohort is useful when participants leave with a way to change work they own. I combined live sessions, recordings, challenges, and reusable material across time zones, then helped colleagues adapt skills and solve setup problems after the sessions.',
+          'One Growth participant reported moving a campaign first draft from a one-to-two-day process to about five minutes, then made it a plugin for teammates. The draft still needed review. The participant built the tool and credited the workshop leadership.',
         ],
       },
       {
-        heading: 'Run the system behind adoption',
+        heading: 'Productize what repeats',
         body: [
-          'I treat access and support as part of the product. A plugin does not help if colleagues cannot install it; a workshop does not scale if only its author can teach it. I fixed a plugin packaging failure, coordinated an enterprise AI access transition, built a workshop preparation platform another facilitator used, and helped launch 19 AI Guides.',
-          'The operational work continues after launch: functional issues, distribution, and cost across the AI environment I help run. I put lessons into 35 internal posts, including 14 How Tos, so colleagues can find a working method when they need it.',
+          'The test is whether someone else can use the method. I built a workshop-preparation tool that another facilitator used to make slides while testing a session. I also built agents to help colleagues find earlier cohort projects and suitable support work.',
+          'I helped design and launch 19 AI Guides with defined time and contribution expectations, giving local practitioners a way to teach and bring needs back to the central program. The network extends the work beyond any single cohort or facilitator.',
         ],
       },
       {
-        heading: 'Look for work that travels',
+        heading: 'Operationalize adoption',
         body: [
-          'One Growth participant reported moving a campaign first draft from a one-to-two-day process to roughly five minutes, then shared the workflow as a plugin. The draft still needed review. The method moved from one person’s time saving to something teammates could install.',
-          'The broader program reached 30% of the company in seven months against a 25% target, and participants organized nine local meetups. Those are shared results, including work from before I joined. My role is to keep the product, learning, and operations work connected as adoption grows.',
+          'A useful tool cannot spread if people cannot install or update it. When a colleague’s plugin failed, I diagnosed its packaging, helped publish a tested version, and established a repeatable update path with its owners. Its creator confirmed the plugin installed and worked.',
+          'I also coordinated an enterprise AI access transition through changing eligibility, user guidance, and provider-confirmed completion. Working in administration gave me product requirements for better spending controls, which I brought to a provider product discussion. Those requirements were proposals, not shipped features.',
+        ],
+      },
+      {
+        heading: 'Results at the right level',
+        body: [
+          'The broader AI Enablement program reached 30% of the company in seven months against a 25% target. Three of four capability markers rose about 0.5–1 point on a five-point scale, and participants organized nine local meetups. These are shared results, including work before I joined. My direct contribution is in the methods, tools, and operations that make the next person easier to reach.',
         ],
       },
     ],
