@@ -49,7 +49,8 @@ describe('published Hybrid design', () => {
     expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText('I also participate in the OpenAI Champions program.')).toBeInTheDocument();
-    expect(screen.getByText('I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.')).toBeInTheDocument();
+    expect(screen.getByText(/Before AI became part of my title/)).toBeInTheDocument();
+    expect(screen.getByText(/Dremio University team reached 3,200\+ users/)).toBeInTheDocument();
   });
 
   it('keeps the identity panel while switching Work, Builds and Games', () => {
@@ -83,13 +84,14 @@ describe('published Hybrid design', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
-  it('keeps homepage proof inline and Dremio learning figures inside its case', () => {
+  it('keeps homepage proof inline and labels Dremio learning separately from AI products', () => {
     show();
     expect(screen.getAllByRole('article')).toHaveLength(3);
     expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
-    expect(screen.getByText('4')).toBeInTheDocument();
+    const dremio = screen.getByRole('link', { name: 'AI products at Dremio' }).closest('article')!;
+    expect(within(dremio).getByText('4')).toBeInTheDocument();
+    expect(within(dremio).getByText(/Dremio University reached 3,200\+ users in six months/)).toBeInTheDocument();
     expect(screen.getByText('1,000+')).toBeInTheDocument();
-    expect(screen.queryByText('3,200+')).not.toBeInTheDocument();
     expect(screen.queryByText('+78')).not.toBeInTheDocument();
     for (const study of CASE_STUDIES) {
       expect(screen.getByRole('link', { name: `Read case study: ${study.title}` })).toHaveAttribute('href', `/case-studies/${study.slug}`);
