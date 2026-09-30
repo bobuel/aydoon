@@ -40,7 +40,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'Enterprise AI adoption',
     title: 'AI Adoption Manager at Automattic',
     summary:
-      'At Automattic, I joined AI Enablement as its first dedicated hire. I help good AI work move beyond its first user: work with people on problems they own, productize what works, and build the access and support that help it spread across an environment serving 1,500 employees.',
+      'At Automattic, I joined AI Enablement as its first dedicated hire. I help people change work they own, make what works usable by their teams, and keep the tools and support behind it working across an AI environment serving 1,500 employees.',
     role: 'AI Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
@@ -50,37 +50,37 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     sections: [
       {
-        heading: 'Take ownership',
+        heading: 'Find the work worth changing',
         body: [
-          'I want to help people who have 3×ed themselves 10× their teams. I look for the gap between an individual win and a method others can use. That means listening to what colleagues need, tracking what the market makes possible, and helping set the vision and functionality of internal tools.',
-          'I independently led the first hybrid Growth cohort and facilitated Finance with domain and technical partners. When the program changed direction, I recommended aligning communication, Guides, and facilitators before building more material. The team adopted that sequence.',
+          'I want to help people who have 3×ed themselves 10× their teams. That means seeing where an individual win gets stuck: what colleagues are asking for, what new tools can do, and which of our options are worth building. I use those signals with the team to shape the vision and functionality of internal tools.',
+          'That same judgment matters in enablement. I led the first hybrid Growth cohort and facilitated Finance with domain and technical partners. When the program changed direction, I recommended aligning communication, Guides, and facilitators before building more material. The team adopted the sequence.',
         ],
       },
       {
-        heading: 'Enable on real work',
+        heading: 'Make learning useful at work',
         body: [
-          'A cohort is useful when participants leave with a way to change work they own. I combined live sessions, recordings, challenges, and reusable material across time zones, then helped colleagues adapt skills and solve setup problems after the sessions.',
-          'One Growth participant reported moving a campaign first draft from a one-to-two-day process to about five minutes, then made it a plugin for teammates. The draft still needed review. The participant built the tool and credited the workshop leadership.',
+          'Workshops matter when they change the work afterward. I combined live sessions, recordings, challenges, and reusable material for people across time zones, then stayed involved as they adapted skills and worked through setup problems.',
+          'A Growth participant reported moving a campaign first draft from one or two days to about five minutes, then packaged the method as a plugin for teammates. Their draft still needed review. They built the tool; the workshop helped them find and share the method.',
         ],
       },
       {
-        heading: 'Productize what repeats',
+        heading: 'Make the method reusable',
         body: [
-          'The test is whether someone else can use the method. I built a workshop-preparation tool that another facilitator used to make slides while testing a session. I also built agents to help colleagues find earlier cohort projects and suitable support work.',
-          'I helped design and launch 19 AI Guides with defined time and contribution expectations, giving local practitioners a way to teach and bring needs back to the central program. The network extends the work beyond any single cohort or facilitator.',
+          'A method has to work without its author in the room. I built a workshop preparation tool that another facilitator used to make slides while testing a session.',
+          'I also helped launch 19 AI Guides with defined commitments, so local practitioners could teach and bring needs back to the central program.',
         ],
       },
       {
-        heading: 'Operationalize adoption',
+        heading: 'Keep it working',
         body: [
-          'A useful tool cannot spread if people cannot install or update it. When a colleague’s plugin failed, I diagnosed its packaging, helped publish a tested version, and established a repeatable update path with its owners. Its creator confirmed the plugin installed and worked.',
-          'I also coordinated an enterprise AI access transition through changing eligibility, user guidance, and provider-confirmed completion. Working in administration gave me product requirements for better spending controls, which I brought to a provider product discussion. Those requirements were proposals, not shipped features.',
+          'If people cannot install or update a tool, it cannot spread. When a colleague’s plugin failed, I traced the problem to packaging, helped release a tested version, and set up an update path its owners could use. The creator confirmed the installation worked.',
+          'I also coordinated an enterprise AI access transition as eligibility changed, with guidance for users and provider-confirmed completion. That work surfaced gaps in spending controls. I brought requirements to the provider’s product team; they were discussed, not shipped.',
         ],
       },
       {
-        heading: 'Results at the right level',
+        heading: 'What changed',
         body: [
-          'The broader AI Enablement program reached 30% of the company in seven months against a 25% target. Three of four capability markers rose about 0.5–1 point on a five-point scale, and participants organized nine local meetups. These are shared results, including work before I joined. My direct contribution is in the methods, tools, and operations that make the next person easier to reach.',
+          'The wider AI Enablement program reached 30% of the company in seven months, above its 25% target. Three of four capability measures rose about 0.5–1 point on a five-point scale, and participants organized nine local meetups. Those are shared results, including work that started before I joined.',
         ],
       },
     ],

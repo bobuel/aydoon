@@ -41,10 +41,10 @@ describe('published Hybrid design', () => {
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Adoption Manager at Automattic' }));
-    expect(screen.getByText(/The draft still needed review/)).toBeInTheDocument();
+    expect(screen.getByText(/Their draft still needed review/)).toBeInTheDocument();
     expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
-    expect(screen.getByText(/These are shared results, including work before I joined/)).toBeInTheDocument();
-    expect(screen.getByText(/tracking what the market makes possible/)).toBeInTheDocument();
+    expect(screen.getByText(/Those are shared results, including work that started before I joined/)).toBeInTheDocument();
+    expect(screen.getByText(/what new tools can do/)).toBeInTheDocument();
     expect(screen.queryByText(/daily social reporting/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));

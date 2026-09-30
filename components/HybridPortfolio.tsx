@@ -7,7 +7,7 @@ import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../wri
 import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'I joined AI Enablement as its first dedicated hire. I help people change real work, make good methods reusable, and run the path that lets others use them.',
+  'enterprise-ai-adoption-automattic': 'I joined as AI Enablement’s first dedicated hire. I help people change work they own, make what works usable by their teams, and keep the tools behind it working.',
   'ai-product-leadership-dremio': 'I scoped four AI initiatives, including an AI agent and AI SQL, with Design and Engineering.',
   'bloom-assessment-workflow': 'I built a guided quiz workflow that ties each question to source material and keeps teachers in control.',
 };
