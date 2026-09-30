@@ -18,8 +18,8 @@ describe('CaseStudyPage', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AI products at Dremio');
     expect(screen.getByRole('link', { name: 'All case studies' })).toHaveAttribute('href', '/#work');
-    expect(screen.getByRole('heading', { name: /Adoption evidence—kept distinct/i })).toBeInTheDocument();
-    expect(screen.getByText(/Dremio University, not to the AI products/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /What the learning product achieved/i })).toBeInTheDocument();
+    expect(screen.getByText(/learning outcomes, not measures of AI-product adoption/i)).toBeInTheDocument();
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
       'href',
       'https://bobuel.github.io/aydoon/case-studies/ai-product-leadership-dremio',

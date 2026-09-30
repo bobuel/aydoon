@@ -90,7 +90,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'AI product leadership',
     title: 'AI products at Dremio',
     summary:
-      'Turning customer signal into an AI portfolio by connecting product direction, workflow design, and engineering partnership.',
+      'At Dremio, I combined AI product management with leadership of Documentation and University. I used customer discovery and cross-functional prioritization to scope four AI initiatives, while the learning teams helped people use the platform.',
     role: 'Senior AI Product Manager and Director, Education & Documentation',
     period: 'January 2024–March 2026',
     evidence: [
@@ -103,7 +103,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Context',
         body: [
-          'At Dremio, I held dual responsibility for AI product management and the Documentation and University teams. That combination gave me a direct view of customer needs, product behavior, and the gaps that prevent new capabilities from becoming usable workflows.',
+          'I held two roles: Senior AI Product Manager and Director of Education & Documentation. Customer questions, product behavior, and learning friction all showed where the experience needed work.',
         ],
       },
       {
@@ -113,30 +113,21 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        heading: 'What I led',
+        heading: 'Product direction',
         body: [
-          'I treated the opportunity as a system-design problem: use discovery and cross-functional prioritization to place each need in the right interface rather than force every workflow into one chatbot.',
+          'I used customer discovery and cross-functional prioritization to scope four AI initiatives for different moments in an analyst’s workflow. I worked with Design and Engineering to drive their development:',
         ],
         bullets: [
           'An AI Agent for guided product interaction.',
           'An MCP server for connecting AI clients to Dremio capabilities.',
           'AI SQL functions embedded in data workflows.',
           'A data-analyst chatbot experience.',
-          'Roadmap and revenue prioritization in partnership with Design and Engineering.',
-          'Cross-department automation using Zapier, OpenAI, Jira, GitHub, and MCP.',
         ],
       },
       {
-        heading: 'Adoption evidence—kept distinct',
+        heading: 'What the learning product achieved',
         body: [
-          'The strongest quantified adoption outcomes from this period belong to Dremio University, not to the AI products. In six months, DremioU reached more than 3,200 users, awarded over 1,000 badges, achieved +78 NPS, and recorded a 50% completion rate.',
-          'Those results are relevant because they demonstrate a repeatable ability to design for comprehension and sustained use, while remaining separate from AI-product performance claims.',
-        ],
-      },
-      {
-        heading: 'What this demonstrates',
-        body: [
-          'This was system design across product and adoption surfaces: discovery, delivery, documentation, learning, and user behavior had to reinforce one another rather than become separate handoffs.',
+          'In six months, Dremio University reached more than 3,200 users, awarded over 1,000 badges, achieved +78 NPS, and recorded a 50% completion rate. Those are learning outcomes, not measures of AI-product adoption.',
         ],
       },
     ],

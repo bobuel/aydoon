@@ -8,8 +8,8 @@ import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'I joined as AI Enablement’s first dedicated hire. I help people change work they own, make what works usable by their teams, and keep the tools behind it working.',
-  'ai-product-leadership-dremio': 'I scoped four AI initiatives, including an AI agent and AI SQL, with Design and Engineering.',
-  'bloom-assessment-workflow': 'I built a guided quiz workflow that ties each question to source material and keeps teachers in control.',
+  'ai-product-leadership-dremio': 'I scoped four AI product initiatives with Design and Engineering while leading Documentation and University. Dremio University reached 3,200+ users in six months.',
+  'bloom-assessment-workflow': 'BloomGPT showed demand. I turned that signal into a guided quiz workflow with source references and teacher review.',
 };
 
 const PAGE_METADATA: Record<string, { title: string; description: string }> = {
@@ -151,8 +151,9 @@ function About() {
   return (
     <section className="about-copy">
       <h2>I make complex systems easier to use.</h2>
-      <p>My career has moved through education, documentation, product, and adoption, but the central question has stayed consistent: how do people understand a technical system, build confidence with it, and turn its capability into useful, repeatable work?</p>
-      <p>I work broadly to understand where AI can help, then go deep on an immediate opportunity. The first useful result should improve the work and help employees see what else is possible.</p>
+      <p>Before AI became part of my title, I led global education, partner enablement, and documentation teams at Qubole, WorkFusion, Arrikto, and Braze. I learned how much product value depends on whether people can understand and use what ships.</p>
+      <p>At Dremio, I was Senior AI Product Manager and Director of Education &amp; Documentation. I scoped four AI initiatives with Design and Engineering. Separately, the Dremio University team reached 3,200+ users in six months, with +78 NPS and 50% completion.</p>
+      <p>At Automattic, I joined AI Enablement as its first dedicated hire. I work with colleagues on tasks they own, help shape internal tools from their needs, and help run access and support across an AI environment serving 1,500 employees.</p>
       <p>I also participate in the OpenAI Champions program.</p>
       <p>As execution gets cheaper, the design premium rises. I help organizations turn that shift into practical operating systems, products, learning, and behavior change—without reducing it to hype.</p>
       <a className="row-link" href={`mailto:${PROFILE.email}`}>Have an interesting problem? <ArrowUpRight size={15} aria-hidden="true" /></a>
