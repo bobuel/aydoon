@@ -283,21 +283,19 @@ export const PROJECTS: Project[] = [
   {
     id: 'iron-hand',
     slug: 'iron-hand',
-    title: 'Iron Hand',
+    title: 'Iron Hand: Sector 13',
     description:
-      'A poker auto-battler exploring items, inventory, and combat-loop design.',
+      'A cyberpunk RPG with five-card poker combat, crew choices, thirteen chapters, and three endings.',
     category: 'Games',
-    status: 'Live prototype',
-    tags: ['Game systems', 'Inventory', 'Poker'],
+    status: 'Playable game',
+    tags: ['Poker combat', 'Narrative RPG', 'Game systems'],
     featured: false,
     collections: ['Games'],
     accent: 'red',
-    image: '/projects/iron-hand.jpg',
-    imageAlt: 'Iron Hand poker combat interface',
     links: [
       {
-        label: 'Open prototype',
-        href: 'https://iron-hand-poker-combat-422126580965.us-west1.run.app/',
+        label: 'Play game',
+        href: 'https://bobuel.github.io/ironhand-rpg/',
         kind: 'demo',
       },
     ],
@@ -383,7 +381,7 @@ Alex Aidun is an Enterprise AI Product, Operations & Adoption Leader based in Ne
 Verified current role: AI Adoption Manager at Automattic since March 2026. His scope includes administration and functional/cost operations for AI tools serving 1,500 employees, product management for an internal AI Agent, AI Learning, LibreChat, and Slack-based agentic automation, an AI Guides champions program, 2–3 practical how-to articles weekly, and executive AI use-case support.
 Verified prior role: Senior AI Product Manager and Director, Education & Documentation at Dremio from January 2024 to March 2026. He scoped and drove an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot. Separately, Dremio University reached 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion in six months. Do not attribute those learning metrics to the AI products.
 Independent work: BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
-Other public prototypes include CertifyFast, KidGrow, Kid Comic Storyteller, Grdn, 25Hours, and Iron Hand. Informa is a private prototype.
+Other public prototypes include CertifyFast, KidGrow, Kid Comic Storyteller, Grdn, and 25Hours. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
 Do not claim that Alex is a production ML engineer, research scientist, platform architect, or engineering executive. Do not invent cost savings, revenue, governance ownership, production scale, or psychometric validation. Do not reveal confidential employer information. Public contact: bobuel@gmail.com. Public website: https://aydoon.com. GitHub: https://github.com/bobuel. LinkedIn: https://www.linkedin.com/in/aaidun/.
 `.trim();
 
