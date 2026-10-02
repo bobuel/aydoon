@@ -118,8 +118,9 @@ describe('published Hybrid design', () => {
 
   it('loads the selected Games view directly', () => {
     show('/games/');
-    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Brassline', '25Hours', 'Iron Hand']);
+    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Brassline', 'Iron Hand: Sector 13', '25Hours']);
     expect(screen.getByRole('link', { name: 'Play game: Brassline' })).toHaveAttribute('href', 'https://bobuel.github.io/brassline/');
+    expect(screen.getByRole('link', { name: 'Play game: Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
   });
 
   it.each(CASE_STUDIES)('preserves every section and evidence item for $title', study => {
