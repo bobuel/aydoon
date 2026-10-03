@@ -107,7 +107,7 @@ describe('published Hybrid design', () => {
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' }).closest('article')).toHaveTextContent('Featured game');
     expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
     expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
-    expect(screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')).toHaveTextContent('Demo on request');
+    expect(screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')).toHaveTextContent('Prototype');
     expect(screen.getByRole('heading', { name: 'ManagerAI (Grdn)' })).toBeInTheDocument();
     expect(screen.getByText(/Evaluation is ongoing/)).toBeInTheDocument();
     for (const project of PROJECTS) {
