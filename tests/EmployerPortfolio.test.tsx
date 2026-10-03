@@ -26,7 +26,7 @@ describe('EmployerPortfolio', () => {
     const privateProject = screen.getByRole('heading', { name: 'Informa' }).closest('article')!;
     expect(within(privateProject).getByText('Private prototype')).toBeInTheDocument();
     const requestProject = screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')!;
-    expect(within(requestProject).getByText('Demo on request')).toBeInTheDocument();
+    expect(within(requestProject).getByText('Prototype')).toBeInTheDocument();
     expect(within(requestProject).queryByRole('link')).not.toBeInTheDocument();
   });
 
