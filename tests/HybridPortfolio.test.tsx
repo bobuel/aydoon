@@ -87,6 +87,8 @@ describe('published Hybrid design', () => {
   it('keeps homepage proof inline and labels Dremio learning separately from AI products', () => {
     show();
     expect(screen.getAllByRole('article')).toHaveLength(3);
+    expect(screen.getByRole('link', { name: 'Play Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
+    expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' })).toBeInTheDocument();
     expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
     const dremio = screen.getByRole('link', { name: 'AI products at Dremio' }).closest('article')!;
     expect(within(dremio).getByText('4')).toBeInTheDocument();
@@ -101,7 +103,13 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Bloom Quiz Builder Skill', 'Retrieval Guard', 'CertifyFast', 'Informa']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Bloom Quiz Builder Skill', 'Retrieval Guard', 'CertifyFast']);
+    expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' }).closest('article')).toHaveTextContent('Featured game');
+    expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
+    expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
+    expect(screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')).toHaveTextContent('Demo on request');
+    expect(screen.getByRole('heading', { name: 'ManagerAI (Grdn)' })).toBeInTheDocument();
+    expect(screen.getByText(/Evaluation is ongoing/)).toBeInTheDocument();
     for (const project of PROJECTS) {
       const row = screen.getByRole('heading', { name: project.title }).closest('article')!;
       for (const link of project.links) {
@@ -118,7 +126,7 @@ describe('published Hybrid design', () => {
 
   it('loads the selected Games view directly', () => {
     show('/games/');
-    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Brassline', 'Iron Hand: Sector 13', '25Hours']);
+    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Brassline', '25Hours']);
     expect(screen.getByRole('link', { name: 'Play game: Brassline' })).toHaveAttribute('href', 'https://bobuel.github.io/brassline/');
     expect(screen.getByRole('link', { name: 'Play game: Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
   });
@@ -195,3 +203,4 @@ describe('published Hybrid design', () => {
     expect(result.violations.filter(violation => ['critical', 'serious'].includes(violation.impact ?? ''))).toEqual([]);
   });
 });
+
