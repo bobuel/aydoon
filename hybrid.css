@@ -130,4 +130,3 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .case-detail > h2, .about-copy h2, .writing-index > h2, .writing-detail > h2 { font-size: 1.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
