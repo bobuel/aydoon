@@ -100,4 +100,3 @@ describe('EmployerPortfolio', () => {
     expect(results.violations.filter((violation) => violation.impact === 'critical')).toEqual([]);
   });
 });
-
