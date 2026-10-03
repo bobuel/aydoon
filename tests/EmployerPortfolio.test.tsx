@@ -25,8 +25,9 @@ describe('EmployerPortfolio', () => {
     expect(within(openSource).getAllByText(/^open source$/i)).toHaveLength(1);
     const privateProject = screen.getByRole('heading', { name: 'Informa' }).closest('article')!;
     expect(within(privateProject).getByText('Private prototype')).toBeInTheDocument();
-    const liveProject = screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')!;
-    expect(within(liveProject).getByText('Live prototype')).toBeInTheDocument();
+    const requestProject = screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')!;
+    expect(within(requestProject).getByText('Demo on request')).toBeInTheDocument();
+    expect(within(requestProject).queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('presents the employer positioning, proof, and working calls to action', () => {
@@ -99,3 +100,4 @@ describe('EmployerPortfolio', () => {
     expect(results.violations.filter((violation) => violation.impact === 'critical')).toEqual([]);
   });
 });
+
