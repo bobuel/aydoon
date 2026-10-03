@@ -71,6 +71,14 @@ function WorkList() {
           </article>
         ))}
       </div>
+      <section className="featured-build" aria-label="Featured game">
+        <p className="row-label">Featured game</p>
+        <h2>Iron Hand: Sector 13</h2>
+        <p className="row-description">A playable cyberpunk RPG where poker combat, crew choices, and a 13-chapter story shape the run.</p>
+        <a className="row-link" href="https://bobuel.github.io/ironhand-rpg/" target="_blank" rel="noreferrer" aria-label="Play Iron Hand: Sector 13">
+          Play Iron Hand: Sector 13 <ArrowUpRight size={15} aria-hidden="true" />
+        </a>
+      </section>
       <Link className="browse-builds" to="/builds">Explore the tools and games I build <ArrowRight size={16} aria-hidden="true" /></Link>
     </>
   );
@@ -80,7 +88,7 @@ function ProjectList() {
   const [searchParams] = useSearchParams();
   const requestedFilter = searchParams.get('filter');
   const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
-  const firstIds = ['bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline', 'iron-hand'];
+  const firstIds = ['iron-hand', 'bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
   const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
@@ -93,7 +101,8 @@ function ProjectList() {
     </nav>
     <div className="project-list" aria-label={filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
       {projects.map(project => (
-        <article className="project-row" key={project.id}>
+        <article className={`project-row${project.id === 'iron-hand' ? ' project-row--featured' : ''}`} key={project.id}>
+          {project.id === 'iron-hand' && <p className="row-label">Featured game</p>}
           <div className="project-row-heading">
             <h2>{project.title}</h2>
             <span className="project-status">{project.status}</span>

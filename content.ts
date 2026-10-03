@@ -183,20 +183,14 @@ export const PROJECTS: Project[] = [
     description:
       'An exam-development prototype that starts with source material and keeps expert review in the workflow.',
     category: 'Products',
-    status: 'Live prototype',
+    status: 'Prototype',
     tags: ['Certification', 'Source grounding', 'Human review'],
-    featured: true,
+    featured: false,
     collections: ['Home'],
     accent: 'blue',
     image: '/projects/certifyfast.jpg',
     imageAlt: 'CertifyFast certification workflow interface',
-    links: [
-      {
-        label: 'Open prototype',
-        href: 'https://certifyfast-speedy-certification-architect-422126580965.us-west1.run.app/',
-        kind: 'demo',
-      },
-    ],
+    links: [],
   },
   {
     id: 'informa',
@@ -218,14 +212,14 @@ export const PROJECTS: Project[] = [
     description:
       'Organize developmental information and explore playful activities for parents and children.',
     category: 'Products',
-    status: 'Live prototype',
+    status: 'Sign-in required',
     tags: ['Document analysis', 'Recommendations', 'Family UX'],
     featured: true,
     collections: ['Home'],
     accent: 'green',
     image: '/projects/kidgrow.jpg',
     imageAlt: 'KidGrow child development interface',
-    links: [{ label: 'Open prototype', href: 'https://kidgrow.base44.app', kind: 'demo' }],
+    links: [{ label: 'Open sign-in', href: 'https://kidgrow.base44.app', kind: 'demo' }],
   },
   {
     id: 'kid-comic',
@@ -252,7 +246,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'grdn',
     slug: 'grdn',
-    title: 'Grdn',
+    title: 'ManagerAI (Grdn)',
     description:
       'Turn voice notes into organized information for music management.',
     category: 'Agents & Tools',
@@ -289,7 +283,7 @@ export const PROJECTS: Project[] = [
     category: 'Games',
     status: 'Playable game',
     tags: ['Poker combat', 'Narrative RPG', 'Game systems'],
-    featured: false,
+    featured: true,
     collections: ['Games'],
     accent: 'red',
     links: [
@@ -331,7 +325,7 @@ export const PROJECTS: Project[] = [
     slug: 'retrieval-guard',
     title: 'Retrieval Guard',
     description:
-      'Tests retrieval changes for regressions and near misses before the wrong context shapes an AI answer.',
+      'An experimental Python prototype for retrieval regression checks and near-miss filtering. Evaluation is ongoing.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['RAG evaluation', 'Regression testing', 'Two-stage retrieval'],
@@ -381,7 +375,7 @@ Alex Aidun is an Enterprise AI Product, Operations & Adoption Leader based in Ne
 Verified current role: AI Adoption Manager at Automattic since March 2026. His scope includes administration and functional/cost operations for AI tools serving 1,500 employees, product management for an internal AI Agent, AI Learning, LibreChat, and Slack-based agentic automation, an AI Guides champions program, 2–3 practical how-to articles weekly, and executive AI use-case support.
 Verified prior role: Senior AI Product Manager and Director, Education & Documentation at Dremio from January 2024 to March 2026. He scoped and drove an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot. Separately, Dremio University reached 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion in six months. Do not attribute those learning metrics to the AI products.
 Independent work: BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
-Other public prototypes include CertifyFast, KidGrow, Kid Comic Storyteller, Grdn, and 25Hours. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
+Other public prototypes include KidGrow (sign-in required), Kid Comic Storyteller, ManagerAI (Grdn), and 25Hours. CertifyFast is a prototype without a public demo link. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
 Do not claim that Alex is a production ML engineer, research scientist, platform architect, or engineering executive. Do not invent cost savings, revenue, governance ownership, production scale, or psychometric validation. Do not reveal confidential employer information. Public contact: bobuel@gmail.com. Public website: https://aydoon.com. GitHub: https://github.com/bobuel. LinkedIn: https://www.linkedin.com/in/aaidun/.
 `.trim();
 

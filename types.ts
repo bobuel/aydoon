@@ -1,6 +1,6 @@
 export type ProjectCategory = 'Products' | 'Agents & Tools' | 'Games' | 'Open Source';
 
-export type ProjectStatus = 'Live prototype' | 'Private prototype' | 'Open source' | 'Playable game';
+export type ProjectStatus = 'Live prototype' | 'Private prototype' | 'Prototype' | 'Sign-in required' | 'Open source' | 'Playable game';
 
 export type ProjectCollection = 'Home' | 'Games';
 
