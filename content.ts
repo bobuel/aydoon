@@ -382,4 +382,3 @@ Do not claim that Alex is a production ML engineer, research scientist, platform
 export function getCaseStudy(slug: string) {
   return CASE_STUDIES.find((study) => study.slug === slug);
 }
-
