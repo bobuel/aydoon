@@ -203,4 +203,3 @@ describe('published Hybrid design', () => {
     expect(result.violations.filter(violation => ['critical', 'serious'].includes(violation.impact ?? ''))).toEqual([]);
   });
 });
-
