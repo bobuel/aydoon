@@ -7,7 +7,7 @@
     "status": "published",
     "opening": [
       "I think about AI tool cost as cost per verified outcome, not price per token.",
-      "Costs increase unexpectedly when a workflow carries stale context, exposes tools it does not need, returns huge results, asks the model to reason through deterministic work code could execute, retries without new evidence, or produces output nobody will use."
+      "Costs climb when a workflow carries stale context, loads tools it does not need, or returns huge results. They also climb when the model does work code could handle, retries without new evidence, or produces output nobody will use."
     ],
     "sections": [
       {
@@ -62,7 +62,7 @@
         "body": [
           "Test a complete input, an incomplete one, conflicting sources, and a request outside the skill’s intended scope. Check the behavior as well as the answer: the sources it used, the uncertainty it surfaced, and whether it stayed within the task.",
           "Then give it to someone else without a live walkthrough. They need to recognize when to use it, supply the right input, and know what to check. They should not need to reconstruct the author’s prompting technique.",
-          "That is the adoption work: making the method usable beyond the person who developed it. Keep a small set of test inputs and expected findings. When a real failure exposes a gap, update the instructions and rerun those checks."
+          "The method needs to work for someone who did not build it. Keep a small set of test inputs and expected findings. When a real failure exposes a gap, update the instructions and rerun those checks."
         ]
       }
     ]
@@ -75,7 +75,7 @@
     "status": "published",
     "opening": [
       "If I have to explain the whole project every time I open a conversation, the project’s context is in the wrong place.",
-      "Project context, conventions, key references, decision history. These can live in a shared, human-readable record that people already use. The agent starts informed instead of cold. Access still follows the permissions of the person and the tool; a shared record does not mean unrestricted access."
+      "Project context, conventions, key references, decision history. These can live in a shared, human-readable record that people already use. The agent can read that context before starting work. Access still follows the permissions of the person and the tool; a shared record does not mean unrestricted access."
     ],
     "sections": [
       {
@@ -172,7 +172,7 @@
         "heading": "Carry forward what is still open",
         "body": [
           "Use a carry-forward record that persists between sessions so items you did not act on yesterday show up today. Remove completed items, keep unresolved ones, and record what changed. If the record cannot be read or updated, report the gap instead of pretending anything changed.",
-          "Set the source window to cover the period since the last successful check, including skipped days. Keep unresolved work even when it falls outside that window. Put failed reads under Source gaps; an empty result is not proof that there is nothing to do."
+          "Look back to the last successful check, including days the briefing did not run. Keep unresolved work even when it falls outside that window. Put failed reads under Source gaps; an empty result is not proof that there is nothing to do."
         ]
       },
       {

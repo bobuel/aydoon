@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 export const writingFilePath = fileURLToPath(new URL('./pieces.json', import.meta.url));
-export const writingDescription = 'Notes on AI operations, systems design, and making useful workflows repeatable.';
+export const writingDescription = 'Notes on building AI tools, managing their costs, and making useful workflows easier to share.';
 
 /**
  * Filter before injecting data into the client. Hiding a draft route alone would

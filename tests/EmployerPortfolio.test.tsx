@@ -66,7 +66,7 @@ describe('EmployerPortfolio', () => {
   it('keeps the homepage focused on professional evidence instead of the project catalog', () => {
     render(<MemoryRouter><EmployerPortfolio /></MemoryRouter>);
 
-    const automattic = screen.getByRole('heading', { name: 'AI Lab at Automattic' }).closest('article');
+    const automattic = screen.getByRole('heading', { name: 'AI Lab and enablement at Automattic' }).closest('article');
     const dremio = screen.getByRole('heading', { name: 'AI products at Dremio' }).closest('article');
     const bloom = screen.getByRole('heading', { name: 'Bloom assessment workflow' }).closest('article');
     expect(within(automattic as HTMLElement).getByText('1,500')).toBeInTheDocument();

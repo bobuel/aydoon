@@ -4,7 +4,7 @@ import type { WritingArticle } from '../types';
 // unfiltered source JSON into a client module, including a lazy-loaded module.
 declare const __WRITING_ARTICLES__: WritingArticle[];
 export const WRITING_ARTICLES = __WRITING_ARTICLES__;
-export const WRITING_DESCRIPTION = 'Notes on AI operations, systems design, and making useful workflows repeatable.';
+export const WRITING_DESCRIPTION = 'Notes on building AI tools, managing their costs, and making useful workflows easier to share.';
 
 export function getWritingArticle(slug: string) {
   return WRITING_ARTICLES.find(article => article.slug === slug);
