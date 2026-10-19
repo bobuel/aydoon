@@ -45,6 +45,9 @@ describe('published Hybrid design', () => {
     expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
     expect(screen.getByText(/Those are shared results, including work that started before I joined/)).toBeInTheDocument();
     expect(screen.getByText(/what new tools can do/)).toBeInTheDocument();
+    expect(screen.getByText(/March 2026–present/)).toBeInTheDocument();
+    expect(screen.getByText(/3×ed themselves 10× their teams/)).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/â€|Ã—|Â·/);
     expect(screen.queryByText(/daily social reporting/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/\bIris\b/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
