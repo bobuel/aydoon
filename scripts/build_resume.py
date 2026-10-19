@@ -270,13 +270,13 @@ def build_resume(output_path):
 
     add_section_heading(doc, "Experience")
 
-    add_job_header(doc, "Automattic", "AI Adoption Manager", "Mar 2026 - Present")
-    add_impact(doc, "OPERATE", "ChatGPT and Claude for 1,500 employees, including functional and cost operations.")
-    add_impact(doc, "OWN", "AI Agent, AI Learning, LibreChat, and Slack automations across product, guidance, and adoption.")
-    add_impact(doc, "ENABLE", "Publish 2-3 how-to articles weekly, lead AI Guides, and scope executive AI use cases.")
+    add_job_header(doc, "Automattic", "AI Lab & Adoption Manager", "Mar 2026 - Present")
+    add_impact(doc, "BUILD", "Design and drive internal AI tools, including a Slack-based coding-agent rollout across departments.")
+    add_impact(doc, "OPERATE", "Help keep costs in line while building homegrown systems for governed AI spend and approvals.")
+    add_impact(doc, "ENABLE", "Led the first hybrid Growth cohort, built a reusable workshop tool, and helped launch 19 AI Guides.")
 
     add_job_header(doc, "Dremio", "Senior AI PM + Director, Education & Documentation", "Jan 2024 - Mar 2026")
-    add_impact(doc, "LEAD", "Four AI initiatives: AI Agent, MCP Server, AI SQL Functions, and Data Analyst chatbot.")
+    add_impact(doc, "LEAD", "AI PM from Apr 2025: scoped and drove AI Agent, MCP, AI SQL functions, and analyst chatbot initiatives.")
     add_impact(doc, "DISCOVER", "Converted customer research into roadmap priorities with Design and Engineering.")
     add_impact(doc, "AUTOMATE", "Owned Documentation and DremioU; built automation with Zapier, OpenAI, Jira, GitHub, and MCP.")
     add_impact(doc, "SCALE", "Separately grew DremioU to 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion.")
@@ -297,7 +297,7 @@ def build_resume(output_path):
     add_job_header(doc, "Earlier", "MarketShare - Data Strategy | Data Meaning - Technical Lead | MicroStrategy - Education + Support", "")
 
     add_section_heading(doc, "Selected AI Builds")
-    add_impact(doc, "CERTIFYFAST", "Source-grounded certification workflow with traceability for expert review.")
+    add_impact(doc, "EVENTER", "Open-source event-planning plugin: 12 skills, local records, human approvals, and synthetic evaluation.")
     add_impact(doc, "BLOOM", "Turned a 1,000+ use signal into an assessment workflow with source evidence and teacher checkpoints.")
     add_impact(doc, "RETRIEVAL GUARD", "Experimental Python toolkit for retrieval regression testing and near-miss filtering.")
 

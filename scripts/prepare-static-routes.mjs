@@ -11,13 +11,18 @@ const deployOrigin = process.argv[2] || previewOrigin;
 const caseStudies = [
   {
     slug: 'enterprise-ai-adoption-automattic',
-    title: 'AI operations at Automattic',
-    description: 'How Alex Aidun approaches enterprise AI adoption through product ownership, enablement, and a distributed champion network.',
+    title: 'AI Lab at Automattic',
+    description: 'Internal AI tools, coding-agent rollout, and homegrown cost governance at Automattic, alongside earlier adoption delivery.',
   },
   {
     slug: 'ai-product-leadership-dremio',
     title: 'AI products at Dremio',
     description: 'How Alex Aidun shaped four AI product initiatives while keeping product evidence distinct from Dremio University adoption metrics.',
+  },
+  {
+    slug: 'eventer-planning-workflow',
+    title: 'Eventer planning workflow',
+    description: 'A portable event-planning plugin with local records, host approvals, and inspectable synthetic examples.',
   },
   {
     slug: 'bloom-assessment-workflow',

@@ -2,7 +2,7 @@
   "status": "proposed-only",
   "profile": {
     "login": "bobuel",
-    "bio": "AI operations, product, and adoption. I build tools, run enterprise AI programs, and help people put AI to work.",
+    "bio": "AI Lab & Adoption Manager at Automattic. I design and drive internal AI tools, coding-agent rollout, cost governance, and adoption.",
     "website": "https://aydoon.com/"
   },
   "repositories": {
@@ -20,8 +20,8 @@
     }
   },
   "pins": [
+    "bobuel/eventer-plugin",
     "bobuel/aydoon",
-    "bobuel/bloom-taxonomy-quiz-builder-skill",
-    "bobuel/retrieval-guard"
+    "bobuel/brassline"
   ]
 }
