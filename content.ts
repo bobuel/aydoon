@@ -4,7 +4,7 @@ export const PROFILE = {
   name: 'Alex Aidun',
   headline: 'Enterprise AI Product, Operations & Adoption Leader',
   summary:
-    'I design and drive internal AI tools, then help teams put them to workâ€”from coding-agent rollout to cost governance and adoption.',
+    'I design and drive internal AI tools, then help teams put them to work—from coding-agent rollout to cost governance and adoption.',
   email: 'bobuel@gmail.com',
   location: 'New York',
   linkedin: 'https://www.linkedin.com/in/aaidun/',
@@ -42,7 +42,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary:
       'My role has expanded with AI Lab. We build internal tools, explore emerging AI capabilities, and bring useful findings into how the organization works. I design and drive internal systems through active rollout, while helping keep AI costs in line.',
     role: 'AI Lab & Adoption Manager, Automattic',
-    period: 'March 2026â€“present',
+    period: 'March 2026–present',
     evidence: [
       { value: '1,500', label: 'employees in the AI environment I help operate' },
       { value: 'In progress', label: 'cross-department coding-agent rollout' },
@@ -59,7 +59,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Earlier adoption work through September 2026',
         body: [
-          'I want to help people who have 3Ã—ed themselves 10Ã— their teams. That means seeing where an individual win gets stuck: what colleagues are asking for, what new tools can do, and which of our options are worth building. I use those signals with the team to shape the vision and functionality of internal tools.',
+          'I want to help people who have 3×ed themselves 10× their teams. That means seeing where an individual win gets stuck: what colleagues are asking for, what new tools can do, and which of our options are worth building. I use those signals with the team to shape the vision and functionality of internal tools.',
           'That same judgment matters in enablement. I led the first hybrid Growth cohort and facilitated Finance with domain and technical partners. When the program changed direction, I recommended aligning communication, Guides, and facilitators before building more material. The team adopted the sequence.',
         ],
       },
@@ -80,14 +80,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Keep it working',
         body: [
-          'If people cannot install or update a tool, it cannot spread. When a colleagueâ€™s plugin failed, I traced the problem to packaging, helped release a tested version, and set up an update path its owners could use. The creator confirmed the installation worked.',
-          'I also coordinated an enterprise AI access transition as eligibility changed, with guidance for users and provider-confirmed completion. That work surfaced gaps in spending controls. I brought requirements to the providerâ€™s product team; they were discussed, not shipped.',
+          'If people cannot install or update a tool, it cannot spread. When a colleague’s plugin failed, I traced the problem to packaging, helped release a tested version, and set up an update path its owners could use. The creator confirmed the installation worked.',
+          'I also coordinated an enterprise AI access transition as eligibility changed, with guidance for users and provider-confirmed completion. That work surfaced gaps in spending controls. I brought requirements to the provider’s product team; they were discussed, not shipped.',
         ],
       },
       {
         heading: 'Earlier program results through September 2026',
         body: [
-          'The wider AI Enablement program reached 30% of the company in seven months, above its 25% target. Three of four capability measures rose about 0.5â€“1 point on a five-point scale, and participants organized nine local meetups. Those are shared results, including work that started before I joined.',
+          'The wider AI Enablement program reached 30% of the company in seven months, above its 25% target. Three of four capability measures rose about 0.5–1 point on a five-point scale, and participants organized nine local meetups. Those are shared results, including work that started before I joined.',
         ],
       },
     ],
@@ -99,7 +99,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary:
       'At Dremio, I combined AI product management with leadership of Documentation and University. I used customer discovery and cross-functional prioritization to scope four AI initiatives, while the learning teams helped people use the platform.',
     role: 'Senior AI Product Manager and Director, Education & Documentation',
-    period: 'Dremio tenure: January 2024â€“March 2026 Â· AI PM: April 2025â€“March 2026',
+    period: 'Dremio tenure: January 2024–March 2026 · AI PM: April 2025–March 2026',
     evidence: [
       { value: '4', label: 'AI initiatives scoped and driven' },
       { value: '3,200+', label: 'DremioU users in six months' },
@@ -122,7 +122,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Product direction',
         body: [
-          'I used customer discovery and cross-functional prioritization to scope four AI initiatives for different moments in an analystâ€™s workflow. I worked with Design and Engineering to drive their development:',
+          'I used customer discovery and cross-functional prioritization to scope four AI initiatives for different moments in an analyst’s workflow. I worked with Design and Engineering to drive their development:',
         ],
         bullets: [
           'An AI Agent for guided product interaction.',
@@ -176,7 +176,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     period: 'Independent project',
     evidence: [
       { value: '1,000+', label: 'BloomGPT uses' },
-      { value: '6', label: 'Bloomâ€™s Taxonomy levels covered' },
+      { value: '6', label: 'Bloom’s Taxonomy levels covered' },
       { value: '5', label: 'question formats supported' },
     ],
     relatedProjectSlug: 'bloom-taxonomy-quiz-builder-skill',
@@ -202,7 +202,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'What this demonstrates',
         body: [
-          'The project shows how I use real usage as discovery evidence, then improve the workflow around trust, control, and practical outputâ€”not simply model novelty.',
+          'The project shows how I use real usage as discovery evidence, then improve the workflow around trust, control, and practical output—not simply model novelty.',
         ],
       },
     ],
@@ -358,7 +358,7 @@ export const PROJECTS: Project[] = [
     slug: 'bloom-taxonomy-quiz-builder-skill',
     title: 'Bloom Quiz Builder Skill',
     description:
-      'BloomGPTâ€™s 1,000+ uses pointed to a harder problem: source-grounded questions teachers can review. This skill turns that need into a guided workflow.',
+      'BloomGPT’s 1,000+ uses pointed to a harder problem: source-grounded questions teachers can review. This skill turns that need into a guided workflow.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['Education', 'Workflow design', 'AI skill'],
@@ -412,19 +412,19 @@ export const CAREER_HIGHLIGHTS = [
   {
     company: 'Automattic',
     role: 'AI Lab & Adoption Manager',
-    period: '2026â€“present',
+    period: '2026–present',
     detail: 'Internal AI tools, coding-agent rollout, governed cost management, and organizational adoption.',
   },
   {
     company: 'Dremio',
-    role: 'Senior AI Product Manager Â· Director, Education & Documentation',
-    period: '2024â€“2026',
+    role: 'Senior AI Product Manager · Director, Education & Documentation',
+    period: '2024–2026',
     detail: 'AI product portfolio, customer discovery, roadmap leadership, and adoption systems.',
   },
   {
-    company: 'Braze Â· Arrikto Â· WorkFusion Â· Qubole',
+    company: 'Braze · Arrikto · WorkFusion · Qubole',
     role: 'Global education, enablement, and documentation leadership',
-    period: '2015â€“2024',
+    period: '2015–2024',
     detail: 'Distributed teams, customer and partner programs, certification, onboarding, and technical content.',
   },
 ];
