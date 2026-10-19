@@ -1,8 +1,8 @@
 # aydoon.com
 
-My site brings together AI operations, product, and adoption work, alongside the tools and games I build to test ideas.
+My site brings together internal AI product work, operations, and adoption, alongside the tools and games I build to test ideas.
 
-[Visit the site](https://aydoon.com/) · [Read the AI adoption case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Browse builds](https://aydoon.com/builds) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
+[Visit the site](https://aydoon.com/) · [Read the AI Lab case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Explore Eventer](https://aydoon.com/case-studies/eventer-planning-workflow) · [Browse builds](https://aydoon.com/builds) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
 
 ## Design decisions
 
@@ -26,7 +26,7 @@ GitHub Pages
        ├─ Concise About/profile route
        ├─ Writing index and four employer-neutral articles
        ├─ Legacy Work redirect and shared case-list anchors
-       ├─ Three prebuilt case-study entry paths
+       ├─ Four prebuilt case-study entry paths, three selected on the homepage
        ├─ Shared typed content model
        └─ Résumé, screenshots, metadata, and social preview
 ```

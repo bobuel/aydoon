@@ -31,16 +31,16 @@ describe('published Hybrid design', () => {
     expect(screen.queryByText('Enterprise AI leader')).not.toBeInTheDocument();
   });
 
-  it('shows the AI Adoption Manager role and distinguishes participant outcomes from Alex’s work', () => {
+  it('shows the AI Lab role and distinguishes participant outcomes from Alex’s work', () => {
     show();
     const identity = screen.getByRole('complementary');
-    expect(within(identity).getByText('AI Adoption Manager · product and operations')).toBeInTheDocument();
-    expect(within(identity).getByText('I help colleagues use AI on work they own, then make what works useful to the rest of their team.')).toBeInTheDocument();
+    expect(within(identity).getByText('AI Lab · internal tools and adoption')).toBeInTheDocument();
+    expect(within(identity).getByText('I design and drive internal AI tools, then help teams put them to work.')).toBeInTheDocument();
     expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(2);
     expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Adoption Manager at Automattic' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Lab at Automattic' }));
     expect(screen.getByText(/Their draft still needed review/)).toBeInTheDocument();
     expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
     expect(screen.getByText(/Those are shared results, including work that started before I joined/)).toBeInTheDocument();
@@ -93,9 +93,9 @@ describe('published Hybrid design', () => {
     const dremio = screen.getByRole('link', { name: 'AI products at Dremio' }).closest('article')!;
     expect(within(dremio).getByText('4')).toBeInTheDocument();
     expect(within(dremio).getByText(/Dremio University reached 3,200\+ users in six months/)).toBeInTheDocument();
-    expect(screen.getByText('1,000+')).toBeInTheDocument();
+    expect(screen.getByText('12')).toBeInTheDocument();
     expect(screen.queryByText('+78')).not.toBeInTheDocument();
-    for (const study of CASE_STUDIES) {
+    for (const study of CASE_STUDIES.filter(study => study.slug !== 'bloom-assessment-workflow')) {
       expect(screen.getByRole('link', { name: `Read case study: ${study.title}` })).toHaveAttribute('href', `/case-studies/${study.slug}`);
     }
   });
@@ -103,7 +103,7 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Bloom Quiz Builder Skill', 'Retrieval Guard', 'CertifyFast']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Eventer', 'Iron Hand: Sector 13', 'Model advisor', 'Bloom Quiz Builder Skill']);
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' }).closest('article')).toHaveTextContent('Featured game');
     expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
     expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
@@ -119,14 +119,14 @@ describe('published Hybrid design', () => {
         expect(within(row).queryByRole('link')).not.toBeInTheDocument();
         expect(within(row).getByText('Details available in conversation')).toBeInTheDocument();
       }
-      if (project.category === 'Open Source') expect(within(row).getAllByText(/^open source$/i)).toHaveLength(1);
+      if (project.category === 'Open Source' && project.status === 'Open source') expect(within(row).getAllByText(/^open source$/i)).toHaveLength(1);
     }
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   it('loads the selected Games view directly', () => {
     show('/games/');
-    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Brassline', '25Hours']);
+    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Brassline', 'Manymade', '25Hours']);
     expect(screen.getByRole('link', { name: 'Play game: Brassline' })).toHaveAttribute('href', 'https://bobuel.github.io/brassline/');
     expect(screen.getByRole('link', { name: 'Play game: Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
   });
@@ -154,7 +154,7 @@ describe('published Hybrid design', () => {
 
   it('keeps the legacy Work route and the About narrative accessible', () => {
     show('/work');
-    expect(screen.getByRole('heading', { name: 'AI Adoption Manager at Automattic' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI Lab at Automattic' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText(/the design premium rises/)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'I make complex systems easier to use.' })).toBeInTheDocument();
