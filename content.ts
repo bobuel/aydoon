@@ -4,7 +4,7 @@ export const PROFILE = {
   name: 'Alex Aidun',
   headline: 'Enterprise AI Product, Operations & Adoption Leader',
   summary:
-    'I design and drive internal AI tools, then help teams put them to work—from coding-agent rollout to cost governance and adoption.',
+    'I design and drive adoption of internal AI tools, working across AI Lab and enablement.',
   email: 'bobuel@gmail.com',
   location: 'New York',
   linkedin: 'https://www.linkedin.com/in/aaidun/',
@@ -38,26 +38,25 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'enterprise-ai-adoption-automattic',
     eyebrow: 'Internal AI products and adoption',
-    title: 'AI Lab at Automattic',
+    title: 'AI Lab and enablement at Automattic',
     summary:
-      'My role has expanded with AI Lab. We build internal tools, explore emerging AI capabilities, and bring useful findings into how the organization works. I design and drive internal systems through active rollout, while helping keep AI costs in line.',
+      'At Automattic, I work across AI Lab and enablement. I design and drive adoption of internal AI tools, explore new capabilities, and help colleagues put them to work.',
     role: 'AI Lab & Adoption Manager, Automattic',
     period: 'March 2026–present',
     evidence: [
       { value: '1,500', label: 'employees in the AI environment I help operate' },
-      { value: 'In progress', label: 'cross-department coding-agent rollout' },
       { value: '19', label: 'AI Guides I helped launch' },
     ],
     sections: [
       {
-        heading: 'Current AI Lab work',
+        heading: 'AI Lab',
         body: [
-          'We are building a Slack-based internal sandbox and rolling out coding agents across departments. I design and drive this work with the team, connecting emerging capabilities to the tasks colleagues need to do.',
-          'We are also designing and building homegrown systems for managing and approving AI costs on our own infrastructure. Keeping costs in line is active work during the rollout. Building internally lets us use our own capabilities to shape the solution around the organization.',
+          'I design and drive adoption of a Slack-based internal sandbox for coding agents across departments. I connect new capabilities to the tasks colleagues need to do.',
+          'I also design and drive development of systems for managing AI spending and approvals on our own infrastructure, with controls that fit the organization and keep costs in line.',
         ],
       },
       {
-        heading: 'Earlier adoption work through September 2026',
+        heading: 'Enablement and adoption',
         body: [
           'I want to help people who have 3×ed themselves 10× their teams. That means seeing where an individual win gets stuck: what colleagues are asking for, what new tools can do, and which of our options are worth building. I use those signals with the team to shape the vision and functionality of internal tools.',
           'That same judgment matters in enablement. I led the first hybrid Growth cohort and facilitated Finance with domain and technical partners. When the program changed direction, I recommended aligning communication, Guides, and facilitators before building more material. The team adopted the sequence.',
@@ -85,7 +84,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        heading: 'Earlier program results through September 2026',
+        heading: 'Program results through September 2026',
         body: [
           'The wider AI Enablement program reached 30% of the company in seven months, above its 25% target. Three of four capability measures rose about 0.5–1 point on a five-point scale, and participants organized nine local meetups. Those are shared results, including work that started before I joined.',
         ],
@@ -97,7 +96,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'AI product leadership',
     title: 'AI products at Dremio',
     summary:
-      'At Dremio, I combined AI product management with leadership of Documentation and University. I used customer discovery and cross-functional prioritization to scope four AI initiatives, while the learning teams helped people use the platform.',
+      'At Dremio, I led Documentation and University and held AI product management responsibilities. I used what we learned from customers to scope four AI initiatives with Design and Engineering.',
     role: 'Senior AI Product Manager and Director, Education & Documentation',
     period: 'Dremio tenure: January 2024–March 2026 · AI PM: April 2025–March 2026',
     evidence: [
@@ -122,7 +121,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Product direction',
         body: [
-          'I used customer discovery and cross-functional prioritization to scope four AI initiatives for different moments in an analyst’s workflow. I worked with Design and Engineering to drive their development:',
+          'I used what we learned from customers to scope four AI initiatives for different parts of an analyst’s workflow. I worked with Design and Engineering to drive their development:',
         ],
         bullets: [
           'An AI Agent for guided product interaction.',
@@ -143,7 +142,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'eventer-planning-workflow',
     eyebrow: 'Independent AI workflow',
     title: 'Eventer planning workflow',
-    summary: 'An open-source plugin that helps a host plan a group event and keep guests, rooms, meals, transport, and follow-through aligned as plans change.',
+    summary: 'I built Eventer to help hosts plan a group event and keep guests, rooms, meals, transport, and follow-through aligned as plans change.',
     role: 'Product direction, workflow design, and implementation with AI coding tools',
     period: 'Independent project · portable plugin v0.1.3',
     evidence: [
@@ -158,11 +157,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         heading: 'Keep changes and approvals visible',
-        body: ['The plugin works in the host’s existing AI workspace. Focused skills cover setup, research, guests, communications, lodging, meals, transport, readiness, and wrap-up. Helpers calculate and reconcile plans; the host remains responsible for consequential decisions.', 'In the published synthetic example, an attendance correction changes room, meal, and transport plans. The workflow preserves unknown facts, invalidates stale approvals, and reconciles an uncertain send before trying again.'],
+        body: ['The plugin works in the host’s existing AI workspace. Focused skills cover setup, research, guests, communications, lodging, meals, transport, readiness, and wrap-up. Helpers calculate and reconcile plans; the host remains responsible for consequential decisions.', 'The published example uses fake data. An attendance correction changes room, meal, and transport plans. Missing information stays marked as unknown, affected approvals need to be checked again, and an uncertain message delivery is checked before retrying.'],
       },
       {
         heading: 'Inspect the work',
-        body: ['The public repository includes installation instructions, selected outputs, and a verification record with corrections and limits. Installation was checked in Codex and Claude Code. Evaluation used synthetic events with development follow-ups; it does not establish real-event delivery or unattended operation.'],
+        body: ['The public repository includes installation instructions, selected outputs, and a verification record with corrections and limits. Installation was checked in Codex and Claude Code. The workflow tests used fake data and led to further fixes. Those checks do not establish real-event delivery or operation without supervision.'],
       },
     ],
   },
@@ -171,7 +170,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     eyebrow: 'AI education workflow',
     title: 'Bloom assessment workflow',
     summary:
-      'Turning observed demand into a source-grounded assessment system that keeps teacher judgment inside the workflow.',
+      'I built a guided quiz workflow that uses the teacher’s source material and includes their review as it creates questions.',
     role: 'Product concept, workflow design, and implementation',
     period: 'Independent project',
     evidence: [
@@ -202,7 +201,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'What this demonstrates',
         body: [
-          'The project shows how I use real usage as discovery evidence, then improve the workflow around trust, control, and practical output—not simply model novelty.',
+          'BloomGPT’s usage gave me a reason to keep building. The next step was to make the questions easier for teachers to check and use.',
         ],
       },
     ],
@@ -212,7 +211,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'eventer-plugin', slug: 'eventer-plugin', title: 'Eventer',
-    description: 'Plan a group event and keep guest changes, rooms, meals, transport, and approvals aligned. Twelve skills, local records, and inspectable synthetic examples.',
+    description: 'I built Eventer to keep guests, rooms, meals, transport, and approvals aligned as plans change. Twelve skills, local records, and examples using fake data.',
     category: 'Open Source', status: 'Open source',
     tags: ['Planning', 'Agent workflows', 'Human review'], featured: true, accent: 'teal',
     links: [
@@ -222,14 +221,14 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'model-advisor', slug: 'model-advisor', title: 'Model advisor',
-    description: 'A local research prototype for task-aware model recommendations and evaluation. Public hosting is on hold; the repository documents the evidence and limits.',
+    description: 'I built a local research prototype for recommending AI models for a task and evaluating the results. Public hosting is on hold; the repository documents the evidence and limits.',
     category: 'Open Source', status: 'Prototype',
     tags: ['Model selection', 'Evaluation', 'Product research'], featured: false, accent: 'blue',
     links: [{ label: 'View source', href: 'https://github.com/bobuel/model-advisor', kind: 'source' }],
   },
   {
     id: 'manymade', slug: 'manymade', title: 'Manymade',
-    description: 'A browser RPG with a complete first mission and branching character builds. Product direction by Alex, developed with AI coding tools; the larger campaign is still in development.',
+    description: 'I directed and developed this browser RPG with AI coding tools. It has a complete first mission and branching character builds; the larger campaign is still in development.',
     category: 'Games', status: 'Prototype',
     tags: ['RPG', 'Game systems', 'Character builds'], featured: false, accent: 'violet',
     links: [{ label: 'View source', href: 'https://github.com/bobuel/manymade', kind: 'source' }],
@@ -240,7 +239,7 @@ export const PROJECTS: Project[] = [
     slug: 'certifyfast',
     title: 'CertifyFast',
     description:
-      'An exam-development prototype that starts with source material and keeps expert review in the workflow.',
+      'I built an exam-development prototype that starts with source material and keeps expert review in the workflow.',
     category: 'Products',
     status: 'Prototype',
     tags: ['Certification', 'Source grounding', 'Human review'],
@@ -256,7 +255,7 @@ export const PROJECTS: Project[] = [
     slug: 'informa',
     title: 'Informa',
     description:
-      'A private briefing prototype exploring source health, cost controls, audio, and delivery checks.',
+      'I built a private briefing prototype to explore source reliability, cost controls, audio, and delivery checks.',
     category: 'Agents & Tools',
     status: 'Private prototype',
     tags: ['AgentMail', 'Voice', 'Signal processing'],
@@ -269,7 +268,7 @@ export const PROJECTS: Project[] = [
     slug: 'kidgrow',
     title: 'KidGrow',
     description:
-      'Organize developmental information and explore playful activities for parents and children.',
+      'I built KidGrow to organize developmental information and explore playful activities for parents and children.',
     category: 'Products',
     status: 'Sign-in required',
     tags: ['Document analysis', 'Recommendations', 'Family UX'],
@@ -285,7 +284,7 @@ export const PROJECTS: Project[] = [
     slug: 'kid-comic-storyteller',
     title: 'Kid Comic Storyteller',
     description:
-      'Help children turn spoken ideas into a voiced comic-book experience.',
+      'I built a tool to help children turn spoken ideas into comics with narration.',
     category: 'Agents & Tools',
     status: 'Live prototype',
     tags: ['AI images', 'Voice', 'Creative collaboration'],
@@ -307,7 +306,7 @@ export const PROJECTS: Project[] = [
     slug: 'grdn',
     title: 'ManagerAI (Grdn)',
     description:
-      'Turn voice notes into organized information for music management.',
+      'I built ManagerAI to turn voice notes into organized information for music management.',
     category: 'Agents & Tools',
     status: 'Live prototype',
     tags: ['Voice input', 'Data management', 'Music'],
@@ -322,7 +321,7 @@ export const PROJECTS: Project[] = [
     slug: '25hours',
     title: '25Hours',
     description:
-      'An atmospheric narrative-game prototype inspired by the 1977 New York City blackout.',
+      'I built an atmospheric narrative-game prototype inspired by the 1977 New York City blackout.',
     category: 'Games',
     status: 'Live prototype',
     tags: ['Narrative design', 'Generative game', 'Atmosphere'],
@@ -338,7 +337,7 @@ export const PROJECTS: Project[] = [
     slug: 'iron-hand',
     title: 'Iron Hand: Sector 13',
     description:
-      'A cyberpunk RPG with five-card poker combat, crew choices, thirteen chapters, and three endings.',
+      'I built a cyberpunk RPG with five-card poker combat, crew choices, thirteen chapters, and three endings.',
     category: 'Games',
     status: 'Playable game',
     tags: ['Poker combat', 'Narrative RPG', 'Game systems'],
@@ -358,7 +357,7 @@ export const PROJECTS: Project[] = [
     slug: 'bloom-taxonomy-quiz-builder-skill',
     title: 'Bloom Quiz Builder Skill',
     description:
-      'BloomGPT’s 1,000+ uses pointed to a harder problem: source-grounded questions teachers can review. This skill turns that need into a guided workflow.',
+      'I built a guided quiz workflow using the teacher’s source material and review. It builds on BloomGPT, which received 1,000+ uses.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['Education', 'Workflow design', 'AI skill'],
@@ -384,7 +383,7 @@ export const PROJECTS: Project[] = [
     slug: 'retrieval-guard',
     title: 'Retrieval Guard',
     description:
-      'An experimental Python prototype for retrieval regression checks and near-miss filtering. Evaluation is ongoing.',
+      'I built an experimental Python prototype for retrieval regression checks and near-miss filtering. Evaluation is ongoing.',
     category: 'Open Source',
     status: 'Open source',
     tags: ['RAG evaluation', 'Regression testing', 'Two-stage retrieval'],
@@ -401,7 +400,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'brassline', slug: 'brassline', title: 'Brassline',
-    description: 'A free steampunk train-heist tactical autobattler.',
+    description: 'I built a free steampunk train-heist tactical autobattler.',
     category: 'Games', status: 'Live prototype', tags: ['Godot', 'Game systems'],
     featured: true, collections: ['Games'], accent: 'blue',
     links: [{ label: 'Play game', href: 'https://bobuel.github.io/brassline/', kind: 'demo' }],
@@ -413,7 +412,7 @@ export const CAREER_HIGHLIGHTS = [
     company: 'Automattic',
     role: 'AI Lab & Adoption Manager',
     period: '2026–present',
-    detail: 'Internal AI tools, coding-agent rollout, governed cost management, and organizational adoption.',
+    detail: 'Internal AI tools, cost management and approvals, and enablement.',
   },
   {
     company: 'Dremio',
@@ -431,9 +430,9 @@ export const CAREER_HIGHLIGHTS = [
 
 export const AI_CONTEXT = `
 Alex Aidun is an Enterprise AI Product, Operations & Adoption Leader based in New York.
-Current role: AI Lab & Adoption Manager at Automattic. He joined in March 2026; the role has since expanded with AI Lab. He designs and drives internal AI tools, including a Slack-based sandbox for cross-department coding agents and homegrown systems for governed AI cost management and approvals on company infrastructure. Rollouts are in progress and cost control is active work. Earlier delivery includes a hybrid Growth cohort, a reusable workshop tool used by another facilitator, and helping launch 19 AI Guides. The AI environment serves 1,500 employees; that is not a coding-agent adoption count.
+Current role: AI Lab & Adoption Manager at Automattic, March 2026–present. He works across AI Lab and enablement, designing and driving adoption of internal AI tools, including a Slack-based sandbox for coding agents and systems for AI cost management and approvals on company infrastructure. His contributions include leading a hybrid Growth cohort, building a reusable workshop tool used by another facilitator, and helping launch 19 AI Guides. The AI environment serves 1,500 employees; that is not a coding-agent adoption count.
 Dremio tenure: January 2024 to March 2026 in documentation and education leadership; Senior AI Product Manager from April 2025 to March 2026. He scoped and drove an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot. Separately, Dremio University reached 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion in six months. Do not attribute those learning metrics to the AI products.
-Independent work: Eventer is an open-source planning plugin with 12 skills, local records and helpers, published synthetic evaluation, and installation checks in Codex and Claude Code. Model advisor is a local research prototype with public hosting on hold. Manymade has a complete first mission. BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
+Independent work: Eventer is an open-source planning plugin with 12 skills, local records and helpers, published evaluation using fake data, and installation checks in Codex and Claude Code. Model advisor is a local research prototype with public hosting on hold. Manymade has a complete first mission. BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
 Other public prototypes include KidGrow (sign-in required), Kid Comic Storyteller, ManagerAI (Grdn), and 25Hours. CertifyFast is a prototype without a public demo link. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
 Do not claim that Alex is a production ML engineer, research scientist, platform architect, or engineering executive. Do not invent cost savings, revenue, governance ownership, production scale, or psychometric validation. Do not reveal confidential employer information. Public contact: bobuel@gmail.com. Public website: https://aydoon.com. GitHub: https://github.com/bobuel. LinkedIn: https://www.linkedin.com/in/aaidun/.
 `.trim();

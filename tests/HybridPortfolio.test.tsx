@@ -35,12 +35,12 @@ describe('published Hybrid design', () => {
     show();
     const identity = screen.getByRole('complementary');
     expect(within(identity).getByText('AI Lab · internal tools and adoption')).toBeInTheDocument();
-    expect(within(identity).getByText('I design and drive internal AI tools, then help teams put them to work.')).toBeInTheDocument();
+    expect(within(identity).getByText('I design and drive adoption of internal AI tools.')).toBeInTheDocument();
     expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(2);
     expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
-    expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Lab at Automattic' }));
+    expect(screen.queryByText('More on outcomes and impact in the case study')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Lab and enablement at Automattic' }));
     expect(screen.getByText(/Their draft still needed review/)).toBeInTheDocument();
     expect(screen.getByText(/another facilitator used/)).toBeInTheDocument();
     expect(screen.getByText(/Those are shared results, including work that started before I joined/)).toBeInTheDocument();
@@ -92,7 +92,7 @@ describe('published Hybrid design', () => {
     expect(screen.getAllByRole('article')).toHaveLength(3);
     expect(screen.getByRole('link', { name: 'Play Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' })).toBeInTheDocument();
-    expect(screen.getByText('More on outcomes and impact in the case study')).toBeInTheDocument();
+    expect(screen.queryByText('More on outcomes and impact in the case study')).not.toBeInTheDocument();
     const dremio = screen.getByRole('link', { name: 'AI products at Dremio' }).closest('article')!;
     expect(within(dremio).getByText('4')).toBeInTheDocument();
     expect(within(dremio).getByText(/Dremio University reached 3,200\+ users in six months/)).toBeInTheDocument();
@@ -157,7 +157,7 @@ describe('published Hybrid design', () => {
 
   it('keeps the legacy Work route and the About narrative accessible', () => {
     show('/work');
-    expect(screen.getByRole('heading', { name: 'AI Lab at Automattic' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI Lab and enablement at Automattic' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'About' }));
     expect(screen.getByText(/the design premium rises/)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'I make complex systems easier to use.' })).toBeInTheDocument();

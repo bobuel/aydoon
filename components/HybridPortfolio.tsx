@@ -7,16 +7,16 @@ import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../wri
 import { WritingDetail, WritingIndex } from './Writing';
 
 const SUMMARIES: Record<string, string> = {
-  'enterprise-ai-adoption-automattic': 'I design and drive internal AI tools through rollout, including a Slack-based coding-agent environment and homegrown systems for cost management and approvals.',
+  'enterprise-ai-adoption-automattic': 'I design and drive adoption of internal AI tools, including a Slack-based environment for coding agents and systems for managing AI spending and approvals.',
   'ai-product-leadership-dremio': 'I scoped four AI product initiatives with Design and Engineering while leading Documentation and University. Dremio University reached 3,200+ users in six months.',
-  'eventer-planning-workflow': 'A portable planning plugin that keeps guests, rooms, meals, transport, and approvals aligned as an event changes. Public code and synthetic examples make the workflow inspectable.',
+  'eventer-planning-workflow': 'I built Eventer to keep guests, rooms, meals, transport, and approvals aligned as plans change. The code is public, and the examples use fake data.',
   'bloom-assessment-workflow': 'BloomGPT showed demand. I turned that signal into a guided quiz workflow with source references and teacher review.',
 };
 
 const PAGE_METADATA: Record<string, { title: string; description: string }> = {
   '/': {
     title: 'Alex Aidun | Enterprise AI Product, Operations & Adoption Leader',
-    description: 'Alex Aidun designs and drives internal AI tools, coding-agent rollout, cost governance, and adoption at Automattic’s AI Lab.',
+    description: 'Alex Aidun designs and drives adoption of internal AI tools at Automattic, working across AI Lab and enablement.',
   },
   '/builds': { title: 'Builds | Alex Aidun', description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.' },
   '/games': { title: 'Games and creative work | Alex Aidun', description: 'Games and creative experiments by Alex Aidun exploring systems, story, voice, probability, and interaction.' },
@@ -37,10 +37,10 @@ function Identity() {
         </nav>
         <div className="identity-story">
           {pathname === '/' ? <>
-            <p>I design and drive internal AI tools, then help teams put them to work.</p>
+            <p>I design and drive adoption of internal AI tools.</p>
             <p className="design-context">I start with a real task, build something others can reuse, and change the tools when they get in the way. <strong>Design is the premium.</strong></p>
           </> : <>
-            <p>I build internal AI tools and help teams adopt them, with attention to rollout, cost, and everyday use.</p>
+            <p>I design internal AI tools and drive their adoption across teams.</p>
             <p>My background spans product, education, and documentation. I build tools and games, too.</p>
           </>}
         </div>
@@ -64,7 +64,7 @@ function WorkList() {
             <h2><Link to={`/case-studies/${study.slug}`}>{study.title}</Link></h2>
             <p className="row-description">{SUMMARIES[study.slug]}</p>
             <div className="case-row-footer">
-              {study.slug === 'enterprise-ai-adoption-automattic' ? <p className="case-proof">More on outcomes and impact in the case study</p> : <p className="case-proof"><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>}
+              {study.slug !== 'enterprise-ai-adoption-automattic' && <p className="case-proof"><strong>{study.evidence[0].value}</strong> {study.evidence[0].label}</p>}
               <Link className="row-link" to={`/case-studies/${study.slug}`} aria-label={`Read case study: ${study.title}`}>
                 Read the case <ArrowRight size={15} aria-hidden="true" />
               </Link>
@@ -75,7 +75,7 @@ function WorkList() {
       <section className="featured-build" aria-label="Featured game">
         <p className="row-label">Featured game</p>
         <h2>Iron Hand: Sector 13</h2>
-        <p className="row-description">A playable cyberpunk RPG where poker combat, crew choices, and a 13-chapter story shape the run.</p>
+        <p className="row-description">I built a playable cyberpunk RPG where poker combat, crew choices, and a 13-chapter story shape the run.</p>
         <a className="row-link" href="https://bobuel.github.io/ironhand-rpg/" target="_blank" rel="noreferrer" aria-label="Play Iron Hand: Sector 13">
           Play Iron Hand: Sector 13 <ArrowUpRight size={15} aria-hidden="true" />
         </a>
@@ -94,7 +94,7 @@ function ProjectList() {
   const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
     <>
-    <p className="builds-intro">I build tools to make complex workflows usable and inspectable, and games to explore systems and interaction. Each project shows its current state and a way to explore the work.</p>
+    <p className="builds-intro">I build tools to accelerate achieving outcomes and build games to explore technology.</p>
     <nav className="build-filters" aria-label="Build filters">
       {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
         <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>
@@ -166,9 +166,9 @@ function About() {
       <h2>I make complex systems easier to use.</h2>
       <p>Before AI became part of my title, I led global education, partner enablement, and documentation teams at Qubole, WorkFusion, Arrikto, and Braze. I learned how much product value depends on whether people can understand and use what ships.</p>
       <p>At Dremio, I led education and documentation and added Senior AI Product Manager responsibilities in April 2025. I scoped four AI initiatives with Design and Engineering. Separately, the Dremio University team reached 3,200+ users in six months, with +78 NPS and 50% completion.</p>
-      <p>At Automattic, my role has expanded with AI Lab. I design and drive internal tools, including a Slack-based environment for coding agents and homegrown systems for governed AI costs and approvals. Rollouts are in progress, and keeping costs in line is part of the work as we build.</p>
+      <p>At Automattic, I work across AI Lab and enablement. I design and drive adoption of internal tools, including a Slack-based environment for coding agents and systems for managing AI spending and approvals on our infrastructure. I also lead workshops and build reusable tools that help colleagues apply AI to their work.</p>
       <p>I also participate in the OpenAI Champions program.</p>
-      <p>As execution gets cheaper, the design premium rises. I help organizations turn that shift into practical operating systems, products, learning, and behavior change—without reducing it to hype.</p>
+      <p>As execution gets cheaper, the design premium rises. I care about what we choose to build and whether it helps people do the work.</p>
       <a className="row-link" href={`mailto:${PROFILE.email}`}>Have an interesting problem? <ArrowUpRight size={15} aria-hidden="true" /></a>
     </section>
   );
