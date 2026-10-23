@@ -2,15 +2,15 @@
 
 My site brings together internal AI product work, operations, and adoption, alongside the tools and games I build to test ideas.
 
-[Visit the site](https://aydoon.com/) · [Read the AI Lab case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Plugins & skills](https://aydoon.com/plugins) · [Browse builds](https://aydoon.com/builds) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
+[Visit the site](https://aydoon.com/) · [Read the AI Lab case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Plugins / Skills](https://aydoon.com/plugins) · [Browse tools](https://aydoon.com/tools) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
 
 ## Design decisions
 
-- **Keep the first visit short.** A compact introduction and two employer case studies make the work easy to scan. Compact links lead to Plugins & skills and the full Builds catalog. Detailed decisions and results live inside each case.
-- **Make browsing straightforward.** Work, Plugins & skills, Builds, Writing, and About switch the content beside a stable identity panel. Plugins & skills groups Bloom Quiz Builder, Certification Workshop, and Eventer, with Bloom first and links to their source and case studies. Plugin cases return to that collection. Builds has All, Tools, and Games filters. All includes every project; Tools excludes games; Games shows games only. Filters use shareable query URLs, and legacy /games links redirect to /builds?filter=games. Availability labels and real links make clear what can be tried.
+- **Keep the first visit short.** A compact introduction and two employer case studies make the work easy to scan. Compact links lead to Plugins / Skills, Tools, and Games. Detailed decisions and results live inside each case.
+- **Make browsing straightforward.** Work, Plugins / Skills, Tools, Games, Writing, and About switch the content beside a stable identity panel. Plugins / Skills groups Bloom Quiz Builder, Certification Workshop, and Eventer, with Bloom first and links to their source and case studies. Plugin cases return to that collection. Each project has one primary collection: three plugins/skills, seven tools, and four games. On mobile, a compact menu exposes all six destinations. Legacy /builds links redirect to /tools; /builds?filter=games redirects to /games. Availability labels and real links make clear what can be tried.
 - **Keep the system simple.** React, typed content, and a static build on GitHub Pages. No chatbot, runtime API, database, or client secrets.
 
-The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Builds, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph sits in the left column, replacing the overlapping philosophy copy, and ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
+The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Plugins / Skills, Tools, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph sits in the left column, replacing the overlapping philosophy copy, and ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
 
 The cases distinguish my ownership, the decisions made, and the available evidence. Dremio AI product work and Dremio University learning metrics remain separate. Editorial and factual boundaries are documented in [AGENTS.md](AGENTS.md).
 
@@ -21,7 +21,7 @@ GitHub Pages
   └─ Static Vite build
        ├─ Shared Hybrid React shell
        │    ├─ Identity, top contact links, and current-role rail
-       │    └─ Work / Plugins & skills / Builds / Writing / About navigation
+       │    └─ Work / Plugins / Skills / Tools / Games / Writing / About navigation
        ├─ Complete project catalog including Brassline
        ├─ Concise About/profile route
        ├─ Writing index and four employer-neutral articles
@@ -76,16 +76,16 @@ The Hybrid integration suite covers the production app entry point, persistent i
 
 Push-triggered deployment runs only on `main`. Branch and pull-request CI is verification-only; do not manually dispatch the Pages workflow from a review branch. Ordinary releases do not require DNS or Cloud Run changes. Record the live commit before publication and use a revert commit for rollback rather than rewriting shared history.
 
-Legacy `/work` redirects to the homepage. `/games` opens the Games view directly. Case-study return links use `/#work`; old `#case-studies` links remain supported. The résumé file retains its stable URL but is intentionally not promoted in the interface. Local comparison designs are not part of the production build or deployment.
+Legacy `/work` redirects to the homepage. `/games` opens the Games view directly. Plugin case-study return links use `/plugins`; employer case-study return links use `/#work`; old `#case-studies` links remain supported. The résumé file retains its stable URL but is intentionally not promoted in the interface. Local comparison designs are not part of the production build or deployment.
 
 After a deployment, smoke-test:
 
 - `/`
 - `/about`
 - `/work`
-- `/builds`
+- `/plugins`, `/tools`, `/games` and legacy `/builds` redirects
 - `/games`
-- All three `/case-studies/...` routes
+- All five `/case-studies/...` routes
 - `/writing` and every published `/writing/...` route
 - `/alexander-aidun-resume.pdf`
 - `/sitemap.xml`

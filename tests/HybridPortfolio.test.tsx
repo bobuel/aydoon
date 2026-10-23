@@ -56,18 +56,18 @@ describe('published Hybrid design', () => {
     expect(screen.getByText(/Dremio University team reached 3,200\+ users/)).toBeInTheDocument();
   });
 
-  it('keeps the identity panel while switching Work, Builds and Games', () => {
+  it('keeps the identity panel while switching Work, Tools and Games', () => {
     show();
     const identity = screen.getByRole('complementary');
     const navigation = screen.getByRole('navigation', { name: 'Primary navigation' });
-    expect(within(navigation).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Plugins & skills', 'Builds', 'Writing', 'About']);
-    fireEvent.click(within(navigation).getByRole('link', { name: 'Builds' }));
+    expect(within(navigation).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Plugins / Skills', 'Tools', 'Games', 'Writing', 'About']);
+    fireEvent.click(within(navigation).getByRole('link', { name: 'Tools' }));
     expect(screen.queryByText('Design is the premium.')).not.toBeInTheDocument();
     expect(screen.getByRole('complementary')).toBe(identity);
     expect(screen.getByRole('main')).toHaveFocus();
-    expect(within(navigation).getByRole('link', { name: 'Builds' })).toHaveAttribute('aria-current', 'page');
+    expect(within(navigation).getByRole('link', { name: 'Tools' })).toHaveAttribute('aria-current', 'page');
     expect(screen.getByRole('heading', { name: 'CertifyFast' })).toBeInTheDocument();
-    fireEvent.click(within(screen.getByRole('navigation', { name: 'Build filters' })).getByRole('link', { name: 'Games' }));
+    fireEvent.click(within(navigation).getByRole('link', { name: 'Games' }));
     expect(screen.getByRole('heading', { name: 'Brassline' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'CertifyFast' })).not.toBeInTheDocument();
     expect(screen.getByRole('complementary')).toBe(identity);
@@ -84,7 +84,7 @@ describe('published Hybrid design', () => {
     expect(contacts.closest('.identity-intro')).not.toBeNull();
     expect(contacts.compareDocumentPosition(document.querySelector('.identity-story')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(screen.queryByRole('navigation', { name: 'Profile links' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(document.querySelector('.navigation-toggle')).toHaveAttribute('aria-expanded', 'false');
   });
 
   it('keeps homepage proof inline and labels Dremio learning separately from AI products', () => {
@@ -92,7 +92,7 @@ describe('published Hybrid design', () => {
     expect(screen.getAllByRole('article')).toHaveLength(2);
     expect(screen.queryByText('Featured game')).not.toBeInTheDocument();
     const explore = screen.getByRole('navigation', { name: 'Explore projects' });
-    expect(within(explore).getByRole('link', { name: /Plugins & skills/ })).toHaveAttribute('href', '/plugins');
+    expect(within(explore).getByRole('link', { name: /Plugins \/ Skills/ })).toHaveAttribute('href', '/plugins');
     expect(within(explore).getByText(/Bloom Quiz Builder, Certification Workshop, and Eventer/)).toBeInTheDocument();
     expect(screen.queryByText('More on outcomes and impact in the case study')).not.toBeInTheDocument();
     const dremio = screen.getByRole('link', { name: 'AI products at Dremio' }).closest('article')!;
@@ -104,27 +104,18 @@ describe('published Hybrid design', () => {
     }
   });
 
-  it('includes the complete catalog, real links and no duplicate open-source labels', () => {
-    show('/builds');
-    expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 5).map(heading => heading.textContent)).toEqual(['Bloom Quiz Builder Skill', 'Certification Workshop', 'Eventer', 'Iron Hand: Sector 13', 'Model advisor']);
+  it('shows tools with their availability, without duplicating games or plugins', () => {
+    show('/tools');
+    expect(screen.getAllByRole('article')).toHaveLength(7);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 5).map(heading => heading.textContent)).toEqual(['Model advisor', 'Retrieval Guard', 'CertifyFast', 'Informa', 'KidGrow']);
     expect(screen.queryByText('Featured game')).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
     expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
     expect(screen.getByRole('heading', { name: 'CertifyFast' }).closest('article')).toHaveTextContent('Prototype');
     expect(screen.getByRole('heading', { name: 'ManagerAI (Grdn)' })).toBeInTheDocument();
     expect(screen.getByText(/Evaluation is ongoing/)).toBeInTheDocument();
-    for (const project of PROJECTS) {
-      const row = screen.getByRole('heading', { name: project.title }).closest('article')!;
-      for (const link of project.links) {
-        expect(within(row).getByRole('link', { name: `${link.label}: ${project.title}` })).toHaveAttribute('href', link.href);
-      }
-      if (!project.links.length) {
-        expect(within(row).queryByRole('link')).not.toBeInTheDocument();
-        expect(within(row).getByText('Details available in conversation')).toBeInTheDocument();
-      }
-      if (project.category === 'Open Source' && project.status === 'Open source') expect(within(row).getAllByText(/^open source$/i)).toHaveLength(1);
-    }
+    expect(screen.queryByRole('heading', { name: 'Bloom Quiz Builder Skill' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Brassline' })).not.toBeInTheDocument();
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
@@ -146,7 +137,7 @@ describe('published Hybrid design', () => {
     }
     for (const metric of study.evidence) expect(screen.getByText(metric.label)).toBeInTheDocument();
     const plugin = ['bloom-assessment-workflow', 'certification-workshop', 'eventer-planning-workflow'].includes(study.slug);
-    fireEvent.click(screen.getAllByRole('link', { name: plugin ? 'Back to plugins & skills' : 'Back to work' })[0]);
+    fireEvent.click(screen.getAllByRole('link', { name: plugin ? 'Back to plugins / skills' : 'Back to work' })[0]);
     if (plugin) expect(screen.getByRole('heading', { name: 'Bloom Quiz Builder Skill' })).toBeInTheDocument();
     else expect(screen.getByText('Design is the premium.', { selector: 'strong' })).toBeInTheDocument();
     expect(screen.getByRole('main')).toHaveFocus();
@@ -180,10 +171,10 @@ describe('published Hybrid design', () => {
       expect(canonical.href).toBe(siteUrl('case-studies/ai-product-leadership-dremio'));
       expect(description.content).toBe(CASE_STUDIES[1].summary);
       expect(ogUrl.content).toBe(canonical.href);
-      fireEvent.click(screen.getByRole('link', { name: 'Builds' }));
+      fireEvent.click(screen.getByRole('link', { name: 'Tools' }));
       fireEvent.click(screen.getByRole('link', { name: 'Games' }));
-      expect(document.title).toBe('Builds | Alex Aidun');
-      expect(canonical.href).toBe(siteUrl('builds'));
+      expect(document.title).toBe('Games and creative work | Alex Aidun');
+      expect(canonical.href).toBe(siteUrl('games'));
       fireEvent.click(screen.getByRole('link', { name: 'Work' }));
       expect(document.title).toBe('Alex Aidun | Enterprise AI Product, Operations & Adoption Leader');
       expect(canonical.href).toBe(siteUrl());
@@ -203,7 +194,7 @@ describe('published Hybrid design', () => {
     expect(screen.getByRole('main')).toHaveFocus();
   });
 
-  it.each(['/', '/plugins', '/builds', '/games', '/about', '/case-studies/ai-product-leadership-dremio'])('has no serious or critical automated accessibility violations on %s', async path => {
+  it.each(['/', '/plugins', '/tools', '/games', '/about', '/case-studies/ai-product-leadership-dremio'])('has no serious or critical automated accessibility violations on %s', async path => {
     const { container } = show(path);
     const result = await axe.run(container);
     expect(result.violations.filter(violation => ['critical', 'serious'].includes(violation.impact ?? ''))).toEqual([]);
@@ -213,17 +204,17 @@ describe('published Hybrid design', () => {
     show('/');
     const identity = screen.getByRole('complementary');
     const navigation = screen.getByRole('navigation', { name: 'Primary navigation' });
-    fireEvent.click(within(navigation).getByRole('link', { name: 'Plugins & skills' }));
+    fireEvent.click(within(navigation).getByRole('link', { name: 'Plugins / Skills' }));
     expect(screen.getByRole('complementary')).toBe(identity);
     expect(screen.getByRole('main')).toHaveFocus();
-    expect(document.title).toBe('Plugins & skills | Alex Aidun');
+    expect(document.title).toBe('Plugins / Skills | Alex Aidun');
     expect(screen.getAllByRole('heading', { level: 2 }).map(h => h.textContent)).toEqual(['Bloom Quiz Builder Skill', 'Certification Workshop', 'Eventer']);
     expect(screen.queryByRole('navigation', { name: 'Build filters' })).not.toBeInTheDocument();
     const bloom = screen.getByRole('heading', { name: 'Bloom Quiz Builder Skill' }).closest('article')!;
     expect(within(bloom).getByRole('link', { name: 'View source: Bloom Quiz Builder Skill' })).toHaveAttribute('href', 'https://github.com/bobuel/bloom-taxonomy-quiz-builder-skill');
     fireEvent.click(within(bloom).getByRole('link', { name: 'Read case study: Bloom Quiz Builder Skill' }));
-    expect(within(navigation).getByRole('link', { name: 'Plugins & skills' })).toHaveAttribute('aria-current', 'page');
-    fireEvent.click(screen.getAllByRole('link', { name: 'Back to plugins & skills' })[0]);
+    expect(within(navigation).getByRole('link', { name: 'Plugins / Skills' })).toHaveAttribute('aria-current', 'page');
+    fireEvent.click(screen.getAllByRole('link', { name: 'Back to plugins / skills' })[0]);
     expect(screen.getAllByRole('article')).toHaveLength(3);
   });
 
@@ -233,7 +224,7 @@ describe('published Hybrid design', () => {
     document.head.append(canonical);
     try {
       show('/plugins/');
-      expect(document.title).toBe('Plugins & skills | Alex Aidun');
+      expect(document.title).toBe('Plugins / Skills | Alex Aidun');
       expect(canonical.href).toBe(siteUrl('plugins'));
       expect(screen.getAllByRole('article')).toHaveLength(3);
     } finally { canonical.remove(); }
