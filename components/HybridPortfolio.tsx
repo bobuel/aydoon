@@ -6,6 +6,10 @@ import { siteUrl } from '../sitePaths';
 import { WRITING_ARTICLES, WRITING_DESCRIPTION, getWritingArticle } from '../writing/content';
 import { WritingDetail, WritingIndex } from './Writing';
 
+const PLUGIN_PROJECTS = ['bloom-skill', 'certification-workshop', 'eventer-plugin']
+  .flatMap(id => PROJECTS.filter(project => project.id === id));
+const isPluginStudy = (slug?: string) => PLUGIN_PROJECTS.some(project => project.slug === slug);
+
 const SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'I design and drive adoption of internal AI tools, including a Slack-based environment for coding agents and systems for managing AI spending and approvals.',
   'ai-product-leadership-dremio': 'I scoped four AI product initiatives with Design and Engineering while leading Documentation and University. Dremio University reached 3,200+ users in six months.',
@@ -20,6 +24,7 @@ const PAGE_METADATA: Record<string, { title: string; description: string }> = {
     description: 'Alex Aidun designs and drives adoption of internal AI tools at Automattic, working across AI Lab and enablement.',
   },
   '/builds': { title: 'Builds | Alex Aidun', description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.' },
+  '/plugins': { title: 'Plugins & skills | Alex Aidun', description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.' },
   '/games': { title: 'Games and creative work | Alex Aidun', description: 'Games and creative experiments by Alex Aidun exploring systems, story, voice, probability, and interaction.' },
   '/about': { title: 'About Alex Aidun | Alex Aidun', description: 'The professional and creative story behind Alex Aidun’s work in enterprise AI, product adoption, and hands-on building.' },
 };
@@ -59,7 +64,7 @@ function WorkList() {
   return (
     <>
       <div id="work" className="work-list" aria-label="Professional case studies">
-        {CASE_STUDIES.filter(study => study.slug !== 'bloom-assessment-workflow').map(study => (
+        {CASE_STUDIES.filter(study => !isPluginStudy(study.relatedProjectSlug)).map(study => (
           <article className="case-row" key={study.slug}>
             <p className="row-label">{study.eyebrow}</p>
             <h2><Link to={`/case-studies/${study.slug}`}>{study.title}</Link></h2>
@@ -73,38 +78,32 @@ function WorkList() {
           </article>
         ))}
       </div>
-      <section className="featured-build" aria-label="Featured game">
-        <p className="row-label">Featured game</p>
-        <h2>Iron Hand: Sector 13</h2>
-        <p className="row-description">I built a playable cyberpunk RPG where poker combat, crew choices, and a 13-chapter story shape the run.</p>
-        <a className="row-link" href="https://bobuel.github.io/ironhand-rpg/" target="_blank" rel="noreferrer" aria-label="Play Iron Hand: Sector 13">
-          Play Iron Hand: Sector 13 <ArrowUpRight size={15} aria-hidden="true" />
-        </a>
-      </section>
-      <Link className="browse-builds" to="/builds">Explore the tools and games I build <ArrowRight size={16} aria-hidden="true" /></Link>
+      <nav className="collection-links" aria-label="Explore projects">
+        <Link className="collection-link" to="/plugins"><span><strong>Plugins &amp; skills</strong><span>Bloom Quiz Builder, Certification Workshop, and Eventer</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
+        <Link className="collection-link" to="/builds"><span><strong>Builds</strong><span>Games, tools, and experiments</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
+      </nav>
     </>
   );
 }
 
-function ProjectList() {
+function ProjectList({ pluginsOnly = false }: { pluginsOnly?: boolean }) {
   const [searchParams] = useSearchParams();
   const requestedFilter = searchParams.get('filter');
   const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
-  const firstIds = ['certification-workshop', 'eventer-plugin', 'iron-hand', 'model-advisor', 'bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
+  const firstIds = ['bloom-skill', 'certification-workshop', 'eventer-plugin', 'iron-hand', 'model-advisor', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
-  const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
+  const projects = pluginsOnly ? PLUGIN_PROJECTS : ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
     <>
-    <p className="builds-intro">I turn real tasks and domain knowledge into reusable tools and workflows. Certification Workshop and Eventer run in the AI assistant you already use. I build games to explore ideas, too.</p>
-    <nav className="build-filters" aria-label="Build filters">
+    <p className="builds-intro">{pluginsOnly ? 'Reusable workflows for learning, assessment, and planning with your AI assistant. Explore the source, examples, and thinking behind each one.' : 'Browse my games, tools, and experiments. Each project includes its current status and available links.'}</p>
+    {!pluginsOnly && <nav className="build-filters" aria-label="Build filters">
       {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
         <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>
       ))}
-    </nav>
-    <div className="project-list" aria-label={filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
+    </nav>}
+    <div className="project-list" aria-label={pluginsOnly ? 'Plugins & skills' : filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
       {projects.map(project => (
-        <article className={`project-row${project.id === 'iron-hand' ? ' project-row--featured' : ''}`} key={project.id}>
-          {project.id === 'iron-hand' && <p className="row-label">Featured game</p>}
+        <article className="project-row" key={project.id}>
           <div className="project-row-heading">
             <h2>{project.title}</h2>
             <span className="project-status">{project.status}</span>
@@ -138,9 +137,11 @@ function CaseDetail() {
   if (!study) return <NotFound />;
   const relatedProject = PROJECTS.find(project => project.slug === study.relatedProjectSlug);
   const sourceLink = relatedProject?.links.find(link => link.kind === 'source');
+  const backTo = isPluginStudy(study.relatedProjectSlug) ? '/plugins' : '/#work';
+  const backLabel = backTo === '/plugins' ? 'Back to plugins & skills' : 'Back to work';
   return (
     <article className="case-detail">
-      <Link className="back-link" to="/#work"><ArrowLeft size={15} aria-hidden="true" /> Back to work</Link>
+      <Link className="back-link" to={backTo}><ArrowLeft size={15} aria-hidden="true" /> {backLabel}</Link>
       <p className="row-label">{study.eyebrow}</p>
       <h2>{study.title}</h2>
       <p className="detail-role">{study.role} · {study.period}</p>
@@ -156,7 +157,7 @@ function CaseDetail() {
           {section.bullets && <ul>{section.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul>}
         </section>
       ))}
-      <Link className="back-link" to="/#work"><ArrowLeft size={15} aria-hidden="true" /> Back to work</Link>
+      <Link className="back-link" to={backTo}><ArrowLeft size={15} aria-hidden="true" /> {backLabel}</Link>
     </article>
   );
 }
@@ -190,7 +191,7 @@ export default function HybridPortfolio() {
   const path = pathname.replace(/\/$/, '') || '/';
   const study = path.startsWith('/case-studies/') ? getCaseStudy(path.slice('/case-studies/'.length)) : undefined;
   const article = path.startsWith('/writing/') ? getWritingArticle(path.slice('/writing/'.length)) : undefined;
-  const view = path === '/builds' || path === '/games' ? 'builds' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
+  const view = path === '/plugins' || (study && isPluginStudy(study.relatedProjectSlug)) ? 'plugins' : path === '/builds' || path === '/games' ? 'builds' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
 
   useEffect(() => {
     const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary }
@@ -227,7 +228,7 @@ export default function HybridPortfolio() {
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
             <nav className="view-navigation" aria-label="Primary navigation">
-              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'builds', label: 'Builds', to: '/builds' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
+              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'plugins', label: 'Plugins & skills', to: '/plugins' }, { id: 'builds', label: 'Builds', to: '/builds' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
                 <Link key={item.id} to={item.to} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>
               ))}
             </nav>
@@ -236,6 +237,7 @@ export default function HybridPortfolio() {
             <Route path="/" element={<WorkList />} />
             <Route path="/work" element={<Navigate to="/" replace />} />
             <Route path="/builds" element={<ProjectList />} />
+            <Route path="/plugins" element={<ProjectList pluginsOnly />} />
             <Route path="/games" element={<Navigate to="/builds?filter=games" replace />} />
             <Route path="/about" element={<About />} />
             {WRITING_ARTICLES.length > 0 && <Route path="/writing" element={<WritingIndex />} />}

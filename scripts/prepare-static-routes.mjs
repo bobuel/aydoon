@@ -38,6 +38,11 @@ const caseStudies = [
 
 const standalonePages = [
   {
+    path: 'plugins',
+    title: 'Plugins & skills',
+    description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.',
+  },
+  {
     path: 'work',
     title: 'Professional impact',
     description: 'Alex Aidun\'s case studies in enterprise AI adoption, AI product leadership, enablement, and product-led transformation.',

@@ -55,10 +55,10 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .row-description { font-size: 1rem; line-height: 1.65; color: var(--muted); margin-top: 8px; }
 .case-row .row-description { max-width: 70ch; }
 .project-row .row-description { margin-top: 5px; }
-.featured-build { border-bottom: 1px solid var(--line); padding: 23px 0 16px; }
-.featured-build h2 { font-size: 1.25rem; line-height: 1.4; }
-.featured-build .row-link { margin-top: 10px; }
-.project-row--featured { border-top: 2px solid var(--ink); margin-top: 18px; }
+.collection-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.collection-link strong { display: block; font-size: 1rem; line-height: 1.5; }
+.collection-link span span { display: block; margin-top: 4px; font-size: .875rem; line-height: 1.6; color: var(--muted); }
+.collection-link svg { flex-shrink: 0; }
 .case-row-footer, .project-row-footer { display: flex; gap: 16px; justify-content: space-between; align-items: center; margin-top: 17px; flex-wrap: wrap; }
 .project-row-footer { margin-top: 8px; }
 .case-proof { color: var(--muted); font-size: .875rem; line-height: 1.6; }

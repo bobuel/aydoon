@@ -2,12 +2,12 @@
 
 My site brings together internal AI product work, operations, and adoption, alongside the tools and games I build to test ideas.
 
-[Visit the site](https://aydoon.com/) · [Read the AI Lab case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Explore Eventer](https://aydoon.com/case-studies/eventer-planning-workflow) · [Browse builds](https://aydoon.com/builds) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
+[Visit the site](https://aydoon.com/) · [Read the AI Lab case study](https://aydoon.com/case-studies/enterprise-ai-adoption-automattic) · [Plugins & skills](https://aydoon.com/plugins) · [Browse builds](https://aydoon.com/builds) · [Read my writing](https://aydoon.com/writing) · [Play games](https://aydoon.com/games)
 
 ## Design decisions
 
-- **Keep the first visit short.** A compact introduction and three case studies make the work easy to scan. Detailed decisions and results live inside each case.
-- **Make browsing straightforward.** Work, Builds, Writing, and About switch the content beside a stable identity panel. Builds has All, Tools, and Games filters. All includes every project; Tools excludes games; Games shows games only. Filters use shareable query URLs, and legacy /games links redirect to /builds?filter=games. Availability labels and real links make clear what can be tried.
+- **Keep the first visit short.** A compact introduction and two employer case studies make the work easy to scan. Compact links lead to Plugins & skills and the full Builds catalog. Detailed decisions and results live inside each case.
+- **Make browsing straightforward.** Work, Plugins & skills, Builds, Writing, and About switch the content beside a stable identity panel. Plugins & skills groups Bloom Quiz Builder, Certification Workshop, and Eventer, with Bloom first and links to their source and case studies. Plugin cases return to that collection. Builds has All, Tools, and Games filters. All includes every project; Tools excludes games; Games shows games only. Filters use shareable query URLs, and legacy /games links redirect to /builds?filter=games. Availability labels and real links make clear what can be tried.
 - **Keep the system simple.** React, typed content, and a static build on GitHub Pages. No chatbot, runtime API, database, or client secrets.
 
 The selected Hybrid design uses a light identity sidebar, simple rows, and one compact type scale. On mobile, the sidebar becomes an introduction above navigation. About, Builds, Games, and case studies use the same shell, with keyboard focus and scroll reset when navigating between routes. Alex Aidun is the name heading. The systems-focused homepage paragraph sits in the left column, replacing the overlapping philosophy copy, and ends with **Design is the premium.**, not a separate heading. The sidebar connects my education, documentation, product, and hands-on building background to systems and design thinking.
@@ -21,12 +21,12 @@ GitHub Pages
   └─ Static Vite build
        ├─ Shared Hybrid React shell
        │    ├─ Identity, top contact links, and current-role rail
-       │    └─ Work / Builds / Games navigation and flat rows
+       │    └─ Work / Plugins & skills / Builds / Writing / About navigation
        ├─ Complete project catalog including Brassline
        ├─ Concise About/profile route
        ├─ Writing index and four employer-neutral articles
        ├─ Legacy Work redirect and shared case-list anchors
-       ├─ Four prebuilt case-study entry paths, three selected on the homepage
+       ├─ Five prebuilt case-study entry paths, two employer cases on the homepage
        ├─ Shared typed content model
        └─ Résumé, screenshots, metadata, and social preview
 ```
