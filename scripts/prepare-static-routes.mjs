@@ -20,6 +20,11 @@ const caseStudies = [
     description: 'How Alex Aidun shaped four AI product initiatives while keeping product evidence distinct from Dremio University adoption metrics.',
   },
   {
+    slug: 'certification-workshop',
+    title: 'Certification Workshop',
+    description: 'How Alex Aidun turned certification-development experience into an open-source plugin, from source material and job tasks through assessment review, pilot evidence, and product changes.',
+  },
+  {
     slug: 'eventer-planning-workflow',
     title: 'Eventer planning workflow',
     description: 'A portable event-planning plugin with local records, host approvals, and inspectable synthetic examples.',
