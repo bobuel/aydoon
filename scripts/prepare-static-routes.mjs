@@ -39,7 +39,7 @@ const caseStudies = [
 const standalonePages = [
   {
     path: 'plugins',
-    title: 'Plugins & skills',
+    title: 'Plugins / Skills',
     description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.',
   },
   {
@@ -49,8 +49,13 @@ const standalonePages = [
   },
   {
     path: 'builds',
-    title: 'Builds',
-    description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.',
+    title: 'Tools',
+    description: 'Browse tools, plugins, and games by Alex Aidun.',
+  },
+  {
+    path: 'tools',
+    title: 'Tools',
+    description: 'Tools and product experiments by Alex Aidun, from AI model selection to learning and creative workflows.',
   },
   {
     path: 'games',

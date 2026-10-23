@@ -18,7 +18,7 @@ describe('published Writing section', () => {
   it('keeps Writing in the primary navigation without changing homepage case content', () => {
     show('/');
     expect(screen.getAllByRole('article')).toHaveLength(2);
-    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Plugins & skills', 'Builds', 'Writing', 'About']);
+    expect(within(screen.getByRole('navigation', { name: 'Primary navigation' })).getAllByRole('link').map(link => link.textContent)).toEqual(['Work', 'Plugins / Skills', 'Tools', 'Games', 'Writing', 'About']);
     const sidebar = screen.getByRole('complementary');
     fireEvent.click(screen.getByRole('link', { name: 'Writing' }));
     expect(screen.getByRole('complementary')).toBe(sidebar);
@@ -40,7 +40,7 @@ describe('published Writing section', () => {
       expect(readingMinutes(article)).toBeLessThanOrEqual(3);
     }
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(document.querySelector('.writing-index button')).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /download|résumé|resume/i })).not.toBeInTheDocument();
   });
 

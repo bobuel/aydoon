@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { CASE_STUDIES, PROFILE, PROJECTS, getCaseStudy } from '../content';
@@ -23,8 +23,8 @@ const PAGE_METADATA: Record<string, { title: string; description: string }> = {
     title: 'Alex Aidun | Enterprise AI Product, Operations & Adoption Leader',
     description: 'Alex Aidun designs and drives adoption of internal AI tools at Automattic, working across AI Lab and enablement.',
   },
-  '/builds': { title: 'Builds | Alex Aidun', description: 'Products, AI tools, open-source workflows, games, and experiments built by Alex Aidun.' },
-  '/plugins': { title: 'Plugins & skills | Alex Aidun', description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.' },
+  '/tools': { title: 'Tools | Alex Aidun', description: 'Tools and product experiments by Alex Aidun, from AI model selection to learning and creative workflows.' },
+  '/plugins': { title: 'Plugins / Skills | Alex Aidun', description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.' },
   '/games': { title: 'Games and creative work | Alex Aidun', description: 'Games and creative experiments by Alex Aidun exploring systems, story, voice, probability, and interaction.' },
   '/about': { title: 'About Alex Aidun | Alex Aidun', description: 'The professional and creative story behind Alex Aidun’s work in enterprise AI, product adoption, and hands-on building.' },
 };
@@ -79,29 +79,32 @@ function WorkList() {
         ))}
       </div>
       <nav className="collection-links" aria-label="Explore projects">
-        <Link className="collection-link" to="/plugins"><span><strong>Plugins &amp; skills</strong><span>Bloom Quiz Builder, Certification Workshop, and Eventer</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
-        <Link className="collection-link" to="/builds"><span><strong>Builds</strong><span>Games, tools, and experiments</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
+        <Link className="collection-link" to="/plugins"><span><strong>Plugins / Skills</strong><span>Bloom Quiz Builder, Certification Workshop, and Eventer</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
+        <Link className="collection-link" to="/tools"><span><strong>Tools</strong><span>AI, learning, and creative tools</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
+        <Link className="collection-link" to="/games"><span><strong>Games</strong><span>Role-playing, tactics, and interactive stories</span></span><ArrowRight size={16} aria-hidden="true" /></Link>
       </nav>
     </>
   );
 }
 
-function ProjectList({ pluginsOnly = false }: { pluginsOnly?: boolean }) {
+function LegacyBuildsRedirect() {
   const [searchParams] = useSearchParams();
-  const requestedFilter = searchParams.get('filter');
-  const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
+  return <Navigate to={searchParams.get('filter') === 'games' ? '/games' : '/tools'} replace />;
+}
+
+function ProjectList({ collection }: { collection: 'plugins' | 'tools' | 'games' }) {
   const firstIds = ['bloom-skill', 'certification-workshop', 'eventer-plugin', 'iron-hand', 'model-advisor', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
-  const projects = pluginsOnly ? PLUGIN_PROJECTS : ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
+  const projects = collection === 'plugins' ? PLUGIN_PROJECTS : ordered.filter(project => collection === 'games' ? project.category === 'Games' : project.category !== 'Games' && !PLUGIN_PROJECTS.includes(project));
+  const intros = {
+    plugins: 'Reusable workflows for learning, assessment, and planning with your AI assistant. Explore the source, examples, and thinking behind each one.',
+    tools: 'Tools and product experiments for choosing models, working with information, and making things. Each includes its current status and available links.',
+    games: 'Games exploring tactics, role-playing, and interactive stories. Play the available games or explore the projects still in development.',
+  };
   return (
     <>
-    <p className="builds-intro">{pluginsOnly ? 'Reusable workflows for learning, assessment, and planning with your AI assistant. Explore the source, examples, and thinking behind each one.' : 'Browse my games, tools, and experiments. Each project includes its current status and available links.'}</p>
-    {!pluginsOnly && <nav className="build-filters" aria-label="Build filters">
-      {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
-        <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>
-      ))}
-    </nav>}
-    <div className="project-list" aria-label={pluginsOnly ? 'Plugins & skills' : filter === 'games' ? 'Games' : filter === 'tools' ? 'Tools' : 'Projects'}>
+    <p className="collection-intro">{intros[collection]}</p>
+    <div className="project-list" aria-label={collection === 'plugins' ? 'Plugins / Skills' : collection === 'games' ? 'Games' : 'Tools'}>
       {projects.map(project => (
         <article className="project-row" key={project.id}>
           <div className="project-row-heading">
@@ -138,7 +141,7 @@ function CaseDetail() {
   const relatedProject = PROJECTS.find(project => project.slug === study.relatedProjectSlug);
   const sourceLink = relatedProject?.links.find(link => link.kind === 'source');
   const backTo = isPluginStudy(study.relatedProjectSlug) ? '/plugins' : '/#work';
-  const backLabel = backTo === '/plugins' ? 'Back to plugins & skills' : 'Back to work';
+  const backLabel = backTo === '/plugins' ? 'Back to plugins / skills' : 'Back to work';
   return (
     <article className="case-detail">
       <Link className="back-link" to={backTo}><ArrowLeft size={15} aria-hidden="true" /> {backLabel}</Link>
@@ -187,11 +190,14 @@ function ArticleRoute() {
 }
 
 export default function HybridPortfolio() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const { pathname, hash } = useLocation();
   const path = pathname.replace(/\/$/, '') || '/';
   const study = path.startsWith('/case-studies/') ? getCaseStudy(path.slice('/case-studies/'.length)) : undefined;
   const article = path.startsWith('/writing/') ? getWritingArticle(path.slice('/writing/'.length)) : undefined;
-  const view = path === '/plugins' || (study && isPluginStudy(study.relatedProjectSlug)) ? 'plugins' : path === '/builds' || path === '/games' ? 'builds' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
+  const view = path === '/plugins' || (study && isPluginStudy(study.relatedProjectSlug)) ? 'plugins' : path === '/tools' ? 'tools' : path === '/games' ? 'games' : path === '/about' ? 'about' : path === '/writing' || article ? 'writing' : path === '/' || path === '/work' || study ? 'work' : '';
+  const navigation = [{ id: 'work', label: 'Work', to: '/' }, { id: 'plugins', label: 'Plugins / Skills', to: '/plugins' }, { id: 'tools', label: 'Tools', to: '/tools' }, { id: 'games', label: 'Games', to: '/games' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }];
+  useEffect(() => { setMenuOpen(false); }, [path]);
 
   useEffect(() => {
     const metadata = study ? { title: `${study.title} | Alex Aidun`, description: study.summary }
@@ -227,18 +233,20 @@ export default function HybridPortfolio() {
         <Identity />
         <main id="main" tabIndex={-1} className="hybrid-content">
           <div className="content-top">
-            <nav className="view-navigation" aria-label="Primary navigation">
-              {[{ id: 'work', label: 'Work', to: '/' }, { id: 'plugins', label: 'Plugins & skills', to: '/plugins' }, { id: 'builds', label: 'Builds', to: '/builds' }, ...(WRITING_ARTICLES.length ? [{ id: 'writing', label: 'Writing', to: '/writing' }] : []), { id: 'about', label: 'About', to: '/about' }].map(item => (
-                <Link key={item.id} to={item.to} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>
+            <button className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(!menuOpen)}><span>{navigation.find(item => item.id === view)?.label ?? 'Explore'}</span><span>{menuOpen ? 'Close menu' : 'Menu'}</span></button>
+            <nav id="primary-navigation" className={`view-navigation${menuOpen ? ' menu-open' : ''}`} aria-label="Primary navigation" onKeyDown={event => { if (event.key === 'Escape') { setMenuOpen(false); document.querySelector<HTMLButtonElement>('.navigation-toggle')?.focus(); } }}>
+              {navigation.map(item => (
+                <Link key={item.id} to={item.to} onClick={() => setMenuOpen(false)} aria-current={view === item.id ? 'page' : undefined}>{item.label}</Link>
               ))}
             </nav>
           </div>
           <Routes>
             <Route path="/" element={<WorkList />} />
             <Route path="/work" element={<Navigate to="/" replace />} />
-            <Route path="/builds" element={<ProjectList />} />
-            <Route path="/plugins" element={<ProjectList pluginsOnly />} />
-            <Route path="/games" element={<Navigate to="/builds?filter=games" replace />} />
+            <Route path="/builds" element={<LegacyBuildsRedirect />} />
+            <Route path="/plugins" element={<ProjectList collection="plugins" />} />
+            <Route path="/tools" element={<ProjectList collection="tools" />} />
+            <Route path="/games" element={<ProjectList collection="games" />} />
             <Route path="/about" element={<About />} />
             {WRITING_ARTICLES.length > 0 && <Route path="/writing" element={<WritingIndex />} />}
             {WRITING_ARTICLES.length > 0 && <Route path="/writing/:slug" element={<ArticleRoute />} />}
