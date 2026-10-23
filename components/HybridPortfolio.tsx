@@ -10,6 +10,7 @@ const SUMMARIES: Record<string, string> = {
   'enterprise-ai-adoption-automattic': 'I design and drive adoption of internal AI tools, including a Slack-based environment for coding agents and systems for managing AI spending and approvals.',
   'ai-product-leadership-dremio': 'I scoped four AI product initiatives with Design and Engineering while leading Documentation and University. Dremio University reached 3,200+ users in six months.',
   'eventer-planning-workflow': 'I built Eventer to keep guests, rooms, meals, transport, and approvals aligned as plans change. The code is public, and the examples use fake data.',
+  'certification-workshop': 'I turned certification-development experience into a reusable plugin: from source material and job tasks to assessment drafts, expert review, pilot evidence, and product changes.',
   'bloom-assessment-workflow': 'BloomGPT showed demand. I turned that signal into a guided quiz workflow with source references and teacher review.',
 };
 
@@ -89,12 +90,12 @@ function ProjectList() {
   const [searchParams] = useSearchParams();
   const requestedFilter = searchParams.get('filter');
   const filter = requestedFilter === 'tools' || requestedFilter === 'games' ? requestedFilter : 'all';
-  const firstIds = ['eventer-plugin', 'iron-hand', 'model-advisor', 'bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
+  const firstIds = ['certification-workshop', 'eventer-plugin', 'iron-hand', 'model-advisor', 'bloom-skill', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
   const projects = ordered.filter(project => filter === 'all' || (filter === 'games' ? project.category === 'Games' : project.category !== 'Games'));
   return (
     <>
-    <p className="builds-intro">I build tools to accelerate achieving outcomes and build games to explore technology.</p>
+    <p className="builds-intro">I turn real tasks and domain knowledge into reusable tools and workflows. Certification Workshop and Eventer run in the AI assistant you already use. I build games to explore ideas, too.</p>
     <nav className="build-filters" aria-label="Build filters">
       {[{ id: 'all', label: 'All' }, { id: 'tools', label: 'Tools' }, { id: 'games', label: 'Games' }].map(item => (
         <Link key={item.id} to={item.id === 'all' ? '/builds' : `/builds?filter=${item.id}`} aria-current={filter === item.id ? 'page' : undefined}>{item.label}</Link>

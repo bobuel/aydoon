@@ -139,6 +139,37 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
+    slug: 'certification-workshop',
+    eyebrow: 'Independent AI workflow',
+    title: 'Certification Workshop',
+    summary: 'I turned my certification-development experience into a plugin that builds a program from source material and keeps assessment drafts, review decisions, and pilot evidence connected as the product changes.',
+    role: 'Product direction, certification workflow design, implementation and evaluation with AI coding tools',
+    period: 'Independent project · plugin v1.0.0',
+    evidence: [
+      { value: '10', label: 'coordinated certification skills' },
+      { value: '12', label: 'items in the fictional worked assessment' },
+    ],
+    relatedProjectSlug: 'certification-workshop',
+    sections: [
+      {
+        heading: 'Start with the work someone needs to do',
+        body: ['Certification development involves more than writing questions. My experience in education and enablement shaped the starting point: who is this for, what should they be able to do, and what evidence would support that claim?', 'The plugin can start from a brief and source material or continue an existing program. It develops a charter, job tasks, an assessment blueprint, questions, practical exercises, scoring rubrics, and reviewer materials. The same saved program continues through pilot analysis, launch preparation, and maintenance.'],
+      },
+      {
+        heading: 'Make the expertise reusable',
+        body: ['I used the same portable plugin approach as Eventer: coordinated skills, shared local records, and focused Python tools in an existing AI assistant. There is no new platform account, hosted service, or mandatory delivery vendor.', 'Source versions, item revisions, reviews, and assessment forms stay connected. When content changes, an old approval does not silently carry forward. Helpers check coverage and form constraints, summarize supplied scores, and prepare candidate and delivery materials. Experts review content; program owners decide policy and release.'],
+      },
+      {
+        heading: 'Test a program owner’s problem',
+        body: ['The fictional Northstar evaluation starts with product guides, workshop notes, six weeks, twenty partner consultants, and limited reviewer capacity. It asks the assistant to develop an actual program, including twelve assessment items and three written practicals.', 'A continuation introduces synthetic pilot data and a changed access model. The workflow analyzes the historical form, identifies affected content, revises drafts, and preserves the old evidence. It recommends a hold when the evidence does not support release. The public repository includes the outputs, a finished worked example, and scoring examples so readers can inspect the substance.'],
+      },
+      {
+        heading: 'Ship with inspectable evidence',
+        body: ['The v1 release passed 59 regression tests, 13 CLI scenarios, and a ten-phase synthetic lifecycle. GitHub checks passed on Windows, macOS, and Linux with Python 3.10 and 3.13. Installation from the public repository was verified in Codex, and a bounded native assistant check exercised creation and fresh-session continuation using the same runtime.', 'These are software and workflow checks. The program examples are fictional, and the model runs include documented assistance. They do not establish candidate performance or credential validity. Claude Code metadata is included, but activation remains untested.'],
+      },
+    ],
+  },
+  {
     slug: 'eventer-planning-workflow',
     eyebrow: 'Independent AI workflow',
     title: 'Eventer planning workflow',
@@ -210,8 +241,19 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'certification-workshop', slug: 'certification-workshop', title: 'Certification Workshop',
+    description: 'I built a plugin to develop a certification from source material and job tasks, work through review and pilot evidence, and maintain the program as the product changes. Ten skills and a complete fictional example to inspect.',
+    category: 'Open Source', status: 'Open source',
+    tags: ['Certification', 'Agent workflows', 'Human review'], featured: true, accent: 'teal',
+    links: [
+      { label: 'View source', href: 'https://github.com/bobuel/certification-workshop', kind: 'source' },
+      { label: 'Read case study', href: '/case-studies/certification-workshop', kind: 'case-study' },
+      { label: 'See worked example', href: 'https://github.com/bobuel/certification-workshop/blob/main/examples/northstar-v1/CERTIFICATION.md', kind: 'source' },
+    ],
+  },
+  {
     id: 'eventer-plugin', slug: 'eventer-plugin', title: 'Eventer',
-    description: 'I built Eventer to keep guests, rooms, meals, transport, and approvals aligned as plans change. Twelve skills, local records, and examples using fake data.',
+    description: 'I built a plugin to plan a group trip, retreat, or weekend, keeping guests, rooms, meals, rides, and follow-through aligned as plans change. Twelve skills and worked examples using fictional data.',
     category: 'Open Source', status: 'Open source',
     tags: ['Planning', 'Agent workflows', 'Human review'], featured: true, accent: 'teal',
     links: [

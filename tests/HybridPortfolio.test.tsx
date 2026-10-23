@@ -89,7 +89,7 @@ describe('published Hybrid design', () => {
 
   it('keeps homepage proof inline and labels Dremio learning separately from AI products', () => {
     show();
-    expect(screen.getAllByRole('article')).toHaveLength(3);
+    expect(screen.getAllByRole('article')).toHaveLength(4);
     expect(screen.getByRole('link', { name: 'Play Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' })).toBeInTheDocument();
     expect(screen.queryByText('More on outcomes and impact in the case study')).not.toBeInTheDocument();
@@ -106,7 +106,7 @@ describe('published Hybrid design', () => {
   it('includes the complete catalog, real links and no duplicate open-source labels', () => {
     show('/builds');
     expect(screen.getAllByRole('article')).toHaveLength(PROJECTS.length);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 4).map(heading => heading.textContent)).toEqual(['Eventer', 'Iron Hand: Sector 13', 'Model advisor', 'Bloom Quiz Builder Skill']);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 5).map(heading => heading.textContent)).toEqual(['Certification Workshop', 'Eventer', 'Iron Hand: Sector 13', 'Model advisor', 'Bloom Quiz Builder Skill']);
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' }).closest('article')).toHaveTextContent('Featured game');
     expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
     expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
