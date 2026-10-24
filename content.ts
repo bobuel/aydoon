@@ -269,14 +269,6 @@ export const PROJECTS: Project[] = [
     links: [{ label: 'View source', href: 'https://github.com/bobuel/model-advisor', kind: 'source' }],
   },
   {
-    id: 'manymade', slug: 'manymade', title: 'Manymade',
-    description: 'I directed and developed this browser RPG with AI coding tools. It has a complete first mission and branching character builds; the larger campaign is still in development.',
-    category: 'Games', status: 'Prototype',
-    tags: ['RPG', 'Game systems', 'Character builds'], featured: false, accent: 'violet',
-    links: [{ label: 'View source', href: 'https://github.com/bobuel/manymade', kind: 'source' }],
-  },
-
-  {
     id: 'certifyfast',
     slug: 'certifyfast',
     title: 'CertifyFast',
@@ -357,22 +349,6 @@ export const PROJECTS: Project[] = [
     image: '/projects/grdn.jpg',
     imageAlt: 'Grdn music management interface',
     links: [{ label: 'Open prototype', href: 'https://grdn.base44.app', kind: 'demo' }],
-  },
-  {
-    id: '25hours',
-    slug: '25hours',
-    title: '25Hours',
-    description:
-      'I built an atmospheric narrative-game prototype inspired by the 1977 New York City blackout.',
-    category: 'Games',
-    status: 'Live prototype',
-    tags: ['Narrative design', 'Generative game', 'Atmosphere'],
-    featured: false,
-    collections: ['Games'],
-    accent: 'amber',
-    image: '/projects/25hours.jpg',
-    imageAlt: '25Hours narrative game interface',
-    links: [{ label: 'Open prototype', href: 'https://25hours.base44.app', kind: 'demo' }],
   },
   {
     id: 'iron-hand',
@@ -502,8 +478,8 @@ export const AI_CONTEXT = `
 Alex Aidun is an Enterprise AI Product, Operations & Adoption Leader based in New York.
 Current role: AI Lab & Adoption Manager at Automattic, March 2026–present. He works across AI Lab and enablement, designing and driving adoption of internal AI tools, including a Slack-based sandbox for coding agents and systems for AI cost management and approvals on company infrastructure. His contributions include leading a hybrid Growth cohort, building a reusable workshop tool used by another facilitator, and helping launch 19 AI Guides. The AI environment serves 1,500 employees; that is not a coding-agent adoption count.
 Dremio tenure: January 2024 to March 2026 in documentation and education leadership; Senior AI Product Manager from April 2025 to March 2026. He scoped and drove an AI Agent, MCP server, AI SQL functions, and a data-analyst chatbot. Separately, Dremio University reached 3,200+ users, 1,000+ badges, +78 NPS, and 50% completion in six months. Do not attribute those learning metrics to the AI products.
-Independent work: Eventer is an open-source planning plugin with 12 skills, local records and helpers, published evaluation using fake data, and installation checks in Codex and Claude Code. Model advisor is a local research prototype with public hosting on hold. Manymade has a complete first mission. BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
-Other public prototypes include KidGrow (sign-in required), Kid Comic Storyteller, ManagerAI (Grdn), and 25Hours. CertifyFast is a prototype without a public demo link. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
+Independent work: Eventer is an open-source planning plugin with 12 skills, local records and helpers, published evaluation using fake data, and installation checks in Codex and Claude Code. Model advisor is a local research prototype with public hosting on hold. BloomGPT has been used more than 1,000 times. The Bloom Quiz Builder Skill turns that signal into a source-grounded, teacher-reviewed assessment workflow across six Bloom levels.
+Other public prototypes include KidGrow (sign-in required), Kid Comic Storyteller, and ManagerAI (Grdn). CertifyFast is a prototype without a public demo link. Iron Hand: Sector 13 is a playable browser RPG with poker combat. Informa is a private prototype.
 Do not claim that Alex is a production ML engineer, research scientist, platform architect, or engineering executive. Do not invent cost savings, revenue, governance ownership, production scale, or psychometric validation. Do not reveal confidential employer information. Public contact: bobuel@gmail.com. Public website: https://aydoon.com. GitHub: https://github.com/bobuel. LinkedIn: https://www.linkedin.com/in/aaidun/.
 `.trim();
 

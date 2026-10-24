@@ -29,12 +29,13 @@ describe('simplified portfolio architecture', () => {
 
     expect(screen.getByRole('heading', { name: 'CertifyFast' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Informa' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: '25Hours' })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: '25Hours' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Manymade' })).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Retrieval Guard' })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Games' }));
-    expect(screen.getByRole('heading', { name: '25Hours' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Last Ferry — Porto Sol Operation' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Iron Hand: Sector 13' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Kid Comic Storyteller' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'CertifyFast' })).not.toBeInTheDocument();
