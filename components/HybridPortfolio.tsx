@@ -93,7 +93,7 @@ function LegacyBuildsRedirect() {
 }
 
 function ProjectList({ collection }: { collection: 'plugins' | 'tools' | 'games' }) {
-  const firstIds = ['bloom-skill', 'certification-workshop', 'eventer-plugin', 'last-ferry', 'blackout-nyc', 'iron-hand', 'model-advisor', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
+  const firstIds = ['bloom-skill', 'certification-workshop', 'eventer-plugin', 'iron-hand', 'last-ferry', 'blackout-nyc', 'model-advisor', 'retrieval-guard', 'certifyfast', 'informa', 'kidgrow', 'grdn', 'kid-comic', 'brassline'];
   const ordered = [...firstIds.flatMap(id => PROJECTS.filter(project => project.id === id)), ...PROJECTS.filter(project => !firstIds.includes(project.id))];
   const projects = collection === 'plugins' ? PLUGIN_PROJECTS : ordered.filter(project => collection === 'games' ? project.category === 'Games' : project.category !== 'Games' && !PLUGIN_PROJECTS.includes(project));
   const intros = {
