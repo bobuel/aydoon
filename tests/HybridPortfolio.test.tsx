@@ -121,7 +121,9 @@ describe('published Hybrid design', () => {
 
   it('loads the selected Games view directly', () => {
     show('/games/');
-    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Brassline', 'Manymade', '25Hours']);
+    expect(screen.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent)).toEqual(['Iron Hand: Sector 13', 'Last Ferry — Porto Sol Operation', 'Blackout NYC', 'Brassline', 'Manymade', '25Hours']);
+    expect(screen.getByRole('link', { name: 'Play on itch.io: Last Ferry — Porto Sol Operation' })).toHaveAttribute('href', 'https://bobuel.itch.io/last-ferry');
+    expect(screen.getByRole('link', { name: 'Download on itch.io: Blackout NYC' })).toHaveAttribute('href', 'https://bobuel.itch.io/blackout-nyc');
     expect(screen.getByRole('link', { name: 'Play game: Brassline' })).toHaveAttribute('href', 'https://bobuel.github.io/brassline/');
     expect(screen.getByRole('link', { name: 'Play game: Iron Hand: Sector 13' })).toHaveAttribute('href', 'https://bobuel.github.io/ironhand-rpg/');
   });
