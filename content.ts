@@ -389,14 +389,14 @@ export const PROJECTS: Project[] = [
     slug: 'blackout-nyc',
     title: 'Blackout NYC',
     description:
-      'I built a survival RPG set during the 1977 New York City blackout. Cross seven neighborhoods with tactical confrontations and choices that follow you. Free Windows download on itch.io. For mature audiences.',
+      'I built a survival RPG set during the 1977 New York City blackout. Cross seven neighborhoods with tactical confrontations and choices that follow you. Play free in a desktop browser on itch.io. For mature audiences.',
     category: 'Games',
     status: 'Free development release',
-    tags: ['Survival RPG', 'Choices matter', 'Windows'],
+    tags: ['Survival RPG', 'Choices matter', 'Desktop browser'],
     featured: false,
     collections: ['Games'],
     accent: 'amber',
-    links: [{ label: 'Download on itch.io', href: 'https://bobuel.itch.io/blackout-nyc', kind: 'demo' }],
+    links: [{ label: 'Play on itch.io', href: 'https://bobuel.itch.io/blackout-nyc', kind: 'demo' }],
   },
   {
     id: 'bloom-skill',
