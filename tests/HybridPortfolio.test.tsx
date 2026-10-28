@@ -20,11 +20,7 @@ describe('published Hybrid design', () => {
     render(<App />);
     expect(screen.getByRole('heading', { level: 1, name: 'Alex Aidun' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Design is the premium.' })).not.toBeInTheDocument();
-    const closingLine = screen.getByText('Design is the premium.', { selector: 'strong' });
-    expect(closingLine.parentElement?.tagName).toBe('P');
-    expect(closingLine.parentElement?.lastChild).toBe(closingLine);
-    expect(closingLine.parentElement).toHaveTextContent('I start with a real task, build something others can reuse, and change the tools when they get in the way. Design is the premium.');
-    expect(closingLine.parentElement?.textContent).not.toContain('?');
+    expect(screen.getByText('Product thinking. Hands-on building.')).toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Choose a design option' })).not.toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Choose a copy option' })).not.toBeInTheDocument();
     expect(screen.queryByText('Local previews')).not.toBeInTheDocument();
@@ -34,10 +30,10 @@ describe('published Hybrid design', () => {
   it('shows the AI Lab role and distinguishes participant outcomes from Alex’s work', () => {
     show();
     const identity = screen.getByRole('complementary');
-    expect(within(identity).getByText('AI Lab · internal tools and adoption')).toBeInTheDocument();
-    expect(within(identity).getByText('I design and drive adoption of internal AI tools.')).toBeInTheDocument();
+    expect(within(identity).getByText('Product thinking. Hands-on building.')).toBeInTheDocument();
+    expect(within(identity).getByText('I lead product initiatives, build tools and games, and help people put technology to work.')).toBeInTheDocument();
     expect(identity.querySelectorAll('.identity-story > p')).toHaveLength(2);
-    expect(within(identity).getByText('Design is the premium.')).toBeInTheDocument();
+    expect(within(identity).getByText('My background spans AI, education, and documentation.')).toBeInTheDocument();
     expect(within(identity).getByText('OpenAI Champions program participant')).toBeInTheDocument();
     expect(screen.queryByText('More on outcomes and impact in the case study')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Read case study: AI Lab and enablement at Automattic' }));
@@ -141,7 +137,7 @@ describe('published Hybrid design', () => {
     const plugin = ['bloom-assessment-workflow', 'certification-workshop', 'eventer-planning-workflow'].includes(study.slug);
     fireEvent.click(screen.getAllByRole('link', { name: plugin ? 'Back to plugins / skills' : 'Back to work' })[0]);
     if (plugin) expect(screen.getByRole('heading', { name: 'Bloom Quiz Builder Skill' })).toBeInTheDocument();
-    else expect(screen.getByText('Design is the premium.', { selector: 'strong' })).toBeInTheDocument();
+    else expect(screen.getByRole('heading', { name: 'AI Lab and enablement at Automattic' })).toBeInTheDocument();
     expect(screen.getByRole('main')).toHaveFocus();
   });
 
@@ -178,7 +174,7 @@ describe('published Hybrid design', () => {
       expect(document.title).toBe('Games and creative work | Alex Aidun');
       expect(canonical.href).toBe(siteUrl('games'));
       fireEvent.click(screen.getByRole('link', { name: 'Work' }));
-      expect(document.title).toBe('Alex Aidun | Enterprise AI Product, Operations & Adoption Leader');
+      expect(document.title).toBe('Alex Aidun | Product thinking. Hands-on building.');
       expect(canonical.href).toBe(siteUrl());
     } finally { canonical.remove(); description.remove(); ogUrl.remove(); }
   });
@@ -187,7 +183,7 @@ describe('published Hybrid design', () => {
     show(path);
     expect(screen.getByRole('heading', { name: 'That page isn’t here.' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Back to work' }));
-    expect(screen.getByText('Design is the premium.', { selector: 'strong' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'AI Lab and enablement at Automattic' })).toBeInTheDocument();
   });
 
   it('supports the skip link', () => {
