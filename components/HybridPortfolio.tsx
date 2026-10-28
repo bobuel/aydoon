@@ -20,8 +20,8 @@ const SUMMARIES: Record<string, string> = {
 
 const PAGE_METADATA: Record<string, { title: string; description: string }> = {
   '/': {
-    title: 'Alex Aidun | Enterprise AI Product, Operations & Adoption Leader',
-    description: 'Alex Aidun designs and drives adoption of internal AI tools at Automattic, working across AI Lab and enablement.',
+    title: 'Alex Aidun | Product thinking. Hands-on building.',
+    description: 'I lead product initiatives, build tools and games, and help people put technology to work. My background spans AI, education, and documentation.',
   },
   '/tools': { title: 'Tools | Alex Aidun', description: 'Tools and product experiments by Alex Aidun, from AI model selection to learning and creative workflows.' },
   '/plugins': { title: 'Plugins / Skills | Alex Aidun', description: 'Bloom Quiz Builder, Certification Workshop, and Eventer: reusable workflows for learning, assessment, and planning with your AI assistant.' },
@@ -30,25 +30,19 @@ const PAGE_METADATA: Record<string, { title: string; description: string }> = {
 };
 
 function Identity() {
-  const { pathname } = useLocation();
   return (
     <aside className="identity" aria-label="About Alex">
       <div className="identity-intro">
         <Link className="identity-name" to="/"><h1>Alex Aidun</h1></Link>
-        <p className="identity-role">AI Lab · internal tools and adoption</p>
+        <p className="identity-role">Product thinking. Hands-on building.</p>
         <nav className="identity-contact" aria-label="Contact and profiles">
           <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={`mailto:${PROFILE.email}`}>Email</a>
         </nav>
         <div className="identity-story">
-          {pathname === '/' ? <>
-            <p>I design and drive adoption of internal AI tools.</p>
-            <p className="design-context">I start with a real task, build something others can reuse, and change the tools when they get in the way. <strong>Design is the premium.</strong></p>
-          </> : <>
-            <p>I design internal AI tools and drive their adoption across teams.</p>
-            <p>My background spans product, education, and documentation. I build tools and games, too.</p>
-          </>}
+          <p>I lead product initiatives, build tools and games, and help people put technology to work.</p>
+          <p>My background spans AI, education, and documentation.</p>
         </div>
         <div className="identity-current">
           <span>Currently at Automattic</span>
