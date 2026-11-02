@@ -83,6 +83,24 @@ describe('published Hybrid design', () => {
     expect(document.querySelector('.navigation-toggle')).toHaveAttribute('aria-expanded', 'false');
   });
 
+  it('keeps Certification Workshop 1.0.1 evidence and activation limits explicit', () => {
+    show('/case-studies/certification-workshop');
+    expect(screen.getByText(/Independent project · plugin v1\.0\.1/)).toBeInTheDocument();
+    expect(screen.getByText(/87 unit tests, 10 offline lifecycle phases, and 13 CLI scenarios/)).toBeInTheDocument();
+    expect(screen.getByText(/62 workflow assertions and 16 sample\/revision checks/)).toBeInTheDocument();
+    expect(screen.getByText(/checks declared SHA-256 hashes against local source snapshots/)).toBeInTheDocument();
+    expect(screen.getByText(/not general secret or semantic disclosure detection/)).toBeInTheDocument();
+    expect(screen.getByText(/not fresh-model discovery, continuation, or desktop activation/)).toBeInTheDocument();
+    expect(screen.getByText(/not human expert acceptance or psychometric validation/)).toBeInTheDocument();
+    expect(screen.getByText('coordinated certification skills')).toBeInTheDocument();
+    expect(screen.getByText('10')).toBeInTheDocument();
+    expect(screen.queryByText(/59 regression tests/)).not.toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole('link', { name: 'Back to plugins / skills' })[0]);
+    const workshop = screen.getByRole('heading', { name: 'Certification Workshop' }).closest('article')!;
+    expect(within(workshop).getByText(/Version 1\.0\.1 adds local evidence-hash verification/)).toBeInTheDocument();
+    expect(within(workshop).getByRole('link', { name: 'Read verification notes: Certification Workshop' })).toHaveAttribute('href', 'https://github.com/bobuel/certification-workshop/blob/82ad5480e34252f83ed6b108690e2ac648408433/docs/release-v1.0.1.md');
+  });
+
   it('keeps homepage proof inline and labels Dremio learning separately from AI products', () => {
     show();
     expect(screen.getAllByRole('article')).toHaveLength(2);

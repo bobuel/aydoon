@@ -144,7 +144,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Certification Workshop',
     summary: 'I turned my certification-development experience into a plugin that builds a program from source material and keeps assessment drafts, review decisions, and pilot evidence connected as the product changes.',
     role: 'Product direction, certification workflow design, implementation and evaluation with AI coding tools',
-    period: 'Independent project · plugin v1.0.0',
+    period: 'Independent project · plugin v1.0.1',
     evidence: [
       { value: '10', label: 'coordinated certification skills' },
       { value: '12', label: 'items in the fictional worked assessment' },
@@ -160,12 +160,16 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: ['I used the same portable plugin approach as Eventer: coordinated skills, shared local records, and focused Python tools in an existing AI assistant. There is no new platform account, hosted service, or mandatory delivery vendor.', 'Source versions, item revisions, reviews, and assessment forms stay connected. When content changes, an old approval does not silently carry forward. Helpers check coverage and form constraints, summarize supplied scores, and prepare candidate and delivery materials. Experts review content; program owners decide policy and release.'],
       },
       {
+        heading: 'Check the evidence behind an approval',
+        body: ['The 1.0.1 update checks declared SHA-256 hashes against local source snapshots and review, decision, and release evidence. Reviews and assembled forms bind to the source hashes they used, so changed or removed pins invalidate the old acceptance rather than silently carrying it forward. These checks verify local bytes, not authorship or the truth of a source.', 'Scoring checks distinguish raw-point shares from blueprint item shares and enforce owner-supplied targets and per-domain method minimums. Candidate exports reject known restricted phrases and key or rubric markers. That is a bounded text guard, not general secret or semantic disclosure detection.'],
+      },
+      {
         heading: 'Test a program owner’s problem',
         body: ['The fictional Northstar evaluation starts with product guides, workshop notes, six weeks, twenty partner consultants, and limited reviewer capacity. It asks the assistant to develop an actual program, including twelve assessment items and three written practicals.', 'A continuation introduces synthetic pilot data and a changed access model. The workflow analyzes the historical form, identifies affected content, revises drafts, and preserves the old evidence. It recommends a hold when the evidence does not support release. The public repository includes the outputs, a finished worked example, and scoring examples so readers can inspect the substance.'],
       },
       {
         heading: 'Ship with inspectable evidence',
-        body: ['The v1 release passed 59 regression tests, 13 CLI scenarios, and a ten-phase synthetic lifecycle. GitHub checks passed on Windows, macOS, and Linux with Python 3.10 and 3.13. Installation from the public repository was verified in Codex, and a bounded native assistant check exercised creation and fresh-session continuation using the same runtime.', 'These are software and workflow checks. The program examples are fictional, and the model runs include documented assistance. They do not establish candidate performance or credential validity. Claude Code metadata is included, but activation remains untested.'],
+        body: ['The 1.0.1 update passed 87 unit tests, 10 offline lifecycle phases, and 13 CLI scenarios. A separate documentation-based draft exercise passed 62 workflow assertions and 16 sample/revision checks. That sample has no human approvals or awards; synthetic acceptance fixtures were kept separate.', 'A disposable Codex CLI profile installed 1.0.1, reported it enabled, and ran a byte-matching cached helper. This verifies installation and helper execution, not fresh-model discovery, continuation, or desktop activation. The public verification notes distinguish these checks from the earlier v1.0.0 model runs.', 'These are software and workflow checks, not human expert acceptance or psychometric validation. The public program examples are fictional, and the model runs include documented assistance. Real programs still need expert review, candidate evidence, and owner decisions. Claude activation remains untested.'],
       },
     ],
   },
@@ -242,13 +246,14 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'certification-workshop', slug: 'certification-workshop', title: 'Certification Workshop',
-    description: 'I built a plugin to develop a certification from source material and job tasks, work through review and pilot evidence, and maintain the program as the product changes. Ten skills and a complete fictional example to inspect.',
+    description: 'I built a ten-skill plugin to develop and maintain a certification from source material, job tasks, review, and pilot evidence. Version 1.0.1 adds local evidence-hash verification, source-bound reviews, and scoring checks. Includes a complete fictional example.',
     category: 'Open Source', status: 'Open source',
     tags: ['Certification', 'Agent workflows', 'Human review'], featured: true, accent: 'teal',
     links: [
       { label: 'View source', href: 'https://github.com/bobuel/certification-workshop', kind: 'source' },
       { label: 'Read case study', href: '/case-studies/certification-workshop', kind: 'case-study' },
       { label: 'See worked example', href: 'https://github.com/bobuel/certification-workshop/blob/main/examples/northstar-v1/CERTIFICATION.md', kind: 'source' },
+      { label: 'Read verification notes', href: 'https://github.com/bobuel/certification-workshop/blob/82ad5480e34252f83ed6b108690e2ac648408433/docs/release-v1.0.1.md', kind: 'source' },
     ],
   },
   {
