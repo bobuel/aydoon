@@ -245,6 +245,13 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'little-world', slug: 'little-world', title: 'Little World · Kid OS',
+    description: 'A playful way to explore NYC trains, weather, and the Moon, with interactive sky and street scenes.',
+    category: 'Products', status: 'Live prototype',
+    tags: ['Learning', 'Interactive play', 'Real-world data'], featured: false, accent: 'blue',
+    links: [{ label: 'Explore Little World', href: 'https://kidos.isbaba.chatgpt.site', kind: 'demo' }],
+  },
+  {
     id: 'certification-workshop', slug: 'certification-workshop', title: 'Certification Workshop',
     description: 'I built a ten-skill plugin to develop and maintain a certification from source material, job tasks, review, and pilot evidence. Version 1.0.1 adds local evidence-hash verification, source-bound reviews, and scoring checks. Includes a complete fictional example.',
     category: 'Open Source', status: 'Open source',

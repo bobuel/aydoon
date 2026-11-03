@@ -120,8 +120,8 @@ describe('published Hybrid design', () => {
 
   it('shows tools with their availability, without duplicating games or plugins', () => {
     show('/tools');
-    expect(screen.getAllByRole('article')).toHaveLength(7);
-    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 5).map(heading => heading.textContent)).toEqual(['Model advisor', 'Retrieval Guard', 'CertifyFast', 'Informa', 'KidGrow']);
+    expect(screen.getAllByRole('article')).toHaveLength(8);
+    expect(screen.getAllByRole('heading', { level: 2 }).slice(0, 5).map(heading => heading.textContent)).toEqual(['Little World · Kid OS', 'Model advisor', 'Retrieval Guard', 'CertifyFast', 'Informa']);
     expect(screen.queryByText('Featured game')).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'KidGrow' }).closest('article')).toHaveTextContent('Sign-in required');
     expect(screen.getByRole('link', { name: 'Open sign-in: KidGrow' })).toHaveAttribute('href', 'https://kidgrow.base44.app');
