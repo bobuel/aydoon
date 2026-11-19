@@ -460,7 +460,7 @@ export const PROJECTS: Project[] = [
     id: 'brassline', slug: 'brassline', title: 'Brassline',
     description: 'I built a free steampunk train-heist tactical autobattler.',
     category: 'Games', status: 'Live prototype', tags: ['Godot', 'Game systems'],
-    featured: true, collections: ['Games'], accent: 'blue',
+    featured: false, collections: ['Games'], accent: 'blue',
     links: [{ label: 'Play game', href: 'https://bobuel.github.io/brassline/', kind: 'demo' }],
   },
 ];
